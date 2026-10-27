@@ -1,0 +1,8 @@
+{
+  "mug": ["E", "F", "B", "C", "A", "D"],
+  "mitts": ["D", "A", "C", "F", "B", "E"],
+  "sleeping-bag": ["B", "F", "A", "C", "D", "E"],
+  "planter": ["C", "E", "D", "F", "A", "B"],
+  "tee": ["E", "F", "D", "C", "A", "B"],
+  "energy": ["F", "D", "E", "C", "A", "B"]
+}

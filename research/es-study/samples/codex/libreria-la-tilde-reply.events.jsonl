@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1747a-0a25-78d3-8893-e87046453e46"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Hola, soy Ana Paula, de La Tilde. Te dijimos que el libro tardaría una semana y ya llevas tres esperando. Lo siento mucho; debimos avisarte del retraso sin que tuvieras que escribirnos.\n\n¿Me compartes el título y el nombre con el que hiciste el pedido? Voy a revisar qué pasó y qué fecha podemos confirmarte. No quiero darte otro plazo sin tener certeza.\n\nAna Paula Méndez\nLa Tilde"}}
+{"type":"turn.completed","usage":{"input_tokens":20558,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":217,"reasoning_output_tokens":116}}

@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1080">
+<title>Tonal</title>
+<style>
+/* Taykon Studio design tokens. Generated from design/tokens.json.
+   Import this instead of retyping hex values: every off-palette colour found in the
+   2026-08-22 audit was a near-miss of a locked token, not a deliberate choice.
+   Checked by Scripts/check_brand.py. */
+
+/* Web faces. Subset woff2, built by Scripts/build_webfonts.py, 256 KB of OTF
+   down to 39 KB. Paths are relative to this file; adjust the prefix if you
+   import tokens.css from elsewhere. */
+
+/* Headlines and body, locked 2026-10-20 (Neutral Face and Absans retired). */
+
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('fonts/overused-grotesk-bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('fonts/host-grotesk.woff2') format('woff2');
+  font-weight: 300 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* Blossom night, locked 2026-10-20. Six colours, seven tokens (Pearl is c2 and c6).
+     No other colour enters the system. */
+  --c1: #090E1A;  /* Night    . primary background */
+  --c2: #F6EDF5;  /* Pearl    . type on every dark surface */
+  --c3: #341025;  /* Mulberry . deep tone, first step of the descent */
+  --c4: #55132B;  /* Wine     . lifted tone, second step */
+  --c5: #BC2A3B;  /* Red      . one accent per surface, never two */
+  --c6: #F6EDF5;  /* Pearl    . light surface, documents and print */
+  --c7: #584B9E;  /* Iris     . counterpoint, never next to Red */
+
+  /* Legacy aliases from BRAND_SYSTEM_v1.md. Old names, current values. */
+  --taykon-indigo: var(--c1);
+  --taykon-cream:  var(--c2);
+  --taykon-accent: var(--c3);
+  --taykon-depth:  var(--c4);
+  --taykon-signal: var(--c5);
+  --taykon-paper:  var(--c6);
+
+  /* Foreground opacities. Set --ink to the surface's foreground, then use these. */
+  --ink: var(--c2);
+  --hair:    color-mix(in srgb, var(--ink) 14%, transparent);  /* structural divider */
+  --frame:   color-mix(in srgb, var(--ink) 22%, transparent);  /* editorial hairline frame */
+  --quiet:   color-mix(in srgb, var(--ink) 55%, transparent);  /* subordinate copy */
+  --caption: color-mix(in srgb, var(--ink) 75%, transparent);  /* caption, eyebrow */
+
+  /* Type families. Two faces maximum on any one surface. */
+  --f-name: 'Airfly', 'Helvetica Neue', Helvetica, sans-serif;        /* wordmark only */
+  --f-head: 'Overused Grotesk', 'Helvetica Neue', Helvetica, sans-serif;  /* headlines, uppercase, 700, -0.04em */
+  --f-body: 'Host Grotesk', 'Helvetica Neue', Helvetica, sans-serif;      /* reading size and below */
+  --head-track: -0.04em;                                                 /* Overused Grotesk headline tracking */
+}
+
+/* Paper surfaces flip the foreground so the opacity ramp still resolves. */
+.on-paper,
+.on-cream {
+  --ink: var(--c1);
+}
+
+
+@page{size:1080px 1350px;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--c1);font-family:var(--f-body);font-synthesis:none;-webkit-font-smoothing:antialiased;
+  font-variant-numeric:tabular-nums;overflow-wrap:break-word}
+.slide{position:relative;width:1080px;height:1350px;overflow:hidden;padding:84px 88px;break-after:page;
+  display:flex;flex-direction:column}
+.slide:last-child{break-after:auto}
+.slide.flow{display:block}
+.slide.flow>:first-child,.slide.flow>:first-child>:first-child{margin-top:0}
+.c1{background:var(--c1);color:var(--c2)} .c3{background:var(--c3);color:var(--c2)} .c4{background:var(--c4);color:var(--c2)}
+.c6{background:var(--c6);color:var(--c1)} .c7{background:var(--c7);color:var(--c2)}
+.spacer{flex:1 1 auto}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;text-transform:uppercase;letter-spacing:var(--head-track)}
+h1{color:var(--c5);font-size:176px;line-height:.86}
+h2{font-size:97px;line-height:.96;margin:0 0 56px}
+h3{font-size:52px;line-height:.98;margin:72px 0 28px}
+p{font-size:26px;line-height:1.5;margin:0 0 20px}
+.lead{font-size:36px;line-height:1.42;max-width:24ch;margin:48px 0 0}
+.how p{font-size:31px;line-height:1.55;margin-bottom:28px}
+p.before{opacity:.7;margin-bottom:8px}
+.meta,.ask,.label,.foot{font-size:24px;line-height:1.45}
+.meta,.ask,.label{opacity:.75}
+.meta{margin:-24px 0 40px}
+.ask{margin:0 0 8px}
+.side{padding-top:36px}
+.side+.side{border-top:1px solid color-mix(in srgb,currentColor 20%,transparent);margin-top:28px}
+.label{margin:0 0 12px}
+.said{white-space:pre-line;overflow-wrap:anywhere}
+.ln{font-size:24px;line-height:1.45;margin:0;overflow-wrap:anywhere}
+.ln.gap{margin-top:17px}
+@media screen{#deck{display:flex;flex-direction:column;align-items:center;gap:40px;padding:40px 0}}
+</style>
+</head>
+<body>
+<div id="deck">
+<div class="slide c1"><div class="spacer"></div><h1>Tonal</h1><p class="lead">An interview that reads texts you wrote and turns them into a voice file: a text you give ChatGPT, Claude or Gemini so that what it writes for you sounds like your brand.</p><div class="spacer"></div></div>
+<section class="chapter how" data-c="c3">
+<h2 class="keep">How it works</h2>
+<p>Paste the prompt that follows into a new chat with ChatGPT, Claude or Gemini, as your first message. It asks for three to five texts you wrote and like, and one you would hate to have written.</p>
+<p>It tells you what your texts do, then asks twelve questions at most, one per message. Each comes with answers drafted from your texts. Pick one, correct one, or say "decide for me". It talks to you in the language you write in.</p>
+<p>At the end it writes your voice file in two sizes, in plain text. The short one stays under 1,500 characters, the size of ChatGPT's custom instructions on the free plan. The full one stays under 8,000 and goes into a project or a skill. Where to paste each one is further on.</p>
+</section>
+<section class="chapter" data-c="c6">
+<h2 class="keep">Levain, before and after</h2>
+<p>Levain is a fictional bakery. On 26 October 2026 an AI played its founder through this interview, with nobody editing anything between the first message and the voice file. The same five requests then went to Claude twice: once with nothing, and once with that voice file in its instructions.</p>
+<p>A script counted the tells it can see on the surface, such as emoji, hashtags and the words on the list. In the five texts written without the file it found 15, and in the five written with it, none.</p>
+<p>A script cannot see an invented fact, or a text that no longer does its job, so all ten texts were also read by hand. Without the file, the reply says forty loaves "each week", a unit no request gave, and the page, the caption and the newsletter praise a taste or a crust no request mentioned. With the file, each text still does what its kind of text is for: the reply tells the customer how to make sure of a loaf, and the post ends on the address to write to. The file also got two things wrong. It repeats "the next bake is for the day after tomorrow" where that line contradicts the request, and the post adds "so each bake is planned two days ahead", which nobody gave.</p>
+<p>For the LinkedIn post, the file first asked what the post was for, because Levain had no LinkedIn text to learn from. The post that follows came after a one-line answer.</p>
+<p>This test ran on an earlier version of the kit, before the file took each kind of text's shape from your texts and asked only for the facts a text cannot do without. It has not been run again since.</p>
+<div class="pair"><h3 class="break keep">The paragraph for the website</h3><p class="ask keep">The request: I run Levain, a bakery at 3 Mill Lane, London. Write the paragraph for the rye loaf on our website. The facts: it takes two days. Forty loaves a day, ready at ten. The levain is fed twice a day and the dough rests overnight in the cold. Just the text, no comments.</p><div class="side" data-title="The paragraph for the website"><p class="label keep">Without the file</p><p class="said">Our rye loaf takes two days to make. The levain is fed twice a day, and once the dough is mixed it rests overnight in the cold, where it slowly develops its deep, tangy flavour and dense, moist crumb. We bake just forty loaves each day, and they come out of the oven ready at ten. Come to Levain at 3 Mill Lane early, because when they're gone, they're gone.</p></div><div class="side" data-title="The paragraph for the website"><p class="label keep">With the file</p><p class="said">The rye is ready at ten, and there are forty loaves each day. It takes two days, so that is all the bake allows. Our levain is fed twice a day, the dough rests overnight in the cold, and it bakes at dawn. When the forty are gone, they are gone, and the next bake is for the day after tomorrow. You can collect from us at 3 Mill Lane.</p></div></div>
+<div class="pair"><h3 class="break keep">An Instagram caption</h3><p class="ask keep">The request: I run Levain, a bakery at 3 Mill Lane, London. Write an Instagram caption: the rye is back this Saturday, forty loaves, from ten. Just the text, no comments.</p><div class="side" data-title="An Instagram caption"><p class="label keep">Without the file</p><p class="said">The rye is back. 🌾</p><p class="said">This Saturday we're baking forty loaves of our dark, tangy, slow-fermented rye. Doors open at ten, and once they're gone, they're gone.</p><p class="said">Come early, bring a bag, and say hello.</p><p class="said">Levain, 3 Mill Lane, London
+Saturday, from 10am</p><p class="said">#Levain #RyeBread #LondonBakery #SourdoughLondon #SaturdayBake #BakeryLife</p></div><div class="side" data-title="An Instagram caption"><p class="label keep">With the file</p><p class="said">The rye is back this Saturday. Forty loaves, from ten.</p><p class="said">It takes two days, so there are forty. When they are gone, the next bake is for the day after tomorrow.</p><p class="said">3 Mill Lane.</p></div></div>
+<div class="pair"><h3 class="break keep">A reply to an unhappy customer</h3><p class="ask keep">The request: I run Levain, a bakery at 3 Mill Lane, London. A customer wrote to us: "I came at eleven on Saturday and the rye was sold out, the second Saturday in a row. Why don't you bake more?" Write our reply. The facts: the rye takes two days, so we bake forty loaves. Customers can order for Saturday on our website. Just the text, no comments.</p><div class="side" data-title="A reply to an unhappy customer"><p class="label keep">Without the file</p><p class="said">Hello,</p><p class="said">Thank you for writing, and I'm sorry you missed out on the rye two Saturdays running. That's frustrating, especially when you've made the trip.</p><p class="said">The rye takes us two days to make, so we have to commit to the quantity well in advance, and we bake forty loaves each week. On Saturdays they tend to go well before eleven.</p><p class="said">The surest way to get one is to order ahead on our website. You can reserve a loaf for Saturday and it will be set aside for you, so you won't need to worry about the time you arrive.</p><p class="said">I hope we'll see you again soon, and that next time the rye is waiting for you.</p><p class="said">Warm regards,
+The team at Levain
+3 Mill Lane, London</p></div><div class="side" data-title="A reply to an unhappy customer"><p class="label keep">With the file</p><p class="said">Dear [First name],</p><p class="said">We are sorry the rye was gone when you came at eleven, two Saturdays in a row.</p><p class="said">The rye takes two days, so we bake forty loaves. When they are gone, the next bake is for the day after tomorrow. You can order for Saturday on our website, and a loaf will wait at the counter with your name on it.</p><p class="said">If you want to talk it over, ring the shop at 3 Mill Lane and ask for me.</p><p class="said">[First name]
+Levain, 3 Mill Lane</p></div></div>
+<div class="pair"><h3 class="break keep">The opening of a newsletter</h3><p class="ask keep">The request: I run Levain, a bakery at 3 Mill Lane, London. Write the opening paragraph of our November newsletter. The news: from 1 November the country loaf (800 g) is baked twice a day, at dawn and at noon. Just the text, no comments.</p><div class="side" data-title="The opening of a newsletter"><p class="label keep">Without the file</p><p class="said">Good news for anyone who has ever arrived at Levain mid-afternoon to find the shelves bare: from 1 November, our country loaf will be baked twice a day. The first batch still comes out of the oven at dawn, as it always has, and now a second follows at noon, so there will be a fresh, crackling 800 g loaf waiting for you well into the afternoon. Whether you're a morning regular or a lunchtime wanderer, we'll have one ready for you at 3 Mill Lane.</p></div><div class="side" data-title="The opening of a newsletter"><p class="label keep">With the file</p><p class="said">From 1 November, we bake the country loaf twice a day, at dawn and at noon. It is the 800 g loaf, the same one as before. The second bake means you can come to 3 Mill Lane in the afternoon and find a loaf baked that day, so you no longer have to come in the morning.</p></div></div>
+<div class="pair"><h3 class="break keep">A LinkedIn post</h3><p class="ask keep">The request: I run Levain, a bakery at 3 Mill Lane, London. Write a LinkedIn post: Levain starts wholesale in spring 2027, for cafés and restaurants nearby. Businesses that are interested can write to hello@levain.example. Just the text, no comments.</p><div class="side" data-title="A LinkedIn post"><p class="label keep">Without the file</p><p class="said">Big news from Levain: we're starting wholesale in spring 2027. 🥖</p><p class="said">For years, we've baked for the people who walk through our doors at 3 Mill Lane. Now we want to bring our bread to more tables across the neighbourhood.</p><p class="said">We'll be supplying cafés and restaurants nearby with the same loaves we're proud to sell in our own bakery: slow-fermented, baked fresh, and made with care. Being local means your bread arrives only hours out of the oven, and we can build an order around what your kitchen actually needs.</p><p class="said">If you run a café or restaurant close to Mill Lane and would like to hear more, we'd love to talk. Write to us at hello@levain.example and we'll be in touch.</p><p class="said">Spring 2027 is a way off, but we're starting conversations now so we can get things right from the first delivery.</p><p class="said">Thank you to everyone who has supported Levain so far. This next chapter is because of you.</p><p class="said">#Levain #London #Bakery #Wholesale #LocalBusiness #Sourdough</p></div><div class="side" data-title="A LinkedIn post"><p class="label keep">With the file</p><p class="said">Levain starts wholesale in spring 2027, for cafés and restaurants near Mill Lane.</p><p class="said">We bake at 3 Mill Lane. Our levain is fed twice a day, the dough rests overnight in the cold, and it bakes at dawn. It takes two days, so each bake is planned two days ahead.</p><p class="said">Cafés and restaurants that want our bread: write to hello@levain.example.</p></div></div>
+</section>
+<section class="chapter" data-c="c1">
+<h2 class="keep">The prompt</h2>
+<p class="meta keep">8,267 characters.</p>
+<div class="group"><p class="ln">I want you to help me write a voice file for my brand: a text I will give my AI assistant so that what it writes for us sounds like us, not like every other brand. Interview me, then write the file.</p></div>
+<div class="group"><p class="ln gap head keep">HOW THE INTERVIEW GOES</p><p class="ln gap">First ask me for three to five real texts I wrote and like, such as a page of our website, an email or a reply to a customer. Ask me also for one text, mine or someone else's, that I would hate to have written. Wait until I have pasted them before you ask anything else.</p><p class="ln gap">Then tell me, in five lines at most, what my texts do. Say how long the sentences run and who speaks (I, we or the brand's name). Say how I address the reader, what I name and what I never claim. Ask me whether you read them right.</p><p class="ln gap">Then ask your questions, one per message, twelve at most. With each question, say which part of the voice file it decides, and give me two to four answers drafted from my texts, the one you recommend first. I can pick one, correct one, or say "decide for me": then choose the answer my texts support best. Every five questions, sum up in three lines what we have decided.</p><p class="ln gap">The questions have to settle who we write for, the four to six rules of the voice and how we address the reader (in which language, for which country). They also settle the words we never use and, for each kind of text the full template lists, its job, its tone and its shape. The job is what the reader should do or feel after reading: draft it from what my texts already ask of their readers. The shape is how a text opens, how long it runs, how it ends and whether it has a list. When my texts show that kind of text, take its shape from them, even where it differs from the rule in the template, and keep the job. Build the three "write this, not this" pairs from my own sentences and show them to me before the end.</p></div>
+<div class="group"><p class="ln gap head keep">RULES FOR YOU</p><p class="ln gap">Never add a fact about my business that I have not given you, such as a figure, a date or a customer's name. If something is missing, ask me.</p><p class="ln">Draft your answers from what is specific in my texts, not from what any brand would say.</p><p class="ln">The voice changes how my texts say things, not what they are for. A file that turns a text that invites or sells into one that only informs has failed.</p><p class="ln">Talk to me in the language I write in, and write the voice file in that language. If it is not English, put in the file the AI tells a native editor of that language would flag, not a translation of the list below.</p><p class="ln">Write in plain text, without markdown, so the file can be pasted anywhere.</p></div>
+<div class="group"><p class="ln gap head keep">AT THE END</p><p class="ln gap">Write the two versions of the voice file, each in one block I can copy, following the two templates below. Fill every bracket, and drop a line only if it does not apply to us. Under each block, give its length in words. The short version must stay under 1,500 characters, about 200 words, because that is the size of the smallest field it goes into. The full version stays under 8,000 characters, about 1,100 words.</p></div>
+<div class="group"><p class="ln gap head keep">THE AI TELLS, FOR ENGLISH</p><p class="ln gap">Brochure words: nestled, in the heart of, vibrant, rich, boasts, stunning, must-visit.</p><p class="ln">The AI vocabulary: delve, tapestry, landscape, crucial, pivotal, enhance, foster, showcase, testament.</p><p class="ln">"Not just X, it's Y", and its short form ("No guessing.").</p><p class="ln">Everything in threes.</p><p class="ln">The em dash used as punctuation.</p><p class="ln">Bold, emoji and hashtags the brand does not use itself.</p><p class="ln">Chat leftovers: "Here's", "I hope this helps", "Let me know if".</p><p class="ln">The servile reply: "Thank you so much for reaching out", "We sincerely apologize for any inconvenience".</p><p class="ln">The upbeat send-off: "We can't wait to see you", "Exciting times ahead".</p><p class="ln">Staccato lines and slogans: "No shortcuts. No compromises."</p><p class="ln">Fake-candid openers: "Honestly?", "Here's the thing".</p><p class="ln">The version anyone would write: nothing in it that only this brand could say.</p></div>
+<div class="group"><p class="ln gap head keep">THE SHORT TEMPLATE</p><p class="ln gap">[Brand] writes for [who they are, in one line].</p><p class="ln">Voice: [rule one]. [Rule two]. [Rule three].</p><p class="ln">We are [X], not [Y]; [X], not [Y].</p><p class="ln">We address the reader as [you, first name or the form we use], in [language and country].</p><p class="ln">Every text has a job: [what our texts ask the reader to do]. Keep the reason to act. Shorter is not better.</p><p class="ln">Tone: website [a few words]; email [a few words]; social posts [a few words]; unhappy customers [a few words]. No markdown.</p><p class="ln">Never write: [five words or tells, ours first].</p><p class="ln">Never invent a fact. Ask only for one the text cannot do without.</p><p class="ln">Before you answer: remove those words, check how you address the reader and that the text still does its job, and ask whether another brand could have written it. If it could, rewrite it.</p></div>
+<div class="group"><p class="ln gap head keep">THE FULL TEMPLATE</p><p class="ln gap head keep">VOICE FILE FOR [BRAND]</p><p class="ln">Use it for every text you write for [brand] or in its name. Read all of it before you write.</p></div>
+<div class="group"><p class="ln gap head keep">WHO WE WRITE FOR</p><p class="ln">[Two or three sentences: who they are, what they already know, what they come to us for.]</p></div>
+<div class="group"><p class="ln gap head keep">THE VOICE</p><p class="ln">[Four to six rules a reader could check on any paragraph. Each one is followed by a short example from our own texts.]</p><p class="ln">Sentences: [length and rhythm]. Example: "[...]"</p><p class="ln">Who speaks: [we, I or the brand's name]. We address the reader as [you, first name or the form we use], in [language and country].</p><p class="ln">What we name: [the concrete things we always say, such as products, times and places]. Example: "[...]"</p><p class="ln">What we never claim: [...]</p><p class="ln">[Rule five, if we need it.]</p><p class="ln">[Rule six, if we need it.]</p><p class="ln">We are [X], not [Y]. [X], not [Y]. [X], not [Y].</p><p class="ln">When a clear sentence and a clever one compete, write the clear one.</p></div>
+<div class="group"><p class="ln gap head keep">EACH KIND OF TEXT</p><p class="ln">Every text has a job: what the reader should do or feel once they have read it. Keep the reason to act, and carry it with our facts, never with praise. A shorter text is not a better one if it stops doing its job.</p><p class="ln">The voice stays the same everywhere. The tone and the shape change with the kind of text. Where our texts show a kind of text, its shape comes from them; the rules below are for the kinds they do not show.</p><p class="ln">Website: [its job, and the tone in a few words]. Put what the reader came for in the first sentence, because a reader may stop there.</p><p class="ln">Newsletter: [its job, and the tone]. The news comes first. One purpose per email, ending on the one next step, with the link or the address.</p><p class="ln">Email to one person: [its job, and the tone]. [How we open and sign.] Say what happens next and whom to contact.</p><p class="ln">Instagram: [its job, and the tone]. Most people see only the first line before "more", so the reason to stop goes there. [Emoji and line breaks: whether we use them.] Hashtags: [none, or up to five of ours]. End on what to do, when there is something to do.</p><p class="ln">LinkedIn: [its job, and the tone]. The first two lines show before "see more": put the news there, or a question to the reader. Speak to the reader as "you". Hashtags: [none, or three to five of ours]. End on the next step.</p><p class="ln">Reply to an unhappy customer: [the tone]. Say sorry once, at the start, for what actually went wrong. Then say what we are doing about it and when, offer a choice when we have one, and give a person to contact.</p><p class="ln">Formatting: no markdown anywhere, so no bold and no headings inside a message. Lists only if we use them.</p></div>
+<div class="group"><p class="ln gap head keep">WORDS WE NEVER USE</p><p class="ln">Ours: [the brand's own list].</p><p class="ln">AI tells: [the tells for our language].</p></div>
+<div class="group"><p class="ln gap head keep">WRITE THIS, NOT THIS</p><p class="ln">Write: "[a sentence from our texts]"</p><p class="ln">Not: "[the sentence a generic AI would write instead]"</p><p class="ln">Because: [one clause on the difference].</p><p class="ln gap">Write: "[...]"</p><p class="ln">Not: "[...]"</p><p class="ln">Because: [...]</p><p class="ln gap">Write: "[...]"</p><p class="ln">Not: "[...]"</p><p class="ln">Because: [...]</p></div>
+<div class="group"><p class="ln gap head keep">FACTS</p><p class="ln">Write only what is in this file, in my request or in the material I give you. Never make up a price, a date or a name. Ask me for one only if the text cannot do its job without it; otherwise write the text without it.</p></div>
+<div class="group"><p class="ln gap head keep">WHEN THIS FILE AND OUR TEXTS DISAGREE</p><p class="ln">Our texts win, on shape too: how a text opens, how long it runs, how it ends. If they use a dash, an emoji or a list of three, you may too, as often as they do.</p></div>
+<div class="group"><p class="ln gap head keep">BEFORE YOU ANSWER</p><p class="ln">Read your draft again. Take out every word from the two lists above and every AI tell. Check how you address the reader, and that the draft has the shape our texts give its kind of text, or the one above when they show none. Check that it still does its job: the reader knows what to do next and has a reason to. Then ask yourself whether another brand could have written it. If it could, rewrite it around something only we would say.</p><p class="ln gap">Start now: ask me for my texts.</p></div>
+</section>
+<section class="chapter" data-c="c7">
+<h2>Where to paste it</h2>
+<p>The short file goes where your assistant reads it in every chat. The full file goes into a project or a skill, a space you open for brand work, where you can also leave the texts you gave the interview. Use both if you can: the short one covers a quick message, the full one covers a page or a newsletter.</p>
+<p>Checked on the help pages of each assistant on 26 October 2026, and on 27 October for the texts in a Gemini skill. Menus move, so if a label differs, look for the nearest one.</p>
+<div class="groups">
+<div class="group">
+<h3>ChatGPT</h3>
+<p>The short file goes in Custom Instructions, on every plan. On the web: Settings, Personalization, turn on "Enable customization", then paste it in the Custom Instructions field. On the phone app: Settings, Customize ChatGPT. The field takes 1,500 characters on Free and Go and 5,000 on Plus and above, which is why the short file stays under 1,500.</p>
+<p>The full file goes in a project. Open the project, select the more options menu (•••), then Project settings, and paste it in the instructions. They apply only inside that project and override your custom instructions there. Add your sample texts to the project's files: 5 files on Free, 25 on Plus and Go, and 40 on Pro.</p>
+<p>Custom GPTs are no longer open to new creation on personal accounts, and OpenAI plans to retire them, so the kit does not use them.</p>
+</div>
+<div class="group">
+<h3>Claude</h3>
+<p>The short file goes in your account instructions. Click your initials at the bottom left, then "Settings", "Your Claude", and paste it under "Instructions". It applies to all your chats.</p>
+<p>The full file goes in a project. Projects are open to free accounts, up to five. Create one for your brand, click "Set project instructions", paste the file and save. Add your sample texts to the project knowledge, on the right of the project page.</p>
+</div>
+<div class="group">
+<h3>Gemini</h3>
+<p>On Gemini the kit uses the full file, as a skill. Gemini's Personal context might hold the short file, but its examples are one line long and the kit has not tested it there. Gems become read only on 17 November 2026 and turn into skills, so start with a skill.</p>
+<p>On gemini.google.com, in the sidebar: Customize (under More if you do not see it), Skills, Create, Create manually. Name it after your brand. Paste this as the description, with your brand's name:</p>
+<p>"Use for every text written for [brand] or in its name, from web pages and emails to social posts and replies to customers."</p>
+<p>Paste the full file as the instructions. Below it, in the same field, write OUR TEXTS on a line of its own and paste your texts under it. A skill made by hand cannot hold files, and Google advises putting examples in the instructions themselves. Gemini decides when to use a skill from its name and description only, which is why the description lists every kind of text. To be sure, type / in a chat and pick the skill. Skills need you to be over 18 and signed in to a personal Google Account, with Keep Activity on.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>ChatGPT: help.openai.com, "ChatGPT Custom Instructions", "Projects in ChatGPT", "Creating and editing GPTs". Claude: support.claude.com, "Understanding Claude's personalization features", "What are projects?", "How can I create and manage projects?". Gemini: support.google.com/gemini, "Create &amp; manage skills for Gemini Apps", "About the transition from Gems to skills", "Write effective skills for Gemini Apps".</p>
+</div>
+</div>
+</section>
+<section class="chapter" data-c="c4">
+<h2>The AI tells, in English</h2>
+<p>These are the marks readers now spot in text an AI wrote. Each one comes with a sentence that has it and a version without it. The second version never adds a fact, and it still does what the first one was for: if the first was there to bring people in, so is the second. If the first one had nothing to say, the fix is to find something.</p>
+<p>Your own texts outrank this list. If you write with dashes, or in threes, keep doing it.</p>
+<div class="groups">
+<div class="group">
+<h3>Puffing up what happened</h3>
+<p class="before keep">Before: "Opening at seven marks a pivotal moment in our journey and stands as a testament to our commitment to the neighbourhood."</p>
+<p>After: "We now open at seven, so you can stop by before work."</p>
+</div>
+<div class="group">
+<h3>Brochure words</h3>
+<p>Nestled, in the heart of, vibrant, rich, boasts, stunning, must-visit.</p>
+<p class="before keep">Before: "Nestled in the heart of the old town, our vibrant studio boasts stunning views of the river."</p>
+<p>After: "Our studio is in the old town, with the river right outside the window."</p>
+</div>
+<div class="group">
+<h3>The AI vocabulary</h3>
+<p>Delve, tapestry, landscape, crucial, pivotal, enhance, foster, showcase, testament.</p>
+<p class="before keep">Before: "Each blend is crafted to enhance your morning and showcase the intricate interplay of Ethiopian and Brazilian beans."</p>
+<p>After: "Ethiopian and Brazilian beans, blended for your first cup of the day."</p>
+</div>
+<div class="group">
+<h3>"Not just X, it's Y"</h3>
+<p>Also in its short form, the clipped line that denies something nobody said: "No guessing."</p>
+<p class="before keep">Before: "It's not just a haircut, it's forty minutes that are yours alone."</p>
+<p>After: "A cut takes forty minutes, and for those forty minutes you are our only client."</p>
+</div>
+<div class="group">
+<h3>Everything in threes</h3>
+<p class="before keep">Before: "Our classes are fun, friendly and inclusive, for beginners, improvers and experts."</p>
+<p>After: "Our classes are open to every level, beginners included."</p>
+</div>
+<div class="group">
+<h3>The em dash as punctuation</h3>
+<!-- brand-check: ok dash specimen from the tells list -->
+<p class="before keep">Before: "We bake every morning — and we sell out by noon."</p>
+<p>After: "We bake every morning, and we sell out by noon."</p>
+</div>
+<div class="group">
+<h3>Chat formatting pasted into copy</h3>
+<p>Bold, emoji and hashtags that the brand never uses on its own.</p>
+<p class="before keep">Before: "🍂 **Our Autumn Range Is Here!** 🍂 #Autumn #ShopLocal"</p>
+<p>After: "Our autumn range is in the shop. Come and have a look."</p>
+</div>
+<div class="group">
+<h3>Chat leftovers</h3>
+<p>"Here's", "I hope this helps", "Let me know if".</p>
+<p class="before keep">Before: "Here's a caption for your post: Our autumn range is in the shop, come and have a look! Let me know if you'd like a shorter version!"</p>
+<p>After: "Our autumn range is in the shop. Come and have a look."</p>
+</div>
+<div class="group">
+<h3>The servile reply</h3>
+<p class="before keep">Before: "Thank you so much for reaching out! We sincerely apologize for any inconvenience the late delivery may have caused."</p>
+<p>After: "Your delivery was late, and I'm sorry. Tell me what would put it right for you."</p>
+</div>
+<div class="group">
+<h3>The upbeat send-off</h3>
+<p class="before keep">Before: "The shop reopens on 3 March. We can't wait to see you, exciting times lie ahead!"</p>
+<p>After: "The shop reopens on 3 March. Come and see us."</p>
+</div>
+<div class="group">
+<h3>Staccato lines and slogans</h3>
+<p class="before keep">Before: "No shortcuts. No compromises. Just honest work. Because craft is the language of trust."</p>
+<p>After: "We do not cut corners." Better still, tell the AI which corner you never cut, and let it say that instead.</p>
+</div>
+<div class="group">
+<h3>Fake-candid openers</h3>
+<p>"Honestly?", "Here's the thing", "Let's be real".</p>
+<p class="before keep">Before: "Is it worth the price? Honestly? It lasts twice as long."</p>
+<p>After: "It costs more, and it lasts twice as long."</p>
+</div>
+<div class="group">
+<h3>The version anyone would write</h3>
+<p>It holds nothing that only this brand could say. No single word gives it away: the whole text could sit on any other shop's website.</p>
+<p class="before keep">Before: "At Corner Books, we believe in the power of stories to bring people together."</p>
+<p>After: there is no rewrite without a fact. Give the AI one thing only you can say (the shelf you built yourself, the author who came on a Tuesday) and ask it to start there.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>The list comes from the humanizer skill by blader (github.com/blader/humanizer, MIT licence), which is built on Wikipedia's guide "Signs of AI writing" (en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). The last tell, the version anyone would write, adapts StoryScope, a study of AI fiction (arXiv 2604.03136). The examples were written for this kit.</p>
+</div>
+</div>
+</section>
+<div class="slide c1"><div class="spacer"></div><p class="lead">Free, under the MIT licence.</p><div class="spacer"></div><p class="foot">Pierre Tran, Taykon Studio</p></div>
+</div>
+<script>
+// Every heading keeps with the block after it, whoever wrote the markup.
+const KEEP = 'h2,h3,.keep';
+function paginate(){
+  const deck = document.getElementById('deck'), H = 1350, PAD = 84;
+  document.querySelectorAll('.group').forEach((g, i) => [...g.children].forEach(k => k.dataset.sec = i));
+  for (const ch of [...document.querySelectorAll('section.chapter')]) {
+    let slide;
+    const fresh = () => { slide = document.createElement('div'); slide.className = 'slide flow ' + ch.dataset.c; deck.insertBefore(slide, ch); };
+    // A 52 px heading's glyph box is taller than its line; the audit measures text, so this does too.
+    const over = () => {
+      const el = slide.lastElementChild, r = document.createRange(); r.selectNodeContents(el);
+      return Math.max(el.getBoundingClientRect().bottom, r.getBoundingClientRect().bottom) > slide.getBoundingClientRect().top + H - PAD + 0.5;
+    };
+    const place = u => {
+      if (u.classList.contains('break') && slide.children.length) fresh();
+      slide.appendChild(u);
+      if (!over()) return;
+      u.remove();
+      const carry = [];
+      while (slide.lastElementChild && slide.lastElementChild.matches(KEEP)) {
+        const k = slide.lastElementChild; k.remove(); carry.unshift(k);
+      }
+      if (slide.children.length) {
+        fresh();
+        // A text that moves on alone takes its pair's title with it.
+        if (u.dataset.title && !carry.length) { const h = document.createElement('h3'); h.textContent = u.dataset.title; slide.appendChild(h); }
+        carry.forEach(n => slide.appendChild(n)); slide.appendChild(u);
+        if (!over()) return;
+        u.remove();
+      } else carry.forEach(n => slide.appendChild(n));
+      if (u.matches('.group')) [...u.children].forEach(k => k.dataset.big = 1);  // taller than a slide: the audit allows the split
+      if (u.children.length) [...u.children].forEach(place); else slide.appendChild(u);
+    };
+    // A section (.group) moves whole; it is split only if it does not fit on an empty slide.
+    const units = [], walk = el => { for (const k of [...el.children]) k.matches('.groups,.pair') ? walk(k) : units.push(k); };
+    walk(ch);
+    fresh();
+    units.forEach(place);
+    ch.remove();
+  }
+}
+function audit(){
+  const RED = 'rgb(188, 42, 59)', out = {slides: 0, small: [], wide: [], low: [], italic: [], red: [], stranded: []};
+  document.querySelectorAll('.slide').forEach((s, i) => {
+    const b = s.getBoundingClientRect(), n = i + 1;
+    // Its own selector, not KEEP: a guard that shares the rule it checks cannot catch that rule.
+    let last = s.lastElementChild;
+    while (last.matches('.group,.side') && last.lastElementChild) last = last.lastElementChild;  // the last line, not its wrapper
+    if (s.classList.contains('flow') && last.matches('h1,h2,h3,.label,.ask,.before,.head')) out.stranded.push(n + ' ' + last.textContent.slice(0, 40));
+    let red = getComputedStyle(s).backgroundColor === RED;
+    const w = document.createTreeWalker(s, NodeFilter.SHOW_TEXT);
+    while (w.nextNode()) {
+      const t = w.currentNode, el = t.parentElement;
+      if (!t.textContent.trim()) continue;
+      const cs = getComputedStyle(el), range = document.createRange(); range.selectNodeContents(t);
+      const r = range.getBoundingClientRect(), say = n + ' ' + t.textContent.trim().slice(0, 40);
+      if (parseFloat(cs.fontSize) < 24) out.small.push(say + ' ' + cs.fontSize);
+      if (cs.fontStyle !== 'normal') out.italic.push(say);
+      if (r.right > b.left + 1080 - 88 + 0.5) out.wide.push(say + ' ' + Math.round(r.right - b.left));
+      if (r.bottom > b.top + 1350 - 84 + 0.5) out.low.push(say + ' ' + Math.round(r.bottom - b.top));
+      if (cs.color === RED) red = true;
+    }
+    if (red) out.red.push(n);
+  });
+  out.split = [];
+  const where = {};
+  document.querySelectorAll('.slide').forEach((s, i) => s.querySelectorAll('[data-sec]:not([data-big])').forEach(k => (where[k.dataset.sec] ||= new Set()).add(i + 1)));
+  for (const [sec, on] of Object.entries(where)) if (on.size > 1)
+    out.split.push([...on].join('+') + ' ' + document.querySelector(`[data-sec="${sec}"]`).textContent.slice(0, 40));
+  out.slides = document.querySelectorAll('.slide').length;
+  out.fonts = [document.fonts.check('700 52px "Overused Grotesk"'), document.fonts.check('400 26px "Host Grotesk"')];
+  return out;
+}
+</script>
+</body>
+</html>

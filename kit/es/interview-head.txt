@@ -1,0 +1,40 @@
+Quiero que me ayudes a escribir el archivo de voz de mi marca: un texto que le daré a mi asistente de IA para que lo que escriba por nosotros suene a nosotros y no a cualquier otra marca. Entrevístame y después escribe el archivo.
+
+CÓMO VA LA ENTREVISTA
+
+Primero pídeme entre tres y cinco textos reales que haya escrito y que me gusten, por ejemplo una página de nuestra web, un correo o una respuesta a un cliente. Pídeme también un texto, mío o de otra persona, que odiaría haber escrito. Espera a que los pegue antes de preguntarme nada más.
+
+Luego dime, en cinco líneas como máximo, qué hacen mis textos. Dime cómo son de largas las frases y quién habla (yo, nosotros o el nombre de la marca). Dime cómo trato al lector (tú, vos o usted), qué nombro y qué nunca prometo. Pregúntame si tu lectura es correcta.
+
+Después hazme tus preguntas, una por mensaje, doce como máximo. Con cada pregunta, dime qué parte del archivo decide y dame de dos a cuatro respuestas redactadas a partir de mis textos, primero la que recomiendas. Puedo elegir una, corregir una o decir «decide tú»: entonces elige la que mejor respalden mis textos. Cada cinco preguntas, resume en tres líneas lo que llevamos decidido.
+
+Las preguntas tienen que fijar para quién escribimos, las cuatro a seis reglas de la voz y cómo tratamos al lector (en qué idioma, para qué país). También fijan las palabras que nunca usamos y, para cada tipo de texto que nombra la plantilla completa, su objetivo, su tono y su forma. El objetivo es lo que el lector debe hacer o sentir después de leer: sácalo de lo que mis textos ya piden a sus lectores. La forma es cómo empieza un texto, qué extensión tiene, cómo termina y si lleva una lista. Cuando mis textos muestren ese tipo de texto, toma su forma de ellos, aunque se aparte de la regla de la plantilla, y conserva el objetivo. Construye los tres pares «escribe esto, no esto» con mis propias frases y muéstramelos antes de terminar.
+
+TUS REGLAS
+
+Nunca añadas un dato sobre mi negocio que no te haya dado, ya sea una cifra, una fecha o el nombre de un cliente. Si falta algo, pregúntamelo.
+Redacta tus propuestas a partir de lo que es propio de mis textos, no de lo que diría cualquier marca.
+La voz cambia cómo dicen las cosas mis textos, no para qué sirven. Un archivo que convierte un texto que invita o vende en uno que solo informa ha fallado.
+Háblame en el idioma en que te escribo y escribe el archivo en ese idioma. Si no es español, pon en el archivo los tics de IA que señalaría un corrector nativo de ese idioma, no una traducción de la lista de abajo.
+Escribe en texto plano, sin markdown, para que el archivo se pueda pegar en cualquier sitio.
+
+AL FINAL
+
+Escribe las dos versiones del archivo, cada una en un bloque que pueda copiar, siguiendo las dos plantillas de abajo. Rellena cada corchete y quita una línea solo si no se aplica a nosotros. Debajo de cada bloque, indica su extensión en palabras. La versión corta tiene que quedar por debajo de 1500 caracteres, unas 180 palabras, porque es el tamaño del campo más pequeño donde va. La versión completa queda por debajo de 8000 caracteres, unas 1100 palabras.
+
+LOS TICS DE IA, PARA EL ESPAÑOL
+
+«En el corazón de» seguido de un lugar.
+«No es X, es Y» y su variante «No fue X. Fue Y».
+Todo de tres en tres: «con barro, paciencia y las manos».
+«Artesanal» y «artesanía».
+Las fórmulas de atención al cliente: «lamento las molestias», «entiendo que», «Estimado/a cliente», «Un cordial saludo».
+La declaración de valores: «porque creemos que», «sabemos que».
+El cierre de invitación: «te esperamos», «¡Nos vemos en…!».
+El formato de chat pegado: emojis al inicio de línea, negritas con asteriscos y un bloque de hashtags, a veces con listas de flechas.
+Las frases sentencia y los golpes cortos: «Nada se pierde del todo. Se reubica».
+La raya que abre un inciso y nunca lo cierra.
+La versión que cualquiera escribiría: nada en ella que solo esta marca podría decir.
+
+LA PLANTILLA CORTA
+

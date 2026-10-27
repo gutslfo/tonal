@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17478-d608-7140-adcf-e15687bfba07"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"En Taller Ocre, nuestro taller de cerámica en Valencia, hacemos tazas y platos a torno y los acabamos con esmalte de ceniza de naranjo. Cada hornada reúne solo doce piezas, pensadas para acompañarte a diario, del primer café a la cena, y volver a la mesa después de pasar por el lavavajillas."}}
+{"type":"turn.completed","usage":{"input_tokens":20554,"cached_input_tokens":18816,"cache_write_input_tokens":0,"output_tokens":115,"reasoning_output_tokens":36}}

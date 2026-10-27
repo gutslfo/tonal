@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17478-d614-7d51-b720-a34188fb2588"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Este mes estrenamos horno en Taller Ocre, y ponerlo a punto nos está llevando más tiempo del previsto. Necesitamos ajustar las cocciones antes de que vuestras piezas salgan del taller, por lo que las entregas de octubre se retrasarán diez días respecto a la fecha acordada. Sentimos haceros esperar y os agradecemos la paciencia: tenemos muchas ganas de que tengáis vuestras piezas en casa."}}
+{"type":"turn.completed","usage":{"input_tokens":20540,"cached_input_tokens":18816,"cache_write_input_tokens":0,"output_tokens":126,"reasoning_output_tokens":34}}

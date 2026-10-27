@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-ca6c-7c43-9005-f8a7f64576b8"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Hola, soy Javier Morales, de Fisioterapia Ribera. Siento que tuvieras que esperar 25 minutos y que después la sesión durara solo media hora. Entiendo tu malestar y te pido disculpas.\n\nMe gustaría revisar lo ocurrido y ofrecerte una solución. ¿Puedes indicarnos por privado el día y la hora de tu cita? Gracias por hacérnoslo saber."}}
+{"type":"turn.completed","usage":{"input_tokens":20546,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":85,"reasoning_output_tokens":0}}

@@ -1,0 +1,12 @@
+Our newest home and garden item is the Pot Head Planter, a red plant pot shaped like the head of a three-eyed monster with fangs. Your plant grows out of the top like hair.
+
+It has three eyes, so it will notice when you forget to water.
+
+Price: [price]
+Material: [material]
+Size: [size]
+Delivery: [delivery time, with its limit]
+
+Plant not included. Neither is a haircut.
+
+I need the price, material, size and delivery details before this can go live. Send them and I'll fill in the brackets.

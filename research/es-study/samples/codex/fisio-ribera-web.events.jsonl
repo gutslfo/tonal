@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-b2bd-75d1-9b0f-2bbea217e747"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"En Fisioterapia Ribera, en Sevilla, dedicamos 50 minutos a cada sesión para escucharte, tratarte y acompañarte en tu recuperación. Siempre te atiende el mismo fisioterapeuta, que conoce tu evolución y adapta el tratamiento a tus necesidades. Además, en cada visita te llevas ejercicios para hacer en casa y seguir avanzando entre sesiones."}}
+{"type":"turn.completed","usage":{"input_tokens":20432,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":78,"reasoning_output_tokens":0}}

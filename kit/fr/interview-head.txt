@@ -1,0 +1,41 @@
+Je veux que tu m'aides à écrire le fichier de voix de ma marque : un texte que je donnerai à mon assistant IA pour que ce qu'il écrit pour nous nous ressemble, au lieu de ressembler à toutes les autres marques. Interroge-moi, puis écris le fichier.
+
+COMMENT SE PASSE L'ENTRETIEN
+
+Demande-moi d'abord trois à cinq vrais textes que j'ai écrits et que j'aime, par exemple une page de notre site, un courriel ou une réponse à un client. Demande-moi aussi un texte, de moi ou de quelqu'un d'autre, que je détesterais avoir écrit. Attends que je les aie collés avant de me poser une autre question.
+
+Dis-moi ensuite, en cinq lignes au plus, ce que font mes textes. Dis la longueur des phrases et qui parle (je, nous ou le nom de la marque). Dis comment je m'adresse au lecteur (tu ou vous), ce que je nomme et ce que je ne prétends jamais. Demande-moi si ta lecture est juste.
+
+Pose ensuite tes questions, une par message, douze au plus. À chaque question, dis quelle partie du fichier elle décide, et propose-moi deux à quatre réponses rédigées à partir de mes textes, celle que tu recommandes en premier. Je peux en choisir une, en corriger une, ou dire « décide pour moi » : prends alors celle que mes textes soutiennent le mieux. Toutes les cinq questions, résume en trois lignes ce que nous avons décidé.
+
+Les questions doivent fixer pour qui nous écrivons, les quatre à six règles de la voix et la façon dont nous nous adressons au lecteur (tu ou vous, dans quelle langue, pour quel pays). Elles fixent aussi les mots que nous n'employons jamais et, pour chaque type de texte que nomme le modèle complet, son but, son ton et sa forme. Le but, c'est ce que le lecteur doit faire ou ressentir après avoir lu : propose-le à partir de ce que mes textes demandent déjà à leurs lecteurs. La forme, c'est la façon dont un texte commence, sa longueur, sa fin, et s'il contient une liste. Quand mes textes montrent ce type de texte, reprends la forme qu'ils lui donnent, même si elle s'écarte de la règle du modèle, et garde le but. Construis les trois paires « écrire ceci, pas cela » à partir de mes propres phrases, et montre-les-moi avant la fin.
+
+TES RÈGLES
+
+N'ajoute jamais un fait sur mon entreprise que je ne t'ai pas donné, qu'il s'agisse d'un chiffre, d'une date ou du nom d'un client. S'il manque quelque chose, demande-le-moi.
+Rédige tes propositions à partir de ce qui est propre à mes textes, pas de ce que dirait n'importe quelle marque.
+La voix change la façon dont mes textes disent les choses, pas ce à quoi ils servent. Un fichier qui transforme un texte qui invite ou qui vend en un texte qui se contente d'informer a échoué.
+Parle-moi dans la langue où je t'écris, et écris le fichier dans cette langue. Si ce n'est pas le français, mets dans le fichier les tics d'IA qu'un correcteur de cette langue relèverait, pas une traduction de la liste ci-dessous.
+Écris en texte brut, sans markdown, pour que le fichier se colle partout.
+
+À LA FIN
+
+Écris les deux versions du fichier, chacune dans un bloc que je peux copier, en suivant les deux modèles ci-dessous. Remplis chaque crochet, et n'enlève une ligne que si elle ne nous concerne pas. Sous chaque bloc, donne sa longueur en mots. La version courte doit rester sous 1 500 caractères, environ 180 mots, parce que c'est la taille du plus petit champ où elle va. La version complète reste sous 8 000 caractères, environ 1 100 mots.
+
+LES TICS D'IA, POUR LE FRANÇAIS
+
+Le vocabulaire de brochure : au cœur de, niché, véritable, incontournable, authentique, chaleureux, convivial, univers, expérience.
+« Allier tradition et modernité », « mettre un point d'honneur à ».
+L'échelle de connecteurs : De plus, Par ailleurs, En outre, Enfin, En conclusion.
+Les participes en cascade : permettant, offrant, garantissant.
+« Non seulement… mais également », « Ce n'est pas X, c'est Y ».
+Tout par trois, et les énumérations sans « et » avant le dernier terme.
+Le tiret cadratin employé comme ponctuation.
+Le gras, les émojis, et une majuscule à chaque mot d'un titre.
+« N'hésitez pas à nous contacter », « Au plaisir de vous accueillir ».
+La réponse servile : « Nous sommes sincèrement désolés pour la gêne occasionnée ».
+La formule creuse, la langue de bois.
+La version que tout le monde écrirait : rien dedans que seule cette marque pourrait dire.
+
+LE MODÈLE COURT
+

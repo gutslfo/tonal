@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17478-d611-7293-8266-76664fb33bb9"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"El sábado salen del horno las nuevas tazas de Taller Ocre. ☕️\n\nYa falta menos para ver cómo han quedado los esmaltes y elegir esa que querrás llenar cada mañana.\n\nHechas a mano, aquí en Valencia. ¿Le hacemos un hueco en tu mesa?\n\n#TallerOcre #CerámicaValencia #CerámicaArtesanal #TazasHechasAMano"}}
+{"type":"turn.completed","usage":{"input_tokens":20531,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":105,"reasoning_output_tokens":17}}

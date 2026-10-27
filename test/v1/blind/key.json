@@ -1,0 +1,22 @@
+{
+ "page": {
+  "A": "without",
+  "B": "with"
+ },
+ "instagram": {
+  "A": "without",
+  "B": "with"
+ },
+ "reply": {
+  "A": "with",
+  "B": "without"
+ },
+ "newsletter": {
+  "A": "without",
+  "B": "with"
+ },
+ "linkedin": {
+  "A": "with",
+  "B": "without"
+ }
+}

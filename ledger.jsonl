@@ -1,0 +1,456 @@
+{"t": "2026-10-26T02:04:26", "tag": "smoke", "model": "claude-haiku-5-5", "in": 17, "out": 26, "usd": 1e-05}
+{"t": "2026-10-26T02:08:43", "tag": "es-study:taller-ocre-web", "model": "claude-sonnet-5-5", "in": 113, "out": 254, "usd": 0.00277}
+{"t": "2026-10-26T02:08:44", "tag": "es-study:rueda-lenta-web", "model": "claude-sonnet-5-5", "in": 116, "out": 277, "usd": 0.003}
+{"t": "2026-10-26T02:08:44", "tag": "es-study:taller-ocre-instagram", "model": "claude-sonnet-5-5", "in": 86, "out": 307, "usd": 0.00324}
+{"t": "2026-10-26T02:08:44", "tag": "es-study:taller-ocre-newsletter", "model": "claude-sonnet-5-5", "in": 99, "out": 363, "usd": 0.00383}
+{"t": "2026-10-26T02:08:44", "tag": "es-study:taller-ocre-reply", "model": "claude-sonnet-5-5", "in": 122, "out": 473, "usd": 0.00497}
+{"t": "2026-10-26T02:08:47", "tag": "es-study:cafe-altamira-web", "model": "claude-sonnet-5-5", "in": 116, "out": 255, "usd": 0.00278}
+{"t": "2026-10-26T02:08:48", "tag": "es-study:rueda-lenta-newsletter", "model": "claude-sonnet-5-5", "in": 106, "out": 383, "usd": 0.00404}
+{"t": "2026-10-26T02:08:48", "tag": "es-study:taller-ocre-linkedin", "model": "claude-sonnet-5-5", "in": 96, "out": 816, "usd": 0.00835}
+{"t": "2026-10-26T02:08:48", "tag": "es-study:rueda-lenta-reply", "model": "claude-sonnet-5-5", "in": 127, "out": 452, "usd": 0.00477}
+{"t": "2026-10-26T02:08:49", "tag": "es-study:rueda-lenta-instagram", "model": "claude-sonnet-5-5", "in": 110, "out": 558, "usd": 0.0058}
+{"t": "2026-10-26T02:08:52", "tag": "es-study:cafe-altamira-instagram", "model": "claude-sonnet-5-5", "in": 103, "out": 363, "usd": 0.00384}
+{"t": "2026-10-26T02:08:52", "tag": "es-study:fisio-ribera-web", "model": "claude-sonnet-5-5", "in": 115, "out": 266, "usd": 0.00289}
+{"t": "2026-10-26T02:08:52", "tag": "es-study:cafe-altamira-newsletter", "model": "claude-sonnet-5-5", "in": 96, "out": 311, "usd": 0.0033}
+{"t": "2026-10-26T02:08:52", "tag": "es-study:cafe-altamira-reply", "model": "claude-sonnet-5-5", "in": 113, "out": 476, "usd": 0.00499}
+{"t": "2026-10-26T02:08:54", "tag": "es-study:rueda-lenta-linkedin", "model": "claude-sonnet-5-5", "in": 109, "out": 917, "usd": 0.00939}
+{"t": "2026-10-26T02:08:56", "tag": "es-study:fisio-ribera-newsletter", "model": "claude-sonnet-5-5", "in": 97, "out": 357, "usd": 0.00376}
+{"t": "2026-10-26T02:08:56", "tag": "es-study:cafe-altamira-linkedin", "model": "claude-sonnet-5-5", "in": 91, "out": 742, "usd": 0.0076}
+{"t": "2026-10-26T02:08:56", "tag": "es-study:fisio-ribera-instagram", "model": "claude-sonnet-5-5", "in": 94, "out": 484, "usd": 0.00503}
+{"t": "2026-10-26T02:08:57", "tag": "es-study:fisio-ribera-reply", "model": "claude-sonnet-5-5", "in": 118, "out": 443, "usd": 0.00467}
+{"t": "2026-10-26T02:08:57", "tag": "es-study:libreria-la-tilde-web", "model": "claude-sonnet-5-5", "in": 107, "out": 289, "usd": 0.0031}
+{"t": "2026-10-26T02:09:00", "tag": "es-study:libreria-la-tilde-reply", "model": "claude-sonnet-5-5", "in": 130, "out": 390, "usd": 0.00416}
+{"t": "2026-10-26T02:09:00", "tag": "es-study:fisio-ribera-linkedin", "model": "claude-sonnet-5-5", "in": 104, "out": 800, "usd": 0.00821}
+{"t": "2026-10-26T02:09:00", "tag": "es-study:libreria-la-tilde-newsletter", "model": "claude-sonnet-5-5", "in": 87, "out": 351, "usd": 0.00368}
+{"t": "2026-10-26T02:09:01", "tag": "es-study:hostal-quillay-web", "model": "claude-sonnet-5-5", "in": 122, "out": 275, "usd": 0.00299}
+{"t": "2026-10-26T02:09:02", "tag": "es-study:libreria-la-tilde-instagram", "model": "claude-sonnet-5-5", "in": 97, "out": 532, "usd": 0.00551}
+{"t": "2026-10-26T02:09:05", "tag": "es-study:hostal-quillay-instagram", "model": "claude-sonnet-5-5", "in": 96, "out": 390, "usd": 0.00409}
+{"t": "2026-10-26T02:09:05", "tag": "es-study:hostal-quillay-reply", "model": "claude-sonnet-5-5", "in": 135, "out": 499, "usd": 0.00526}
+{"t": "2026-10-26T02:09:05", "tag": "es-study:libreria-la-tilde-linkedin", "model": "claude-sonnet-5-5", "in": 105, "out": 842, "usd": 0.00863}
+{"t": "2026-10-26T02:09:10", "tag": "es-study:hostal-quillay-linkedin", "model": "claude-sonnet-5-5", "in": 111, "out": 939, "usd": 0.00961}
+{"t": "2026-10-26T02:09:15", "tag": "es-study:hostal-quillay-newsletter", "model": "claude-sonnet-5-5", "in": 99, "out": 399, "usd": 0.00419}
+{"t": "2026-10-26T02:43:30", "tag": "smoke-haiku", "model": "claude-haiku-5-5", "in": 13, "out": 4, "usd": 0.0}
+{"t": "2026-10-26T02:44:17", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 2135, "out": 158, "usd": 0.00585}
+{"t": "2026-10-26T02:44:17", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 2896, "out": 252, "usd": 0.00831}
+{"t": "2026-10-26T02:44:19", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 3116, "out": 295, "usd": 0.00918}
+{"t": "2026-10-26T02:44:19", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 1235, "out": 452, "usd": 0.00035}
+{"t": "2026-10-26T02:44:21", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 1674, "out": 802, "usd": 0.00057}
+{"t": "2026-10-26T02:44:23", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 1771, "out": 914, "usd": 0.00063}
+{"t": "2026-10-26T02:44:28", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 2745, "out": 869, "usd": 0.01418}
+{"t": "2026-10-26T02:44:31", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2023, "out": 293, "usd": 0.00035}
+{"t": "2026-10-26T02:44:33", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 3962, "out": 1132, "usd": 0.01924}
+{"t": "2026-10-26T02:44:33", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 3656, "out": 1328, "usd": 0.02059}
+{"t": "2026-10-26T02:44:38", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 2763, "out": 863, "usd": 0.00071}
+{"t": "2026-10-26T02:44:38", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 3374, "out": 779, "usd": 0.01454}
+{"t": "2026-10-26T02:44:38", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 2701, "out": 727, "usd": 0.00063}
+{"t": "2026-10-26T02:44:40", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2603, "out": 131, "usd": 0.00033}
+{"t": "2026-10-26T02:44:49", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 4305, "out": 1188, "usd": 0.02049}
+{"t": "2026-10-26T02:44:49", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 3792, "out": 978, "usd": 0.01736}
+{"t": "2026-10-26T02:44:50", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 4508, "out": 1367, "usd": 0.02269}
+{"t": "2026-10-26T02:44:51", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3126, "out": 100, "usd": 0.00036}
+{"t": "2026-10-26T02:44:51", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 3306, "out": 178, "usd": 0.00042}
+{"t": "2026-10-26T02:44:54", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 3347, "out": 587, "usd": 0.00063}
+{"t": "2026-10-26T02:44:57", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 4284, "out": 692, "usd": 0.01549}
+{"t": "2026-10-26T02:44:59", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3562, "out": 129, "usd": 0.00042}
+{"t": "2026-10-26T02:45:02", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 4958, "out": 1252, "usd": 0.02244}
+{"t": "2026-10-26T02:45:04", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 3984, "out": 104, "usd": 0.00045}
+{"t": "2026-10-26T02:45:04", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 5075, "out": 1054, "usd": 0.02069}
+{"t": "2026-10-26T02:45:06", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 4749, "out": 724, "usd": 0.01674}
+{"t": "2026-10-26T02:45:08", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4049, "out": 147, "usd": 0.00048}
+{"t": "2026-10-26T02:45:08", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 3867, "out": 648, "usd": 0.00071}
+{"t": "2026-10-26T02:45:12", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 5562, "out": 938, "usd": 0.0205}
+{"t": "2026-10-26T02:45:13", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 4568, "out": 74, "usd": 0.00049}
+{"t": "2026-10-26T02:45:18", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 5579, "out": 1054, "usd": 0.0217}
+{"t": "2026-10-26T02:45:18", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 5254, "out": 1147, "usd": 0.02198}
+{"t": "2026-10-26T02:45:18", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 6116, "out": 543, "usd": 0.01766}
+{"t": "2026-10-26T02:45:20", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4599, "out": 77, "usd": 0.0005}
+{"t": "2026-10-26T02:45:20", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 4414, "out": 367, "usd": 0.00062}
+{"t": "2026-10-26T02:45:20", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 5185, "out": 260, "usd": 0.00065}
+{"t": "2026-10-26T02:45:29", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 5734, "out": 1171, "usd": 0.02318}
+{"t": "2026-10-26T02:45:30", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 6719, "out": 1147, "usd": 0.02491}
+{"t": "2026-10-26T02:45:31", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 5190, "out": 146, "usd": 0.00059}
+{"t": "2026-10-26T02:45:31", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 5814, "out": 65, "usd": 0.00061}
+{"t": "2026-10-26T02:45:32", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 6164, "out": 1452, "usd": 0.02685}
+{"t": "2026-10-26T02:45:36", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 5049, "out": 512, "usd": 0.00076}
+{"t": "2026-10-26T02:45:37", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 7353, "out": 674, "usd": 0.02145}
+{"t": "2026-10-26T02:45:40", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 6553, "out": 94, "usd": 0.0007}
+{"t": "2026-10-26T02:45:45", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 6394, "out": 1380, "usd": 0.02659}
+{"t": "2026-10-26T02:45:45", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 8121, "out": 578, "usd": 0.02202}
+{"t": "2026-10-26T02:45:47", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 5869, "out": 192, "usd": 0.00068}
+{"t": "2026-10-26T02:45:48", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 7225, "out": 327, "usd": 0.00089}
+{"t": "2026-10-26T02:45:49", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 6795, "out": 1704, "usd": 0.03063}
+{"t": "2026-10-26T02:45:53", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 8745, "out": 609, "usd": 0.02358}
+{"t": "2026-10-26T02:45:54", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 7880, "out": 82, "usd": 0.00083}
+{"t": "2026-10-26T02:45:55", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 5764, "out": 1044, "usd": 0.0011}
+{"t": "2026-10-26T02:45:59", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 9436, "out": 520, "usd": 0.02407}
+{"t": "2026-10-26T02:46:00", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 7119, "out": 1606, "usd": 0.0303}
+{"t": "2026-10-26T02:46:02", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 6619, "out": 185, "usd": 0.00075}
+{"t": "2026-10-26T02:46:04", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 8482, "out": 882, "usd": 0.00129}
+{"t": "2026-10-26T02:46:11", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 7506, "out": 1733, "usd": 0.03234}
+{"t": "2026-10-26T02:46:11", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 10062, "out": 869, "usd": 0.02881}
+{"t": "2026-10-26T02:46:15", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 6636, "out": 495, "usd": 0.00091}
+{"t": "2026-10-26T02:46:15", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 9457, "out": 400, "usd": 0.00115}
+{"t": "2026-10-26T02:46:15", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 7862, "out": 1373, "usd": 0.02945}
+{"t": "2026-10-26T02:46:17", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 7302, "out": 103, "usd": 0.00078}
+{"t": "2026-10-26T02:46:20", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 8373, "out": 640, "usd": 0.02315}
+{"t": "2026-10-26T02:46:23", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 11047, "out": 866, "usd": 0.03075}
+{"t": "2026-10-26T02:46:24", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 7373, "out": 525, "usd": 0.001}
+{"t": "2026-10-26T02:46:25", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 10439, "out": 277, "usd": 0.00118}
+{"t": "2026-10-26T02:46:28", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 8463, "out": 1290, "usd": 0.02983}
+{"t": "2026-10-26T02:46:29", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 9135, "out": 630, "usd": 0.02457}
+{"t": "2026-10-26T02:46:30", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 7969, "out": 115, "usd": 0.00085}
+{"t": "2026-10-26T02:46:32", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 8125, "out": 406, "usd": 0.00102}
+{"t": "2026-10-26T02:46:37", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 9891, "out": 557, "usd": 0.02535}
+{"t": "2026-10-26T02:46:39", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 9142, "out": 1029, "usd": 0.02857}
+{"t": "2026-10-26T02:46:40", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 12034, "out": 1961, "usd": 0.04368}
+{"t": "2026-10-26T02:46:41", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 8808, "out": 656, "usd": 0.00121}
+{"t": "2026-10-26T02:46:41", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 8550, "out": 183, "usd": 0.00095}
+{"t": "2026-10-26T02:46:45", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 11493, "out": 841, "usd": 0.00157}
+{"t": "2026-10-26T02:46:47", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 10558, "out": 789, "usd": 0.02901}
+{"t": "2026-10-26T02:46:51", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 9707, "out": 457, "usd": 0.0012}
+{"t": "2026-10-26T02:46:52", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 9791, "out": 1169, "usd": 0.03127}
+{"t": "2026-10-26T02:46:54", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 9175, "out": 126, "usd": 0.00098}
+{"t": "2026-10-26T02:46:58", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 13047, "out": 1616, "usd": 0.04225}
+{"t": "2026-10-26T02:46:59", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 11427, "out": 931, "usd": 0.03216}
+{"t": "2026-10-26T02:47:01", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 12279, "out": 407, "usd": 0.00143}
+{"t": "2026-10-26T02:47:01", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 10220, "out": 212, "usd": 0.00113}
+{"t": "2026-10-26T02:47:04", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 10359, "out": 1274, "usd": 0.03346}
+{"t": "2026-10-26T02:47:06", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 9880, "out": 213, "usd": 0.00109}
+{"t": "2026-10-26T02:47:15", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 11912, "out": 1552, "usd": 0.03934}
+{"t": "2026-10-26T02:47:17", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 10940, "out": 368, "usd": 0.00128}
+{"t": "2026-10-26T02:47:30", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 12644, "out": 1475, "usd": 0.04004}
+{"t": "2026-10-26T02:47:33", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 11543, "out": 521, "usd": 0.00141}
+{"t": "2026-10-26T02:47:50", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 13278, "out": 1435, "usd": 0.04091}
+{"t": "2026-10-26T02:47:53", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 12380, "out": 673, "usd": 0.00157}
+{"t": "2026-10-26T02:49:52", "tag": "estimate-unlogged-max_tokens", "model": "claude-sonnet-5-5", "in": 40000, "out": 24000, "usd": 0.33, "stop": "max_tokens", "note": "three interviewer calls cut at 8000 tokens before api.py logged failures; inputs read off the previous turns, outputs at the cap"}
+{"t": "2026-10-26T02:51:07", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 14093, "out": 9500, "usd": 0.12319, "stop": "end_turn"}
+{"t": "2026-10-26T02:51:19", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 13820, "out": 13441, "usd": 0.16205, "stop": "end_turn"}
+{"t": "2026-10-26T02:51:22", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 11151, "out": 11534, "usd": 0.13764, "stop": "end_turn"}
+{"t": "2026-10-26T02:52:38", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 1156, "out": 395, "usd": 0.00031, "stop": "end_turn"}
+{"t": "2026-10-26T02:52:53", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 1684, "out": 143, "usd": 0.00024, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:13", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2056, "out": 551, "usd": 0.00048, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:23", "tag": "task-en-instagram-with", "model": "claude-sonnet-5-5", "in": 2051, "out": 59, "usd": 0.00469, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:23", "tag": "task-en-page-with", "model": "claude-sonnet-5-5", "in": 2087, "out": 100, "usd": 0.00517, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:23", "tag": "task-en-page-without", "model": "claude-sonnet-5-5", "in": 107, "out": 130, "usd": 0.00151, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:23", "tag": "task-en-instagram-without", "model": "claude-sonnet-5-5", "in": 71, "out": 149, "usd": 0.00163, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:24", "tag": "task-en-reply-without", "model": "claude-sonnet-5-5", "in": 132, "out": 222, "usd": 0.00248, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:25", "tag": "task-en-newsletter-without", "model": "claude-sonnet-5-5", "in": 92, "out": 162, "usd": 0.0018, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:26", "tag": "task-fr-page-without", "model": "claude-sonnet-5-5", "in": 143, "out": 201, "usd": 0.0023, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:26", "tag": "task-fr-page-with", "model": "claude-sonnet-5-5", "in": 2912, "out": 103, "usd": 0.00685, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:27", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2344, "out": 99, "usd": 0.00028, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:27", "tag": "task-en-linkedin-without", "model": "claude-sonnet-5-5", "in": 99, "out": 327, "usd": 0.00347, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:28", "tag": "task-fr-instagram-with", "model": "claude-sonnet-5-5", "in": 2862, "out": 40, "usd": 0.00612, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:28", "tag": "task-en-linkedin-with", "model": "claude-sonnet-5-5", "in": 2079, "out": 495, "usd": 0.00911, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:29", "tag": "task-fr-instagram-without", "model": "claude-sonnet-5-5", "in": 93, "out": 185, "usd": 0.00204, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:29", "tag": "task-en-newsletter-with", "model": "claude-sonnet-5-5", "in": 2072, "out": 716, "usd": 0.0113, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:30", "tag": "task-fr-reply-without", "model": "claude-sonnet-5-5", "in": 184, "out": 281, "usd": 0.00318, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:31", "tag": "task-en-reply-with", "model": "claude-sonnet-5-5", "in": 2112, "out": 1038, "usd": 0.0146, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:31", "tag": "task-fr-newsletter-without", "model": "claude-sonnet-5-5", "in": 137, "out": 223, "usd": 0.0025, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:32", "tag": "task-es-page-with", "model": "claude-sonnet-5-5", "in": 2629, "out": 121, "usd": 0.00647, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:34", "tag": "task-fr-linkedin-without", "model": "claude-sonnet-5-5", "in": 132, "out": 449, "usd": 0.00475, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:34", "tag": "task-fr-linkedin-with", "model": "claude-sonnet-5-5", "in": 2901, "out": 401, "usd": 0.00981, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:34", "tag": "task-fr-newsletter-with", "model": "claude-sonnet-5-5", "in": 2906, "out": 584, "usd": 0.01165, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:34", "tag": "task-fr-reply-with", "model": "claude-sonnet-5-5", "in": 2953, "out": 768, "usd": 0.01359, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:35", "tag": "task-es-instagram-with", "model": "claude-sonnet-5-5", "in": 2585, "out": 66, "usd": 0.00583, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:36", "tag": "task-es-instagram-without", "model": "claude-sonnet-5-5", "in": 91, "out": 243, "usd": 0.00261, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:37", "tag": "task-es-reply-without", "model": "claude-sonnet-5-5", "in": 171, "out": 322, "usd": 0.00356, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:38", "tag": "task-es-newsletter-without", "model": "claude-sonnet-5-5", "in": 131, "out": 272, "usd": 0.00298, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:39", "tag": "task-es-page-without", "model": "claude-sonnet-5-5", "in": 135, "out": 239, "usd": 0.00266, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:40", "tag": "task-es-linkedin-without", "model": "claude-sonnet-5-5", "in": 132, "out": 464, "usd": 0.0049, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:41", "tag": "task-es-linkedin-with", "model": "claude-sonnet-5-5", "in": 2626, "out": 385, "usd": 0.0091, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:41", "tag": "task-es-reply-with", "model": "claude-sonnet-5-5", "in": 2665, "out": 744, "usd": 0.01277, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:42", "tag": "task-es-newsletter-with", "model": "claude-sonnet-5-5", "in": 2625, "out": 714, "usd": 0.01239, "stop": "end_turn"}
+{"t": "2026-10-26T02:53:47", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2690, "out": 91, "usd": 0.00031, "stop": "end_turn"}
+{"t": "2026-10-26T02:54:05", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3091, "out": 96, "usd": 0.00036, "stop": "end_turn"}
+{"t": "2026-10-26T02:54:20", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3482, "out": 201, "usd": 0.00045, "stop": "end_turn"}
+{"t": "2026-10-26T02:54:40", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4005, "out": 104, "usd": 0.00045, "stop": "end_turn"}
+{"t": "2026-10-26T02:54:53", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4317, "out": 105, "usd": 0.00048, "stop": "end_turn"}
+{"t": "2026-10-26T02:55:07", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4631, "out": 88, "usd": 0.00051, "stop": "end_turn"}
+{"t": "2026-10-26T02:55:19", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4991, "out": 82, "usd": 0.00054, "stop": "end_turn"}
+{"t": "2026-10-26T02:55:43", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 5519, "out": 60, "usd": 0.00058, "stop": "end_turn"}
+{"t": "2026-10-26T02:56:46", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 7919, "out": 1174, "usd": 0.00138, "stop": "end_turn"}
+{"t": "2026-10-26T02:57:14", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 10337, "out": 165, "usd": 0.00112, "stop": "end_turn"}
+{"t": "2026-10-26T02:57:24", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 10579, "out": 59, "usd": 0.00109, "stop": "end_turn"}
+{"t": "2026-10-26T02:57:44", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 10701, "out": 151, "usd": 0.00115, "stop": "end_turn"}
+{"t": "2026-10-26T02:57:55", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 10925, "out": 93, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:03", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11051, "out": 88, "usd": 0.00115, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:12", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11171, "out": 40, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:20", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11226, "out": 28, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:29", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11263, "out": 18, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:39", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11288, "out": 8, "usd": 0.00113, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:47", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11302, "out": 6, "usd": 0.00113, "stop": "end_turn"}
+{"t": "2026-10-26T02:58:54", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11313, "out": 15, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T02:59:01", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 11335, "out": 8, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:28", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 2650, "out": 235, "usd": 0.00765, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:33", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 1433, "out": 886, "usd": 0.00059, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:41", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 3431, "out": 886, "usd": 0.01572, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:43", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 2401, "out": 238, "usd": 0.00036, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:53", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 4091, "out": 897, "usd": 0.01715, "stop": "end_turn"}
+{"t": "2026-10-26T15:29:55", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3041, "out": 148, "usd": 0.00038, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:04", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 4641, "out": 1074, "usd": 0.02002, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:06", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 3611, "out": 157, "usd": 0.00044, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:14", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 5220, "out": 866, "usd": 0.0191, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:15", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4182, "out": 153, "usd": 0.00049, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:23", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 5787, "out": 758, "usd": 0.01915, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:24", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 4765, "out": 97, "usd": 0.00052, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:32", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 6314, "out": 861, "usd": 0.02124, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:33", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 5218, "out": 129, "usd": 0.00059, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:45", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 6799, "out": 1464, "usd": 0.02824, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:46", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 5933, "out": 126, "usd": 0.00066, "stop": "end_turn"}
+{"t": "2026-10-26T15:30:59", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 7511, "out": 1356, "usd": 0.02858, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:00", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 6490, "out": 131, "usd": 0.00071, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:15", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 8073, "out": 1916, "usd": 0.03531, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:17", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 7079, "out": 133, "usd": 0.00077, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:29", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 8664, "out": 1459, "usd": 0.03192, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:32", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 7681, "out": 143, "usd": 0.00084, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:43", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 9276, "out": 1277, "usd": 0.03132, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:45", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 8331, "out": 214, "usd": 0.00094, "stop": "end_turn"}
+{"t": "2026-10-26T15:31:59", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 9997, "out": 1664, "usd": 0.03663, "stop": "end_turn"}
+{"t": "2026-10-26T15:32:01", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 9277, "out": 124, "usd": 0.00099, "stop": "end_turn"}
+{"t": "2026-10-26T15:32:11", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 10853, "out": 1153, "usd": 0.03324, "stop": "end_turn"}
+{"t": "2026-10-26T15:32:13", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 9991, "out": 93, "usd": 0.00105, "stop": "end_turn"}
+{"t": "2026-10-26T15:32:24", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 11536, "out": 1436, "usd": 0.03743, "stop": "end_turn"}
+{"t": "2026-10-26T15:32:26", "tag": "founder-en", "model": "claude-haiku-5-5", "in": 10776, "out": 184, "usd": 0.00117, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:08", "tag": "interview-en", "model": "claude-sonnet-5-5", "in": 12412, "out": 7591, "usd": 0.10073, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:31", "tag": "task-en-instagram-with", "model": "claude-sonnet-5-5", "in": 2347, "out": 68, "usd": 0.00537, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:31", "tag": "task-en-page-with", "model": "claude-sonnet-5-5", "in": 2383, "out": 120, "usd": 0.00597, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:33", "tag": "task-en-linkedin-with", "model": "claude-sonnet-5-5", "in": 2375, "out": 273, "usd": 0.00748, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:36", "tag": "task-en-newsletter-with", "model": "claude-sonnet-5-5", "in": 2368, "out": 696, "usd": 0.0117, "stop": "end_turn"}
+{"t": "2026-10-26T15:33:36", "tag": "task-en-reply-with", "model": "claude-sonnet-5-5", "in": 2408, "out": 784, "usd": 0.01266, "stop": "end_turn"}
+{"t": "2026-10-26T15:34:38", "tag": "task-en-linkedin-with-followup", "model": "claude-sonnet-5-5", "in": 2494, "out": 972, "usd": 0.01471, "stop": "end_turn"}
+{"t": "2026-10-26T18:53:35", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 2650, "out": 192, "usd": 0.00722, "stop": "end_turn"}
+{"t": "2026-10-26T18:53:40", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 2141, "out": 1500, "usd": 0.00096, "stop": "max_tokens"}
+{"t": "2026-10-26T18:54:17", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 2141, "out": 1595, "usd": 0.00101, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:23", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 4437, "out": 546, "usd": 0.01433, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:25", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 3912, "out": 311, "usd": 0.00055, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:38", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 4679, "out": 1092, "usd": 0.02028, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:41", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 4408, "out": 219, "usd": 0.00055, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:52", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 5328, "out": 1171, "usd": 0.02237, "stop": "end_turn"}
+{"t": "2026-10-26T18:54:54", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 5187, "out": 142, "usd": 0.00059, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:13", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 6030, "out": 1294, "usd": 0.025, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:14", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 5860, "out": 75, "usd": 0.00062, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:32", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 6636, "out": 1154, "usd": 0.02481, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:35", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 6405, "out": 512, "usd": 0.0009, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:54", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 7159, "out": 1256, "usd": 0.02688, "stop": "end_turn"}
+{"t": "2026-10-26T18:55:55", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 6963, "out": 83, "usd": 0.00074, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:12", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 7747, "out": 1110, "usd": 0.02659, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:15", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 7498, "out": 397, "usd": 0.00095, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:32", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 8264, "out": 1290, "usd": 0.02943, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:35", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 8262, "out": 462, "usd": 0.00106, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:53", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 9066, "out": 1319, "usd": 0.03132, "stop": "end_turn"}
+{"t": "2026-10-26T18:56:56", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 8934, "out": 371, "usd": 0.00108, "stop": "end_turn"}
+{"t": "2026-10-26T18:57:17", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 9694, "out": 1595, "usd": 0.03534, "stop": "end_turn"}
+{"t": "2026-10-26T18:57:22", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 9663, "out": 503, "usd": 0.00122, "stop": "end_turn"}
+{"t": "2026-10-26T18:57:45", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 10438, "out": 1620, "usd": 0.03708, "stop": "end_turn"}
+{"t": "2026-10-26T18:57:49", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 10151, "out": 513, "usd": 0.00127, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:01", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 10925, "out": 1409, "usd": 0.03594, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:04", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 10757, "out": 328, "usd": 0.00124, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:20", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 11559, "out": 1687, "usd": 0.03999, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:24", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 11696, "out": 423, "usd": 0.00138, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:42", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 12482, "out": 2008, "usd": 0.04504, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:45", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 12655, "out": 384, "usd": 0.00146, "stop": "end_turn"}
+{"t": "2026-10-26T18:58:59", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 13460, "out": 1858, "usd": 0.0455, "stop": "end_turn"}
+{"t": "2026-10-26T18:59:02", "tag": "ld-founder-en", "model": "claude-haiku-5-5", "in": 13544, "out": 14, "usd": 0.00136, "stop": "end_turn"}
+{"t": "2026-10-26T18:59:41", "tag": "ld-interview-en", "model": "claude-sonnet-5-5", "in": 14259, "out": 6953, "usd": 0.09805, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:10", "tag": "ld-founder-oneline", "model": "claude-haiku-5-5", "in": 1987, "out": 89, "usd": 0.00024, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:13", "tag": "ld-task-mug-samples", "model": "claude-sonnet-5-5", "in": 1741, "out": 183, "usd": 0.00531, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:14", "tag": "ld-task-mitts-none", "model": "claude-sonnet-5-5", "in": 134, "out": 305, "usd": 0.00332, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:15", "tag": "ld-task-mug-none", "model": "claude-sonnet-5-5", "in": 136, "out": 303, "usd": 0.0033, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:16", "tag": "ld-task-mitts-line", "model": "claude-sonnet-5-5", "in": 222, "out": 424, "usd": 0.00468, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:16", "tag": "ld-task-mug-line", "model": "claude-sonnet-5-5", "in": 224, "out": 550, "usd": 0.00595, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:17", "tag": "ld-task-mitts-samples", "model": "claude-sonnet-5-5", "in": 1739, "out": 287, "usd": 0.00635, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:19", "tag": "ld-task-sleeping-bag-none", "model": "claude-sonnet-5-5", "in": 160, "out": 318, "usd": 0.0035, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:20", "tag": "ld-task-mug-file", "model": "claude-sonnet-5-5", "in": 2703, "out": 866, "usd": 0.01407, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:21", "tag": "ld-task-sleeping-bag-samples", "model": "claude-sonnet-5-5", "in": 1765, "out": 280, "usd": 0.00633, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:22", "tag": "ld-task-mitts-file", "model": "claude-sonnet-5-5", "in": 2701, "out": 802, "usd": 0.01342, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:23", "tag": "ld-task-planter-samples", "model": "claude-sonnet-5-5", "in": 1741, "out": 179, "usd": 0.00527, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:23", "tag": "ld-task-sleeping-bag-line", "model": "claude-sonnet-5-5", "in": 248, "out": 639, "usd": 0.00689, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:24", "tag": "ld-task-planter-none", "model": "claude-sonnet-5-5", "in": 136, "out": 356, "usd": 0.00383, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:25", "tag": "ld-task-planter-line", "model": "claude-sonnet-5-5", "in": 224, "out": 449, "usd": 0.00494, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:25", "tag": "ld-task-sleeping-bag-file", "model": "claude-sonnet-5-5", "in": 2727, "out": 894, "usd": 0.01439, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:27", "tag": "ld-task-tee-samples", "model": "claude-sonnet-5-5", "in": 1748, "out": 234, "usd": 0.00584, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:28", "tag": "ld-task-energy-none", "model": "claude-sonnet-5-5", "in": 147, "out": 158, "usd": 0.00187, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:28", "tag": "ld-task-tee-none", "model": "claude-sonnet-5-5", "in": 143, "out": 344, "usd": 0.00373, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:29", "tag": "ld-task-planter-file", "model": "claude-sonnet-5-5", "in": 2703, "out": 677, "usd": 0.01218, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:29", "tag": "ld-task-tee-line", "model": "claude-sonnet-5-5", "in": 231, "out": 496, "usd": 0.00542, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:30", "tag": "ld-task-energy-samples", "model": "claude-sonnet-5-5", "in": 1752, "out": 163, "usd": 0.00513, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:31", "tag": "ld-task-energy-line", "model": "claude-sonnet-5-5", "in": 235, "out": 353, "usd": 0.004, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:35", "tag": "ld-task-tee-file", "model": "claude-sonnet-5-5", "in": 2710, "out": 846, "usd": 0.01388, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:37", "tag": "ld-task-energy-file", "model": "claude-sonnet-5-5", "in": 2714, "out": 966, "usd": 0.01509, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:53", "tag": "ld-task-energy-line", "model": "claude-sonnet-5-5", "in": 188, "out": 178, "usd": 0.00216, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:56", "tag": "ld-task-mug-line", "model": "claude-sonnet-5-5", "in": 177, "out": 329, "usd": 0.00364, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:56", "tag": "ld-task-mitts-line", "model": "claude-sonnet-5-5", "in": 175, "out": 433, "usd": 0.00468, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:56", "tag": "ld-task-tee-line", "model": "claude-sonnet-5-5", "in": 184, "out": 512, "usd": 0.00549, "stop": "end_turn"}
+{"t": "2026-10-26T19:00:57", "tag": "ld-task-planter-line", "model": "claude-sonnet-5-5", "in": 177, "out": 512, "usd": 0.00547, "stop": "end_turn"}
+{"t": "2026-10-26T19:01:05", "tag": "ld-task-sleeping-bag-line", "model": "claude-sonnet-5-5", "in": 201, "out": 532, "usd": 0.00572, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:21", "tag": "ld-task-mug-kit", "model": "claude-sonnet-5-5", "in": 4307, "out": 753, "usd": 0.01614, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:21", "tag": "ld-task-sleeping-bag-kit", "model": "claude-sonnet-5-5", "in": 4331, "out": 805, "usd": 0.01671, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:21", "tag": "ld-task-mitts-kit", "model": "claude-sonnet-5-5", "in": 4305, "out": 837, "usd": 0.01698, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:22", "tag": "ld-task-planter-kit", "model": "claude-sonnet-5-5", "in": 4307, "out": 733, "usd": 0.01594, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:22", "tag": "ld-task-tee-kit", "model": "claude-sonnet-5-5", "in": 4314, "out": 896, "usd": 0.01759, "stop": "end_turn"}
+{"t": "2026-10-26T19:11:23", "tag": "ld-task-energy-kit", "model": "claude-sonnet-5-5", "in": 4318, "out": 1052, "usd": 0.01916, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:32", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 2785, "out": 216, "usd": 0.00773, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:37", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 2165, "out": 1611, "usd": 0.00102, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:42", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 4612, "out": 393, "usd": 0.01315, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:43", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 3935, "out": 58, "usd": 0.00042, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:53", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 4829, "out": 943, "usd": 0.01909, "stop": "end_turn"}
+{"t": "2026-10-26T19:23:57", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 4405, "out": 698, "usd": 0.00079, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:06", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 5342, "out": 834, "usd": 0.01902, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:07", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 4869, "out": 117, "usd": 0.00055, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:18", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 5822, "out": 1174, "usd": 0.02338, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:19", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 5344, "out": 92, "usd": 0.00058, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:26", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 6272, "out": 719, "usd": 0.01973, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:27", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 5826, "out": 69, "usd": 0.00062, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:36", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 6731, "out": 991, "usd": 0.02337, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:39", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 6303, "out": 265, "usd": 0.00076, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:48", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 7190, "out": 958, "usd": 0.02396, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:50", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 6689, "out": 90, "usd": 0.00071, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:58", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 7615, "out": 1013, "usd": 0.02536, "stop": "end_turn"}
+{"t": "2026-10-26T19:24:59", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 7333, "out": 72, "usd": 0.00077, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:08", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 8241, "out": 833, "usd": 0.02481, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:11", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 7826, "out": 332, "usd": 0.00095, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:22", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 8754, "out": 1326, "usd": 0.03077, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:25", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 8435, "out": 183, "usd": 0.00093, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:38", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 9454, "out": 1457, "usd": 0.03348, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:40", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 9056, "out": 137, "usd": 0.00097, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:52", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 10029, "out": 1430, "usd": 0.03436, "stop": "end_turn"}
+{"t": "2026-10-26T19:25:54", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 9810, "out": 92, "usd": 0.00103, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:07", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 10738, "out": 1598, "usd": 0.03746, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:09", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 10529, "out": 131, "usd": 0.00112, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:21", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 11496, "out": 1395, "usd": 0.03694, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:22", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 11368, "out": 122, "usd": 0.0012, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:37", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 12326, "out": 1903, "usd": 0.04368, "stop": "end_turn"}
+{"t": "2026-10-26T19:26:39", "tag": "ld-interview-2-founder-en", "model": "claude-haiku-5-5", "in": 12226, "out": 101, "usd": 0.00127, "stop": "end_turn"}
+{"t": "2026-10-26T19:27:40", "tag": "ld-interview-2-interview-en", "model": "claude-sonnet-5-5", "in": 13163, "out": 10452, "usd": 0.13085, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:15", "tag": "ld-task-mug-file-2", "model": "claude-sonnet-5-5", "in": 2611, "out": 722, "usd": 0.01244, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:16", "tag": "ld-task-sleeping-bag-file-2", "model": "claude-sonnet-5-5", "in": 2635, "out": 725, "usd": 0.01252, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:17", "tag": "ld-task-mitts-file-2", "model": "claude-sonnet-5-5", "in": 2609, "out": 819, "usd": 0.01341, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:17", "tag": "ld-task-sleeping-bag-kit-2", "model": "claude-sonnet-5-5", "in": 4239, "out": 954, "usd": 0.01802, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:17", "tag": "ld-task-mug-kit-2", "model": "claude-sonnet-5-5", "in": 4215, "out": 838, "usd": 0.01681, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:18", "tag": "ld-task-mitts-kit-2", "model": "claude-sonnet-5-5", "in": 4213, "out": 1042, "usd": 0.01885, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:22", "tag": "ld-task-planter-file-2", "model": "claude-sonnet-5-5", "in": 2611, "out": 637, "usd": 0.01159, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:24", "tag": "ld-task-tee-kit-2", "model": "claude-sonnet-5-5", "in": 4222, "out": 744, "usd": 0.01588, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:24", "tag": "ld-task-planter-kit-2", "model": "claude-sonnet-5-5", "in": 4215, "out": 868, "usd": 0.01711, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:24", "tag": "ld-task-tee-file-2", "model": "claude-sonnet-5-5", "in": 2618, "out": 776, "usd": 0.013, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:26", "tag": "ld-task-energy-file-2", "model": "claude-sonnet-5-5", "in": 2622, "out": 972, "usd": 0.01496, "stop": "end_turn"}
+{"t": "2026-10-26T19:28:27", "tag": "ld-task-energy-kit-2", "model": "claude-sonnet-5-5", "in": 4226, "out": 898, "usd": 0.01743, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:08", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 2807, "out": 329, "usd": 0.0089, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:14", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 2278, "out": 1796, "usd": 0.00113, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:21", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 4719, "out": 538, "usd": 0.01482, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:22", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 4088, "out": 42, "usd": 0.00043, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:39", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 4988, "out": 916, "usd": 0.01914, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:40", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 4552, "out": 113, "usd": 0.00051, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:55", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 5523, "out": 789, "usd": 0.01894, "stop": "end_turn"}
+{"t": "2026-10-26T19:39:57", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 5079, "out": 134, "usd": 0.00057, "stop": "end_turn"}
+{"t": "2026-10-26T19:40:17", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 6071, "out": 1379, "usd": 0.02593, "stop": "end_turn"}
+{"t": "2026-10-26T19:40:19", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 5740, "out": 191, "usd": 0.00067, "stop": "end_turn"}
+{"t": "2026-10-26T19:40:43", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 6789, "out": 2007, "usd": 0.03365, "stop": "end_turn"}
+{"t": "2026-10-26T19:40:45", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 6580, "out": 126, "usd": 0.00072, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:05", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 7564, "out": 1489, "usd": 0.03002, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:08", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 7340, "out": 215, "usd": 0.00084, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:27", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 8413, "out": 1835, "usd": 0.03518, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:29", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 8267, "out": 175, "usd": 0.00091, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:49", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 9300, "out": 2690, "usd": 0.0455, "stop": "end_turn"}
+{"t": "2026-10-26T19:41:50", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 9425, "out": 108, "usd": 0.001, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:06", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 10391, "out": 1672, "usd": 0.0375, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:08", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 10316, "out": 91, "usd": 0.00108, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:24", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 11265, "out": 1730, "usd": 0.03983, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:26", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 11074, "out": 139, "usd": 0.00118, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:47", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 12071, "out": 2215, "usd": 0.04629, "stop": "end_turn"}
+{"t": "2026-10-26T19:42:49", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 12003, "out": 188, "usd": 0.00129, "stop": "end_turn"}
+{"t": "2026-10-26T19:43:12", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 13049, "out": 2794, "usd": 0.05404, "stop": "end_turn"}
+{"t": "2026-10-26T19:43:15", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 13097, "out": 205, "usd": 0.00141, "stop": "end_turn"}
+{"t": "2026-10-26T19:43:52", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 14160, "out": 5193, "usd": 0.08025, "stop": "end_turn"}
+{"t": "2026-10-26T19:43:53", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 14526, "out": 91, "usd": 0.0015, "stop": "end_turn"}
+{"t": "2026-10-26T19:44:04", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 15475, "out": 1191, "usd": 0.04286, "stop": "end_turn"}
+{"t": "2026-10-26T19:44:08", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 15200, "out": 461, "usd": 0.00175, "stop": "end_turn"}
+{"t": "2026-10-26T19:44:31", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 16163, "out": 2981, "usd": 0.06214, "stop": "end_turn"}
+{"t": "2026-10-26T19:44:33", "tag": "ld-interview-3-founder-en", "model": "claude-haiku-5-5", "in": 16454, "out": 111, "usd": 0.0017, "stop": "end_turn"}
+{"t": "2026-10-26T19:46:08", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 17423, "out": 16000, "usd": 0.19485, "stop": "max_tokens"}
+{"t": "2026-10-27T13:52:45", "tag": "ld-interview-3-interview-en", "model": "claude-sonnet-5-5", "in": 17423, "out": 28694, "usd": 0.32179, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:50", "tag": "ld-task-planter-kit-3", "model": "claude-sonnet-5-5", "in": 4150, "out": 106, "usd": 0.00936, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:50", "tag": "ld-task-tee-kit-3", "model": "claude-sonnet-5-5", "in": 4157, "out": 107, "usd": 0.00938, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:51", "tag": "ld-task-sleeping-bag-kit-3", "model": "claude-sonnet-5-5", "in": 4174, "out": 125, "usd": 0.0096, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:56", "tag": "ld-task-mitts-kit-3", "model": "claude-sonnet-5-5", "in": 4148, "out": 846, "usd": 0.01676, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:56", "tag": "ld-task-energy-kit-3", "model": "claude-sonnet-5-5", "in": 4161, "out": 890, "usd": 0.01722, "stop": "end_turn"}
+{"t": "2026-10-27T13:52:57", "tag": "ld-task-mug-kit-3", "model": "claude-sonnet-5-5", "in": 4150, "out": 786, "usd": 0.01616, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:35", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 3919, "out": 230, "usd": 0.01014, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:36", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 4186, "out": 310, "usd": 0.01147, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:39", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 1652, "out": 718, "usd": 0.00052, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:39", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 1786, "out": 605, "usd": 0.00048, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:46", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 4637, "out": 895, "usd": 0.01822, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:49", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 2587, "out": 146, "usd": 0.00033, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:49", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 5101, "out": 1160, "usd": 0.0218, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:53", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 2854, "out": 561, "usd": 0.00057, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:58", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 5230, "out": 1019, "usd": 0.02065, "stop": "end_turn"}
+{"t": "2026-10-27T14:38:59", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 3176, "out": 99, "usd": 0.00037, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:03", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 5704, "out": 1169, "usd": 0.0231, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:04", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 3459, "out": 154, "usd": 0.00042, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:08", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 5772, "out": 1151, "usd": 0.02305, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:10", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 3802, "out": 135, "usd": 0.00045, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:16", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 6323, "out": 1312, "usd": 0.02577, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:19", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 4157, "out": 444, "usd": 0.00064, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:19", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 6434, "out": 998, "usd": 0.02285, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:20", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 4471, "out": 125, "usd": 0.00051, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:25", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 7093, "out": 536, "usd": 0.01955, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:25", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 6931, "out": 661, "usd": 0.02047, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:26", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 4882, "out": 126, "usd": 0.00055, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:27", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 5132, "out": 119, "usd": 0.00057, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:32", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 7748, "out": 750, "usd": 0.023, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:33", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 6001, "out": 126, "usd": 0.00066, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:41", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 7718, "out": 1705, "usd": 0.03249, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:44", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 8624, "out": 1350, "usd": 0.03075, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:45", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 5707, "out": 517, "usd": 0.00083, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:46", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 6768, "out": 112, "usd": 0.00073, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:51", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 9377, "out": 598, "usd": 0.02473, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:52", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 7478, "out": 75, "usd": 0.00079, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:56", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 8506, "out": 1312, "usd": 0.03013, "stop": "end_turn"}
+{"t": "2026-10-27T14:39:57", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 6449, "out": 159, "usd": 0.00072, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:05", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 10050, "out": 1540, "usd": 0.0355, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:06", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 8172, "out": 110, "usd": 0.00087, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:11", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 10779, "out": 568, "usd": 0.02724, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:13", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 8850, "out": 368, "usd": 0.00107, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:18", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 9318, "out": 2626, "usd": 0.0449, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:23", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 7728, "out": 741, "usd": 0.00114, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:34", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 11443, "out": 2494, "usd": 0.04783, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:35", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 9806, "out": 79, "usd": 0.00102, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:39", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 10591, "out": 1813, "usd": 0.03931, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:42", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 8746, "out": 317, "usd": 0.00103, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:49", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 11576, "out": 850, "usd": 0.03165, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:50", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 9716, "out": 116, "usd": 0.00103, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:52", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 12382, "out": 2176, "usd": 0.04652, "stop": "end_turn"}
+{"t": "2026-10-27T14:40:54", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 10853, "out": 79, "usd": 0.00112, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:05", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 12542, "out": 1722, "usd": 0.0423, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:07", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 10746, "out": 231, "usd": 0.00119, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:12", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 13429, "out": 2415, "usd": 0.05101, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:13", "tag": "founder-es", "model": "claude-haiku-5-5", "in": 12053, "out": 39, "usd": 0.00122, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:17", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 13556, "out": 1262, "usd": 0.03973, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:18", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 12108, "out": 85, "usd": 0.00125, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:37", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 14903, "out": 2040, "usd": 0.05021, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:41", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 12909, "out": 689, "usd": 0.00164, "stop": "end_turn"}
+{"t": "2026-10-27T14:41:58", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 15760, "out": 1877, "usd": 0.05029, "stop": "end_turn"}
+{"t": "2026-10-27T14:42:01", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 13917, "out": 476, "usd": 0.00163, "stop": "end_turn"}
+{"t": "2026-10-27T14:42:15", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 16716, "out": 1945, "usd": 0.05288, "stop": "end_turn"}
+{"t": "2026-10-27T14:42:16", "tag": "founder-fr", "model": "claude-haiku-5-5", "in": 14919, "out": 83, "usd": 0.00153, "stop": "end_turn"}
+{"t": "2026-10-27T14:43:19", "tag": "interview-es", "model": "claude-sonnet-5-5", "in": 14589, "out": 23961, "usd": 0.26879, "stop": "end_turn"}
+{"t": "2026-10-27T14:45:19", "tag": "interview-fr", "model": "claude-sonnet-5-5", "in": 17712, "out": 30520, "usd": 0.34062, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:07", "tag": "task-fr-instagram-with", "model": "claude-sonnet-5-5", "in": 3305, "out": 29, "usd": 0.0069, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:08", "tag": "task-fr-page-without", "model": "claude-sonnet-5-5", "in": 143, "out": 199, "usd": 0.00228, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:09", "tag": "task-fr-instagram-without", "model": "claude-sonnet-5-5", "in": 93, "out": 171, "usd": 0.0019, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:09", "tag": "task-fr-reply-without", "model": "claude-sonnet-5-5", "in": 184, "out": 297, "usd": 0.00334, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:11", "tag": "task-fr-newsletter-without", "model": "claude-sonnet-5-5", "in": 137, "out": 248, "usd": 0.00275, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:12", "tag": "task-fr-page-with", "model": "claude-sonnet-5-5", "in": 3355, "out": 691, "usd": 0.01362, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:13", "tag": "task-fr-linkedin-without", "model": "claude-sonnet-5-5", "in": 132, "out": 442, "usd": 0.00468, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:14", "tag": "task-fr-linkedin-with", "model": "claude-sonnet-5-5", "in": 3344, "out": 456, "usd": 0.01125, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:14", "tag": "task-es-page-with", "model": "claude-sonnet-5-5", "in": 3140, "out": 135, "usd": 0.00763, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:14", "tag": "task-es-page-without", "model": "claude-sonnet-5-5", "in": 135, "out": 246, "usd": 0.00273, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:15", "tag": "task-es-instagram-with", "model": "claude-sonnet-5-5", "in": 3096, "out": 31, "usd": 0.0065, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:16", "tag": "task-fr-reply-with", "model": "claude-sonnet-5-5", "in": 3396, "out": 1027, "usd": 0.01706, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:17", "tag": "task-fr-newsletter-with", "model": "claude-sonnet-5-5", "in": 3349, "out": 1004, "usd": 0.01674, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:17", "tag": "task-es-reply-without", "model": "claude-sonnet-5-5", "in": 171, "out": 279, "usd": 0.00313, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:17", "tag": "task-es-instagram-without", "model": "claude-sonnet-5-5", "in": 91, "out": 284, "usd": 0.00302, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:19", "tag": "task-es-newsletter-without", "model": "claude-sonnet-5-5", "in": 131, "out": 245, "usd": 0.00271, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:21", "tag": "task-es-reply-with", "model": "claude-sonnet-5-5", "in": 3176, "out": 734, "usd": 0.01369, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:21", "tag": "task-es-linkedin-without", "model": "claude-sonnet-5-5", "in": 132, "out": 405, "usd": 0.00431, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:24", "tag": "task-es-newsletter-with", "model": "claude-sonnet-5-5", "in": 3136, "out": 807, "usd": 0.01434, "stop": "end_turn"}
+{"t": "2026-10-27T14:46:26", "tag": "task-es-linkedin-with", "model": "claude-sonnet-5-5", "in": 3137, "out": 1088, "usd": 0.01715, "stop": "end_turn"}

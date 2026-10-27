@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-5e03-72f3-b052-10139a12bce1"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"En Café Altamira tostamos cafés de especialidad de Huila y Nariño en lotes de cinco kilos, aquí en Bogotá. Cada martes encendemos la tostadora para resaltar el carácter de cada origen y llevarlo a tu taza. Elige tu café y recíbelo en 48 horas dentro de Bogotá."}}
+{"type":"turn.completed","usage":{"input_tokens":20552,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":71,"reasoning_output_tokens":0}}

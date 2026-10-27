@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-c3bb-77e1-bccc-45baa107053c"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"¡Desde noviembre también abrimos los sábados por la mañana! 🙌\n\nSi entre semana te cuesta encontrar un hueco, ahora tienes una opción más para cuidar de ti en Fisioterapia Ribera, Sevilla.\n\n📩 Contacta con nosotros y reserva tu cita.\n\n#FisioterapiaRibera #FisioterapiaSevilla #Sevilla"}}
+{"type":"turn.completed","usage":{"input_tokens":20533,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":75,"reasoning_output_tokens":0}}

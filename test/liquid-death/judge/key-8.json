@@ -1,0 +1,96 @@
+{
+ "close": {
+  "mug": {
+   "A": "samples",
+   "B": "kit-3",
+   "C": "kit",
+   "D": "kit-2",
+   "E": "file"
+  },
+  "mitts": {
+   "A": "kit-2",
+   "B": "kit-3",
+   "C": "file",
+   "D": "samples",
+   "E": "kit"
+  },
+  "sleeping-bag": {
+   "A": "kit-3",
+   "B": "kit",
+   "C": "samples",
+   "D": "file",
+   "E": "kit-2"
+  },
+  "planter": {
+   "A": "file",
+   "B": "kit-3",
+   "C": "kit-2",
+   "D": "kit",
+   "E": "samples"
+  },
+  "tee": {
+   "A": "kit",
+   "B": "samples",
+   "C": "kit-2",
+   "D": "file",
+   "E": "kit-3"
+  },
+  "energy": {
+   "A": "kit-2",
+   "B": "kit-3",
+   "C": "file",
+   "D": "kit",
+   "E": "samples"
+  }
+ },
+ "spot": {
+  "mug": {
+   "A": "real",
+   "B": "kit-2",
+   "C": "kit-3",
+   "D": "kit",
+   "E": "samples",
+   "F": "file"
+  },
+  "mitts": {
+   "A": "kit",
+   "B": "kit-2",
+   "C": "samples",
+   "D": "real",
+   "E": "kit-3",
+   "F": "file"
+  },
+  "sleeping-bag": {
+   "A": "kit",
+   "B": "samples",
+   "C": "kit-2",
+   "D": "real",
+   "E": "kit-3",
+   "F": "file"
+  },
+  "planter": {
+   "A": "samples",
+   "B": "kit",
+   "C": "file",
+   "D": "real",
+   "E": "kit-3",
+   "F": "kit-2"
+  },
+  "tee": {
+   "A": "file",
+   "B": "real",
+   "C": "kit-3",
+   "D": "kit",
+   "E": "samples",
+   "F": "kit-2"
+  },
+  "energy": {
+   "A": "real",
+   "B": "file",
+   "C": "kit-3",
+   "D": "kit",
+   "E": "kit-2",
+   "F": "samples"
+  }
+ }
+}

@@ -1,0 +1,1335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tonal</title>
+<meta name="description" content="A free kit that turns a brand's own texts into a voice file for ChatGPT, Claude or Gemini, in French, English and Spanish.">
+<meta name="color-scheme" content="dark">
+<style>
+/* Taykon Studio design tokens. Generated from design/tokens.json.
+   Import this instead of retyping hex values: every off-palette colour found in the
+   2026-08-22 audit was a near-miss of a locked token, not a deliberate choice.
+   Checked by Scripts/check_brand.py. */
+
+/* Web faces. Subset woff2, built by Scripts/build_webfonts.py, 256 KB of OTF
+   down to 39 KB. Paths are relative to this file; adjust the prefix if you
+   import tokens.css from elsewhere. */
+
+/* Headlines and body, locked 2026-10-20 (Neutral Face and Absans retired). */
+
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('fonts/overused-grotesk-bold.woff2') format('woff2');
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: 'Host Grotesk';
+  src: url('fonts/host-grotesk.woff2') format('woff2');
+  font-weight: 300 800; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* Blossom night, locked 2026-10-20. Six colours, seven tokens (Pearl is c2 and c6).
+     No other colour enters the system. */
+  --c1: #090E1A;  /* Night    . primary background */
+  --c2: #F6EDF5;  /* Pearl    . type on every dark surface */
+  --c3: #341025;  /* Mulberry . deep tone, first step of the descent */
+  --c4: #55132B;  /* Wine     . lifted tone, second step */
+  --c5: #BC2A3B;  /* Red      . one accent per surface, never two */
+  --c6: #F6EDF5;  /* Pearl    . light surface, documents and print */
+  --c7: #584B9E;  /* Iris     . counterpoint, never next to Red */
+
+  /* Legacy aliases from BRAND_SYSTEM_v1.md. Old names, current values. */
+  --taykon-indigo: var(--c1);
+  --taykon-cream:  var(--c2);
+  --taykon-accent: var(--c3);
+  --taykon-depth:  var(--c4);
+  --taykon-signal: var(--c5);
+  --taykon-paper:  var(--c6);
+
+  /* Foreground opacities. Set --ink to the surface's foreground, then use these. */
+  --ink: var(--c2);
+  --hair:    color-mix(in srgb, var(--ink) 14%, transparent);  /* structural divider */
+  --frame:   color-mix(in srgb, var(--ink) 22%, transparent);  /* editorial hairline frame */
+  --quiet:   color-mix(in srgb, var(--ink) 55%, transparent);  /* subordinate copy */
+  --caption: color-mix(in srgb, var(--ink) 75%, transparent);  /* caption, eyebrow */
+
+  /* Type families. Two faces maximum on any one surface. */
+  --f-name: 'Airfly', 'Helvetica Neue', Helvetica, sans-serif;        /* wordmark only */
+  --f-head: 'Overused Grotesk', 'Helvetica Neue', Helvetica, sans-serif;  /* headlines, uppercase, 700, -0.04em */
+  --f-body: 'Host Grotesk', 'Helvetica Neue', Helvetica, sans-serif;      /* reading size and below */
+  --head-track: -0.04em;                                                 /* Overused Grotesk headline tracking */
+}
+
+/* Paper surfaces flip the foreground so the opacity ramp still resolves. */
+.on-paper,
+.on-cream {
+  --ink: var(--c1);
+}
+
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:var(--c1);color:var(--c2);font-family:var(--f-body);font-size:16px;line-height:1.6;
+  font-variant-numeric:tabular-nums;font-synthesis:none;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+.band{color:var(--fg);background:var(--bg)}
+.s1{--bg:var(--c1);--fg:var(--c2)} .s3{--bg:var(--c3);--fg:var(--c2)} .s4{--bg:var(--c4);--fg:var(--c2)}
+.s7{--bg:var(--c7);--fg:var(--c2)} .s6{--bg:var(--c6);--fg:var(--c1)}
+.wrap{max-width:1280px;margin:0 auto;padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px)}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;text-transform:uppercase;letter-spacing:var(--head-track)}
+h1{color:var(--c5);font-size:clamp(72px,17vw,119px);line-height:.88}
+h2{font-size:clamp(40px,8vw,79px);line-height:.92;margin:0 0 clamp(32px,5vw,56px);max-width:16ch;overflow-wrap:anywhere}
+h3{font-size:clamp(24px,4vw,35px);line-height:1;margin:clamp(48px,6vw,64px) 0 24px;max-width:26ch}
+.lede{font-size:clamp(18px,2.4vw,22px);line-height:1.55;max-width:40ch;margin-top:clamp(40px,6vw,64px)}
+p{max-width:52ch;margin:0 0 16px}
+p.before{opacity:.6}
+.meta{font-size:14px;opacity:.75;margin:0}
+.note{font-size:14px;opacity:.75;max-width:52ch;margin-top:24px}
+.lang{display:flex;gap:4px}
+.lang button,.copy{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.lang button{font-size:14px;letter-spacing:.08em;padding:8px 10px;opacity:.55;transition:opacity .2s}
+.lang button[aria-pressed=true]{opacity:1}
+.lang button:hover{opacity:.85}
+button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin:0 0 24px}
+.copy{background:var(--c2);color:var(--c3);padding:12px 20px;font-size:16px;font-weight:500;transition:opacity .2s}
+.copy:hover{opacity:.7}
+.text{font-family:var(--f-body);font-size:14px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;
+  background:var(--c1);color:var(--c2);padding:clamp(20px,3vw,32px);max-width:72ch}
+.scroll{max-height:30rem;overflow:auto}
+h2.sub{font-size:clamp(24px,4vw,35px);line-height:1;margin:clamp(48px,6vw,64px) 0 24px;max-width:26ch}
+.groups{margin-top:clamp(48px,6vw,64px)}
+.group{break-inside:avoid;padding-bottom:clamp(40px,5vw,56px)}
+.group h3{margin-top:0}
+@media (min-width:1100px){.tells .groups{columns:2;column-gap:96px}}
+.pairs{display:grid;gap:clamp(48px,6vw,96px);margin-top:clamp(64px,8vw,96px)}
+.pair h3{margin-top:0}
+.ask{font-size:14px;opacity:.75;max-width:72ch}
+.two{display:grid;grid-template-columns:1fr;gap:32px;margin-top:24px}
+.two .label{font-size:14px;opacity:.75;margin:0 0 8px}
+.two .said{white-space:pre-wrap;overflow-wrap:anywhere;max-width:52ch}
+@media (min-width:860px){.two{grid-template-columns:1fr 1fr;gap:48px}
+  .two>div+div{border-left:1px solid color-mix(in srgb,currentColor 14%,transparent);padding-left:48px}}
+footer .wrap{padding-top:64px;padding-bottom:64px}
+footer p{font-size:14px;margin:0}
+</style>
+</head>
+<body>
+<header class="band s1"><div class="wrap" style="padding-bottom:0">
+<div class="top"><h1>Tonal</h1>
+<nav class="lang" aria-label="Language"><button type="button" value="fr" lang="fr" aria-pressed="false">FR</button><button type="button" value="en" lang="en" aria-pressed="true">EN</button><button type="button" value="es" lang="es" aria-pressed="false">ES</button></nav></div>
+</div></header>
+<main>
+<div data-lang="fr" lang="fr" hidden>
+<section class="band s1"><div class="wrap" style="padding-top:0">
+<p class="lede">Un entretien qui lit des textes que vous avez écrits et en tire un fichier de voix : un texte que vous donnez à ChatGPT, Claude ou Gemini pour que ce qu'il écrit pour vous sonne comme votre marque.</p>
+<h2 class="sub">Comment ça marche</h2>
+<p>Collez le prompt ci-dessous dans une nouvelle conversation avec ChatGPT, Claude ou Gemini, comme premier message. Il vous demande trois à cinq textes que vous avez écrits et que vous aimez, et un texte que vous détesteriez avoir écrit.</p>
+<p>Il vous dit ce que font vos textes, puis pose douze questions au plus, une par message. Chacune vient avec des réponses rédigées à partir de vos textes. Choisissez-en une, corrigez-en une, ou dites « décide pour moi ». Il vous parle dans la langue où vous écrivez.</p>
+<p>À la fin, il écrit votre fichier de voix en deux tailles, en texte brut. Le fichier court reste sous 1 500 caractères, la taille des instructions personnalisées de ChatGPT en offre gratuite. Le fichier complet reste sous 8 000 et va dans un projet ou une compétence. Où coller chacun est expliqué plus bas.</p>
+</div></section>
+<section class="band s3"><div class="wrap">
+<h2>Le prompt</h2>
+<div class="bar"><button class="copy" type="button" data-target="prompt-fr" data-label="Copier le prompt" data-done="Copié">Copier le prompt</button>
+<p class="meta" aria-live="polite">9 486 caractères.</p></div>
+<pre class="text scroll" id="prompt-fr" tabindex="0">Je veux que tu m'aides à écrire le fichier de voix de ma marque : un texte que je donnerai à mon assistant IA pour que ce qu'il écrit pour nous nous ressemble, au lieu de ressembler à toutes les autres marques. Interroge-moi, puis écris le fichier.
+
+COMMENT SE PASSE L'ENTRETIEN
+
+Demande-moi d'abord trois à cinq vrais textes que j'ai écrits et que j'aime, par exemple une page de notre site, un courriel ou une réponse à un client. Demande-moi aussi un texte, de moi ou de quelqu'un d'autre, que je détesterais avoir écrit. Attends que je les aie collés avant de me poser une autre question.
+
+Dis-moi ensuite, en cinq lignes au plus, ce que font mes textes. Dis la longueur des phrases et qui parle (je, nous ou le nom de la marque). Dis comment je m'adresse au lecteur (tu ou vous), ce que je nomme et ce que je ne prétends jamais. Demande-moi si ta lecture est juste.
+
+Pose ensuite tes questions, une par message, douze au plus. À chaque question, dis quelle partie du fichier elle décide, et propose-moi deux à quatre réponses rédigées à partir de mes textes, celle que tu recommandes en premier. Je peux en choisir une, en corriger une, ou dire « décide pour moi » : prends alors celle que mes textes soutiennent le mieux. Toutes les cinq questions, résume en trois lignes ce que nous avons décidé.
+
+Les questions doivent fixer pour qui nous écrivons, les quatre à six règles de la voix et la façon dont nous nous adressons au lecteur (tu ou vous, dans quelle langue, pour quel pays). Elles fixent aussi les mots que nous n'employons jamais et, pour chaque type de texte que nomme le modèle complet, son but, son ton et sa forme. Le but, c'est ce que le lecteur doit faire ou ressentir après avoir lu : propose-le à partir de ce que mes textes demandent déjà à leurs lecteurs. La forme, c'est la façon dont un texte commence, sa longueur, sa fin, et s'il contient une liste. Quand mes textes montrent ce type de texte, reprends la forme qu'ils lui donnent, même si elle s'écarte de la règle du modèle, et garde le but. Construis les trois paires « écrire ceci, pas cela » à partir de mes propres phrases, et montre-les-moi avant la fin.
+
+TES RÈGLES
+
+N'ajoute jamais un fait sur mon entreprise que je ne t'ai pas donné, qu'il s'agisse d'un chiffre, d'une date ou du nom d'un client. S'il manque quelque chose, demande-le-moi.
+Rédige tes propositions à partir de ce qui est propre à mes textes, pas de ce que dirait n'importe quelle marque.
+La voix change la façon dont mes textes disent les choses, pas ce à quoi ils servent. Un fichier qui transforme un texte qui invite ou qui vend en un texte qui se contente d'informer a échoué.
+Parle-moi dans la langue où je t'écris, et écris le fichier dans cette langue. Si ce n'est pas le français, mets dans le fichier les tics d'IA qu'un correcteur de cette langue relèverait, pas une traduction de la liste ci-dessous.
+Écris en texte brut, sans markdown, pour que le fichier se colle partout.
+
+À LA FIN
+
+Écris les deux versions du fichier, chacune dans un bloc que je peux copier, en suivant les deux modèles ci-dessous. Remplis chaque crochet, et n'enlève une ligne que si elle ne nous concerne pas. Sous chaque bloc, donne sa longueur en mots. La version courte doit rester sous 1 500 caractères, environ 180 mots, parce que c'est la taille du plus petit champ où elle va. La version complète reste sous 8 000 caractères, environ 1 100 mots.
+
+LES TICS D'IA, POUR LE FRANÇAIS
+
+Le vocabulaire de brochure : au cœur de, niché, véritable, incontournable, authentique, chaleureux, convivial, univers, expérience.
+« Allier tradition et modernité », « mettre un point d'honneur à ».
+L'échelle de connecteurs : De plus, Par ailleurs, En outre, Enfin, En conclusion.
+Les participes en cascade : permettant, offrant, garantissant.
+« Non seulement… mais également », « Ce n'est pas X, c'est Y ».
+Tout par trois, et les énumérations sans « et » avant le dernier terme.
+Le tiret cadratin employé comme ponctuation.
+Le gras, les émojis, et une majuscule à chaque mot d'un titre.
+« N'hésitez pas à nous contacter », « Au plaisir de vous accueillir ».
+La réponse servile : « Nous sommes sincèrement désolés pour la gêne occasionnée ».
+La formule creuse, la langue de bois.
+La version que tout le monde écrirait : rien dedans que seule cette marque pourrait dire.
+
+LE MODÈLE COURT
+
+[Marque] écrit pour [qui sont nos lecteurs, en une ligne].
+Voix : [règle un]. [Règle deux]. [Règle trois].
+Nous sommes [X], pas [Y] ; [X], pas [Y].
+Nous nous adressons au lecteur en [tu ou vous, avec ou sans prénom], en [langue et pays].
+Chaque texte a un but : [ce que nos textes demandent au lecteur]. Garde la raison d'agir. Plus court n'est pas mieux.
+Ton : site [quelques mots] ; courriel [quelques mots] ; réseaux sociaux [quelques mots] ; client mécontent [quelques mots]. Pas de markdown.
+N'écris jamais : [cinq mots ou tics, les nôtres d'abord].
+N'invente jamais un fait. Ne demande que ceux dont le texte ne peut pas se passer.
+Avant de répondre : enlève ces mots, vérifie comment tu t'adresses au lecteur et que le texte remplit encore son but, et demande-toi si une autre marque aurait pu l'écrire. Si oui, réécris.
+
+LE MODÈLE COMPLET
+
+FICHIER DE VOIX DE [MARQUE]
+Utilise-le pour chaque texte que tu écris pour [marque] ou en son nom. Lis-le en entier avant d'écrire.
+
+POUR QUI NOUS ÉCRIVONS
+[Deux ou trois phrases : qui sont nos lecteurs, ce qu'ils savent déjà, ce qu'ils viennent chercher chez nous.]
+
+LA VOIX
+[Quatre à six règles qu'un lecteur pourrait vérifier sur n'importe quel paragraphe. Chacune est suivie d'un court exemple tiré de nos textes.]
+Les phrases : [longueur et rythme]. Exemple : « [...] »
+Qui parle : [nous, je ou le nom de la marque]. Nous nous adressons au lecteur en [tu ou vous, avec ou sans prénom], en [langue et pays].
+Ce que nous nommons : [les choses concrètes que nous disons toujours, comme les produits, les horaires et les lieux]. Exemple : « [...] »
+Ce que nous ne prétendons jamais : [...]
+[Règle cinq, s'il en faut une.]
+[Règle six, s'il en faut une.]
+Nous sommes [X], pas [Y]. [X], pas [Y]. [X], pas [Y].
+Entre une phrase claire et un bon mot, choisis la phrase claire.
+
+CHAQUE TYPE DE TEXTE
+Chaque texte a un but : ce que le lecteur doit faire ou ressentir une fois qu'il l'a lu. Garde la raison d'agir, et porte-la avec nos faits, jamais avec des louanges. Un texte plus court n'est pas meilleur s'il ne remplit plus son but.
+La voix reste la même partout. Le ton et la forme changent selon le type de texte. Quand nos textes montrent un type de texte, sa forme vient d'eux ; les règles ci-dessous valent pour les types qu'ils ne montrent pas.
+Site : [son but, et le ton en quelques mots]. Mets ce que le lecteur est venu chercher dans la première phrase, car il peut s'arrêter là.
+Lettre d'information : [son but, et le ton]. La nouvelle vient en premier. Un seul objet par envoi, qui se termine sur la seule étape suivante, avec le lien ou l'adresse.
+Courriel à une personne : [son but, et le ton]. [Comment nous ouvrons et signons.] Dis ce qui se passe ensuite et qui contacter.
+Instagram : [son but, et le ton]. La plupart des gens ne voient que la première ligne avant « plus » : la raison de s'arrêter va là. [Émojis et retours à la ligne : si nous en utilisons.] Hashtags : [aucun, ou cinq des nôtres au plus]. Termine sur ce qu'il y a à faire, quand il y a quelque chose à faire.
+LinkedIn : [son but, et le ton]. Les deux premières lignes s'affichent avant « voir plus » : mets-y la nouvelle, ou une question au lecteur. Adresse-toi directement au lecteur, avec la forme fixée plus haut. Hashtags : [aucun, ou trois à cinq des nôtres]. Termine sur l'étape suivante.
+Réponse à un client mécontent : [le ton]. Excuse-toi une fois, au début, pour ce qui s'est vraiment mal passé. Dis ensuite ce que nous faisons et quand, propose un choix quand nous en avons un, et donne une personne à contacter.
+Mise en forme : pas de markdown, nulle part, donc ni gras ni titres dans un message. Des listes seulement si nous en faisons.
+
+LES MOTS QUE NOUS N'EMPLOYONS JAMAIS
+Les nôtres : [la liste de la marque].
+Les tics d'IA : [les tics de notre langue].
+
+ÉCRIRE CECI, PAS CELA
+Écris : « [une phrase tirée de nos textes] »
+Pas : « [la phrase qu'une IA générique écrirait à la place] »
+Parce que : [une proposition sur la différence].
+
+Écris : « [...] »
+Pas : « [...] »
+Parce que : [...]
+
+Écris : « [...] »
+Pas : « [...] »
+Parce que : [...]
+
+LES FAITS
+N'écris que ce qui figure dans ce fichier, dans ma demande ou dans les documents que je te donne. N'invente jamais un prix, une date ou un nom. Demande-le-moi seulement si le texte ne peut pas remplir son but sans cette information ; sinon, écris le texte sans elle.
+
+QUAND CE FICHIER ET NOS TEXTES NE SONT PAS D'ACCORD
+Nos textes l'emportent, sur la forme aussi : comment un texte commence, sa longueur, sa fin. S'ils emploient un tiret, un émoji ou une liste de trois, tu peux le faire aussi, aussi souvent qu'eux.
+
+AVANT DE RÉPONDRE
+Relis ton brouillon. Enlève chaque mot des deux listes ci-dessus et chaque tic d'IA. Vérifie comment tu t'adresses au lecteur, et que le brouillon a la forme que nos textes donnent à son type de texte, ou celle demandée plus haut quand ils n'en montrent pas. Vérifie qu'il remplit encore son but : le lecteur sait quoi faire ensuite et a une raison de le faire. Demande-toi ensuite si une autre marque aurait pu l'écrire. Si oui, réécris-le autour de quelque chose que nous seuls dirions.
+
+Commence maintenant : demande-moi mes textes.
+</pre>
+<h3>Les deux modèles</h3>
+<p>L'entretien les remplit avec vos réponses. Ils sont déjà dans le prompt ; ils sont ici pour que vous puissiez les lire avant.</p>
+<h3>Le fichier court</h3>
+<pre class="text">[Marque] écrit pour [qui sont nos lecteurs, en une ligne].
+Voix : [règle un]. [Règle deux]. [Règle trois].
+Nous sommes [X], pas [Y] ; [X], pas [Y].
+Nous nous adressons au lecteur en [tu ou vous, avec ou sans prénom], en [langue et pays].
+Chaque texte a un but : [ce que nos textes demandent au lecteur]. Garde la raison d'agir. Plus court n'est pas mieux.
+Ton : site [quelques mots] ; courriel [quelques mots] ; réseaux sociaux [quelques mots] ; client mécontent [quelques mots]. Pas de markdown.
+N'écris jamais : [cinq mots ou tics, les nôtres d'abord].
+N'invente jamais un fait. Ne demande que ceux dont le texte ne peut pas se passer.
+Avant de répondre : enlève ces mots, vérifie comment tu t'adresses au lecteur et que le texte remplit encore son but, et demande-toi si une autre marque aurait pu l'écrire. Si oui, réécris.
+</pre>
+<h3>Le fichier complet</h3>
+<pre class="text">FICHIER DE VOIX DE [MARQUE]
+Utilise-le pour chaque texte que tu écris pour [marque] ou en son nom. Lis-le en entier avant d'écrire.
+
+POUR QUI NOUS ÉCRIVONS
+[Deux ou trois phrases : qui sont nos lecteurs, ce qu'ils savent déjà, ce qu'ils viennent chercher chez nous.]
+
+LA VOIX
+[Quatre à six règles qu'un lecteur pourrait vérifier sur n'importe quel paragraphe. Chacune est suivie d'un court exemple tiré de nos textes.]
+Les phrases : [longueur et rythme]. Exemple : « [...] »
+Qui parle : [nous, je ou le nom de la marque]. Nous nous adressons au lecteur en [tu ou vous, avec ou sans prénom], en [langue et pays].
+Ce que nous nommons : [les choses concrètes que nous disons toujours, comme les produits, les horaires et les lieux]. Exemple : « [...] »
+Ce que nous ne prétendons jamais : [...]
+[Règle cinq, s'il en faut une.]
+[Règle six, s'il en faut une.]
+Nous sommes [X], pas [Y]. [X], pas [Y]. [X], pas [Y].
+Entre une phrase claire et un bon mot, choisis la phrase claire.
+
+CHAQUE TYPE DE TEXTE
+Chaque texte a un but : ce que le lecteur doit faire ou ressentir une fois qu'il l'a lu. Garde la raison d'agir, et porte-la avec nos faits, jamais avec des louanges. Un texte plus court n'est pas meilleur s'il ne remplit plus son but.
+La voix reste la même partout. Le ton et la forme changent selon le type de texte. Quand nos textes montrent un type de texte, sa forme vient d'eux ; les règles ci-dessous valent pour les types qu'ils ne montrent pas.
+Site : [son but, et le ton en quelques mots]. Mets ce que le lecteur est venu chercher dans la première phrase, car il peut s'arrêter là.
+Lettre d'information : [son but, et le ton]. La nouvelle vient en premier. Un seul objet par envoi, qui se termine sur la seule étape suivante, avec le lien ou l'adresse.
+Courriel à une personne : [son but, et le ton]. [Comment nous ouvrons et signons.] Dis ce qui se passe ensuite et qui contacter.
+Instagram : [son but, et le ton]. La plupart des gens ne voient que la première ligne avant « plus » : la raison de s'arrêter va là. [Émojis et retours à la ligne : si nous en utilisons.] Hashtags : [aucun, ou cinq des nôtres au plus]. Termine sur ce qu'il y a à faire, quand il y a quelque chose à faire.
+LinkedIn : [son but, et le ton]. Les deux premières lignes s'affichent avant « voir plus » : mets-y la nouvelle, ou une question au lecteur. Adresse-toi directement au lecteur, avec la forme fixée plus haut. Hashtags : [aucun, ou trois à cinq des nôtres]. Termine sur l'étape suivante.
+Réponse à un client mécontent : [le ton]. Excuse-toi une fois, au début, pour ce qui s'est vraiment mal passé. Dis ensuite ce que nous faisons et quand, propose un choix quand nous en avons un, et donne une personne à contacter.
+Mise en forme : pas de markdown, nulle part, donc ni gras ni titres dans un message. Des listes seulement si nous en faisons.
+
+LES MOTS QUE NOUS N'EMPLOYONS JAMAIS
+Les nôtres : [la liste de la marque].
+Les tics d'IA : [les tics de notre langue].
+
+ÉCRIRE CECI, PAS CELA
+Écris : « [une phrase tirée de nos textes] »
+Pas : « [la phrase qu'une IA générique écrirait à la place] »
+Parce que : [une proposition sur la différence].
+
+Écris : « [...] »
+Pas : « [...] »
+Parce que : [...]
+
+Écris : « [...] »
+Pas : « [...] »
+Parce que : [...]
+
+LES FAITS
+N'écris que ce qui figure dans ce fichier, dans ma demande ou dans les documents que je te donne. N'invente jamais un prix, une date ou un nom. Demande-le-moi seulement si le texte ne peut pas remplir son but sans cette information ; sinon, écris le texte sans elle.
+
+QUAND CE FICHIER ET NOS TEXTES NE SONT PAS D'ACCORD
+Nos textes l'emportent, sur la forme aussi : comment un texte commence, sa longueur, sa fin. S'ils emploient un tiret, un émoji ou une liste de trois, tu peux le faire aussi, aussi souvent qu'eux.
+
+AVANT DE RÉPONDRE
+Relis ton brouillon. Enlève chaque mot des deux listes ci-dessus et chaque tic d'IA. Vérifie comment tu t'adresses au lecteur, et que le brouillon a la forme que nos textes donnent à son type de texte, ou celle demandée plus haut quand ils n'en montrent pas. Vérifie qu'il remplit encore son but : le lecteur sait quoi faire ensuite et a une raison de le faire. Demande-toi ensuite si une autre marque aurait pu l'écrire. Si oui, réécris-le autour de quelque chose que nous seuls dirions.
+</pre>
+</div></section>
+<section class="band s4 tells"><div class="wrap">
+<h2>Les tics d'IA, en français</h2>
+<p>Ce sont les marques auxquelles les lecteurs reconnaissent désormais un texte écrit par une IA. Chacune vient avec une phrase qui la porte et une version sans elle. La seconde version n'ajoute jamais un fait, et elle fait toujours ce que faisait la première : si la première devait faire venir les gens, la seconde aussi. Si la première n'avait rien à dire, la correction consiste à trouver quelque chose à dire.</p>
+<p>Vos propres textes passent avant cette liste. Si vous écrivez avec des tirets, ou par trois, continuez.</p>
+<div class="groups">
+<div class="group">
+<h3>Le vocabulaire de brochure</h3>
+<p>Au cœur de, niché, véritable, incontournable, authentique, chaleureux, convivial, univers, expérience.</p>
+<p class="before">Avant : « Niché au cœur de la vieille ville, notre atelier chaleureux vous propose une expérience unique. »</p>
+<p>Après : « Notre atelier est dans la vieille ville : passez nous voir. »</p>
+</div>
+<div class="group">
+<h3>Allier tradition et modernité</h3>
+<p>Et « mettre un point d'honneur à », qui l'accompagne souvent.</p>
+<p class="before">Avant : « Nous mettons un point d'honneur à allier savoir-faire artisanal et technologies de pointe. »</p>
+<p>Après : « Nous travaillons à la main, avec des machines récentes. »</p>
+</div>
+<div class="group">
+<h3>L'échelle de connecteurs</h3>
+<p>De plus, Par ailleurs, En outre, Enfin, En conclusion.</p>
+<p class="before">Avant : « Nous ouvrons désormais jusqu'à 22 heures. De plus, la terrasse rouvre. Par ailleurs, la carte change chaque semaine. »</p>
+<p>Après : « Nous ouvrons jusqu'à 22 heures, la terrasse rouvre et la carte change chaque semaine. »</p>
+</div>
+<div class="group">
+<h3>Les participes en cascade</h3>
+<p>Permettant, offrant, garantissant.</p>
+<p class="before">Avant : « Notre nouvelle formule, permettant une livraison plus rapide et offrant une plus grande souplesse, garantit votre satisfaction. »</p>
+<p>Après : « Avec la nouvelle formule, vous êtes livré plus vite, et elle est plus souple. »</p>
+</div>
+<div class="group">
+<h3>« Ce n'est pas X, c'est Y »</h3>
+<p>Et sa variante, « non seulement… mais également ».</p>
+<p class="before">Avant : « Ce n'est pas un simple vélo, c'est une promesse de liberté sur sept vitesses. »</p>
+<p>Après : « Un vélo à sept vitesses, pour aller où vous voulez. »</p>
+</div>
+<div class="group">
+<h3>Tout par trois</h3>
+<p>Et les énumérations sans « et » avant le dernier terme.</p>
+<p class="before">Avant : « Des produits frais, locaux, de saison, choisis avec soin. »</p>
+<p>Après : « Des produits de saison, qui viennent d'à côté. »</p>
+</div>
+<div class="group">
+<h3>Le tiret cadratin comme ponctuation</h3>
+<!-- brand-check: ok dash specimen from the tells list -->
+<p class="before">Avant : « Nous livrons le mardi — et seulement le mardi. »</p>
+<p>Après : « Nous livrons le mardi, et seulement le mardi. »</p>
+</div>
+<div class="group">
+<h3>La mise en forme du chat</h3>
+<p>Le gras, les émojis, et une majuscule à chaque mot d'un titre.</p>
+<p class="before">Avant : « ✨ **Nouvelle Collection Automne** ✨ »</p>
+<p>Après : « La collection d'automne est arrivée : venez la voir. »</p>
+</div>
+<div class="group">
+<h3>Les formules toutes faites</h3>
+<p>« N'hésitez pas à nous contacter », « Au plaisir de vous accueillir ».</p>
+<p class="before">Avant : « N'hésitez pas à nous contacter pour toute question. Au plaisir de vous accueillir très bientôt ! »</p>
+<p>Après : « Pour toute question, écrivez-nous, ou passez nous voir. »</p>
+</div>
+<div class="group">
+<h3>La réponse servile</h3>
+<p class="before">Avant : « Nous sommes sincèrement désolés pour la gêne occasionnée par ce retard de livraison et vous remercions de votre compréhension. »</p>
+<p>Après : « Votre livraison est arrivée en retard, et je m'en excuse. Dites-moi ce qui vous arrangerait, et je m'en occupe. »</p>
+</div>
+<div class="group">
+<h3>La langue de bois</h3>
+<p class="before">Avant : « Nous plaçons l'humain au centre de notre démarche, dans une logique d'amélioration continue. »</p>
+<p>Après : il n'y a rien à réécrire, la phrase ne dit rien. Dites à l'IA ce que vous faites concrètement : qui répond au téléphone, et en combien de temps.</p>
+</div>
+<div class="group">
+<h3>La version que tout le monde écrirait</h3>
+<p>Elle ne contient rien que seule cette marque pourrait dire. Aucun mot ne la trahit : c'est le texte entier qui pourrait figurer sur le site de n'importe quelle autre boutique.</p>
+<p class="before">Avant : « Chez Atelier Lune, chaque objet raconte une histoire. »</p>
+<p>Après : pas de réécriture sans un fait. Donnez à l'IA une chose que personne d'autre ne peut dire (le four racheté à un boulanger qui partait, la cliente qui revient chaque samedi) et demandez-lui de partir de là.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>La liste vient de la page d'aide de Wikipédia en français, « Identifier l'usage d'une IA générative » (fr.wikipedia.org), du projet humanizer de blader (github.com/blader/humanizer, licence MIT), bâti sur le guide de Wikipédia en anglais « Signs of AI writing », et des règles maison de Taykon Studio pour le français. La dernière marque adapte StoryScope, une étude de la fiction écrite par IA (arXiv 2604.03136). Les exemples ont été écrits pour ce kit.</p>
+</div>
+</div>
+</div></section>
+<section class="band s7"><div class="wrap">
+<h2>Où coller le fichier</h2>
+<p>Le fichier court va là où votre assistant le lit dans chaque conversation. Le fichier complet va dans un projet ou une compétence, un espace que vous ouvrez pour le travail de marque, où vous pouvez aussi déposer les textes donnés pendant l'entretien. Utilisez les deux si vous le pouvez : le court suffit pour un message rapide, le complet sert pour une page ou une lettre d'information.</p>
+<p>Vérifié sur les pages d'aide de chaque assistant le 26 octobre 2026, et le 27 pour les textes dans une compétence Gemini. Les menus bougent : si un intitulé diffère, cherchez le plus proche.</p>
+<div class="groups">
+<div class="group">
+<h3>ChatGPT</h3>
+<p>Le fichier court va dans les instructions personnalisées, sur toutes les offres. Sur le web : Paramètres, Personnalisation, activez « Activer la personnalisation », puis collez-le dans le champ Instructions personnalisées. Sur l'application mobile : Paramètres, Personnaliser ChatGPT. Le champ accepte jusqu'à 1 500 caractères en Free et Go, 5 000 en Plus et au-delà : c'est pour cela que le fichier court reste sous 1 500.</p>
+<p>Le fichier complet va dans un projet. Ouvrez le projet, choisissez le menu Plus d'options (•••), puis Paramètres du projet, et collez-le dans les instructions. Elles ne valent que dans ce projet et y remplacent vos instructions personnalisées. Ajoutez vos textes aux fichiers du projet : 5 en Free, 25 en Plus et Go, et 40 en Pro.</p>
+<p>Les GPT personnalisés ne peuvent plus être créés sur les comptes personnels, et OpenAI prévoit de les retirer : le kit ne s'en sert pas.</p>
+</div>
+<div class="group">
+<h3>Claude</h3>
+<p>Le fichier court va dans les instructions de votre compte. Cliquez sur vos initiales en bas à gauche, puis sur « Paramètres », « Votre Claude », et collez-le sous « Instructions ». Il vaut pour toutes vos conversations.</p>
+<p>Le fichier complet va dans un projet. Les projets sont ouverts aux comptes gratuits, jusqu'à cinq. Créez-en un pour votre marque, cliquez sur « Définir les instructions du projet », collez le fichier et enregistrez. Déposez vos textes dans l'espace de connaissances, à droite de la page du projet.</p>
+</div>
+<div class="group">
+<h3>Gemini</h3>
+<p>Sur Gemini, le kit utilise le fichier complet, sous forme de compétence. Le contexte personnel de Gemini pourrait accueillir le fichier court, mais ses exemples tiennent en une ligne et le kit ne l'y a pas testé. Les Gems passent en lecture seule le 17 novembre 2026 et deviennent des compétences : commencez directement par une compétence.</p>
+<p>Sur gemini.google.com, dans la barre latérale : Personnaliser (sous Plus si vous ne le voyez pas), Compétences, Créer, Créer manuellement. Donnez-lui le nom de votre marque. Collez ceci comme description, avec le nom de votre marque :</p>
+<p>« À utiliser pour chaque texte écrit pour [marque] ou en son nom : pages du site et courriels, publications et réponses aux clients. »</p>
+<p>Collez le fichier complet comme instructions. En dessous, dans le même champ, écrivez NOS TEXTES sur une ligne à part et collez vos textes à la suite. Une compétence créée à la main ne peut pas contenir de fichiers, et Google conseille de mettre les exemples dans les instructions mêmes. Gemini décide d'utiliser une compétence d'après son nom et sa description seulement : c'est pour cela que la description cite chaque type de texte. Pour ne rien laisser au hasard, tapez / dans une conversation et choisissez la compétence. Les compétences demandent d'avoir au moins 18 ans, d'utiliser un compte Google personnel et d'avoir activé Conserver l'activité.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>Les pages d'aide en français de help.openai.com, support.claude.com et support.google.com/gemini, lues le 26 octobre 2026. Pour les textes dans une compétence Gemini : les pages en anglais « Create &amp; manage skills for Gemini Apps » et « Write effective skills for Gemini Apps », lues le 27 octobre 2026.</p>
+</div>
+</div>
+</div></section>
+<section class="band s6"><div class="wrap">
+<h2>Levain, avant et après</h2>
+<p>Levain est une boulangerie fictive. Le 27 octobre 2026, une IA a joué son fondateur pendant cet entretien, sans que personne ne modifie rien entre le premier message et le fichier de voix. Les mêmes cinq demandes ont ensuite été envoyées deux fois à Claude : une fois sans rien, une fois avec ce fichier dans ses instructions.</p>
+<p>Un script a compté les tics qu'il peut voir en surface, comme les émojis, les hashtags et les mots de la liste. Dans les cinq textes écrits sans le fichier, il en a trouvé 18 ; dans les cinq écrits avec, aucun.</p>
+<p>Un script ne voit pas un fait inventé, alors les dix textes ont aussi été lus. Sans le fichier, la page prête au pain un « caractère franc et légèrement acidulé » que personne n'a décrit, et la publication LinkedIn promet « une vraie relation de confiance ». Avec le fichier, quatre des cinq textes s'en tiennent à la demande et aux textes du fondateur, à deux détails près. La page reprend une de ses phrases, « puis nous recommençons pour après-demain », qui contredit les quarante pains par jour de la demande. La réponse ajoute « Si la commande ne passe pas », une condition que personne n'a donnée.</p>
+<p>Avant le test, quatre conditions de réussite ont été fixées, dont celle-ci : aucun texte écrit avec le fichier n'est remplacé par une question ou une note. Le français échoue sur ce point. Pendant l'entretien, le fondateur joué par l'IA a choisi que Levain ne soit pas sur LinkedIn et qu'on lui demande avant d'écrire pour ce réseau. Le fichier l'a noté, et Claude a posé la question au lieu d'écrire la publication. Elle figure plus bas, telle quelle.</p>
+<div class="pairs">
+<div class="pair">
+<h3>Le paragraphe du site</h3>
+<p class="ask">La demande : Je tiens Levain, une boulangerie de la rue du Moulin 3, à Lausanne. Écris le paragraphe du pain de seigle pour notre site. Les faits : il lui faut deux jours. Quarante pains par jour, prêts à dix heures. Le levain est nourri deux fois par jour et la pâte repose une nuit au froid. Seulement le texte, sans commentaire.</p>
+<div class="two">
+<div><p class="label">Sans le fichier</p><p class="said">Notre pain de seigle demande deux jours de travail. Le levain, nourri matin et soir, donne à la pâte son caractère franc et légèrement acidulé. Une fois pétrie, elle repose une nuit entière au froid, le temps de développer ses arômes et sa mie dense et moelleuse. Le lendemain, elle est façonnée puis cuite au four. Nous n'en réalisons que quarante par jour, prêts à dix heures. Passez tôt à la boulangerie, rue du Moulin 3, car il ne reste jamais longtemps sur l'étal.</p></div>
+<div><p class="label">Avec le fichier</p><p class="said">Levain est une petite boulangerie, rue du Moulin 3, à Lausanne. Le pain de seigle prend deux jours. Notre levain est nourri deux fois par jour, la pâte repose une nuit au froid et cuit le lendemain. Nous faisons quarante pains par jour, prêts à dix heures, puis nous recommençons pour après-demain.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Une légende Instagram</h3>
+<p class="ask">La demande : Je tiens Levain, une boulangerie de la rue du Moulin 3, à Lausanne. Écris une légende Instagram : le seigle revient ce samedi, quarante pains, dès dix heures. Seulement le texte, sans commentaire.</p>
+<div class="two">
+<div><p class="label">Sans le fichier</p><p class="said">Le seigle est de retour. 🌾
+
+Ce samedi, on sort quarante pains, pas un de plus. Une croûte bien cuite, une mie dense et légèrement acidulée, du pain comme on l'aime.
+
+Rendez-vous dès 10 h chez Levain, rue du Moulin 3, à Lausanne. Premiers arrivés, premiers servis.
+
+À samedi !
+
+#levain #boulangerielausanne #painauseigle #lausanne #painartisanal #faitmaison</p></div>
+<div><p class="label">Avec le fichier</p><p class="said">Le seigle est de retour. Quarante pains, dès dix heures samedi.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Une réponse à un client mécontent</h3>
+<p class="ask">La demande : Je tiens Levain, une boulangerie de la rue du Moulin 3, à Lausanne. Un client nous a écrit : « Je suis venu samedi à onze heures et il n'y avait plus de seigle, pour la deuxième fois de suite. Pourquoi vous n'en faites pas plus ? » Écris notre réponse. Les faits : le seigle demande deux jours, alors nous en cuisons quarante. On peut commander pour le samedi sur notre site. Seulement le texte, sans commentaire.</p>
+<div class="two">
+<div><p class="label">Sans le fichier</p><p class="said">Bonjour,
+
+Merci de votre message, et toutes nos excuses : trouver les étagères vides deux samedis de suite, c'est agaçant, surtout quand on vient pour un pain précis.
+
+Voici l'explication : le pain de seigle demande deux jours de travail. Nous devons donc fixer la quantité à l'avance, et nous en cuisons quarante par fournée. Le samedi, ils partent vite, et à onze heures il n'en reste souvent plus.
+
+Pour être certain d'en avoir, le plus simple est de le commander sur notre site, en choisissant le samedi comme jour de retrait. Nous vous en mettons un de côté, et vous le trouvez à votre arrivée, à l'heure qui vous convient.
+
+Nous espérons vous revoir bientôt rue du Moulin 3.
+
+Bien cordialement,
+
+L'équipe de Levain</p></div>
+<div><p class="label">Avec le fichier</p><p class="said">Bonjour,
+
+Je suis désolé que vous soyez venu deux samedis de suite sans trouver de seigle. Il demande deux jours de travail, alors nous en cuisons quarante, et samedi ils étaient déjà partis à onze heures. Pour en avoir à coup sûr, commandez-le pour le samedi sur notre site. Si la commande ne passe pas, appelez la boutique et demandez-moi.
+
+Sam</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>L'ouverture d'une lettre d'information</h3>
+<p class="ask">La demande : Je tiens Levain, une boulangerie de la rue du Moulin 3, à Lausanne. Écris le paragraphe d'ouverture de notre lettre d'information de novembre. La nouvelle : dès le 1er novembre, le pain de campagne (800 g) est cuit deux fois par jour, à l'aube et à midi. Seulement le texte, sans commentaire.</p>
+<div class="two">
+<div><p class="label">Sans le fichier</p><p class="said">Dès le 1er novembre, une bonne nouvelle attend les amateurs de croûte dorée et de mie encore tiède : chez Levain, notre pain de campagne de 800 g sera cuit deux fois par jour. Une première fournée sortira du four à l'aube, pour accompagner vos petits-déjeuners, et une seconde à midi, pour que vos repas du soir ne se contentent plus des restes de la matinée. Que vous passiez nous voir en début de journée ou à la pause de midi, vous trouverez à la boulangerie de la rue du Moulin 3 un pain fraîchement cuit, fidèle à ce que nous aimons faire : prendre le temps, et vous le servir au meilleur moment.</p></div>
+<div><p class="label">Avec le fichier</p><p class="said">Dès le premier novembre, nous cuisons le pain de campagne deux fois par jour, à l'aube et à midi. Le pain fait 800 g. Vous pouvez donc venir le chercher le matin comme au milieu de la journée. La première cuisson de midi sort du four le premier novembre, à midi, rue du Moulin 3.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Une publication LinkedIn</h3>
+<p class="ask">La demande : Je tiens Levain, une boulangerie de la rue du Moulin 3, à Lausanne. Écris une publication LinkedIn : Levain commence la vente en gros au printemps 2027, pour les cafés et les restaurants du quartier. Les entreprises intéressées peuvent écrire à hello@levain.example. Seulement le texte, sans commentaire.</p>
+<div class="two">
+<div><p class="label">Sans le fichier</p><p class="said">🥖 Levain passe à la vente en gros dès le printemps 2027 !
+
+Depuis la rue du Moulin 3, à Lausanne, nous pétrissons, façonnons et cuisons chaque jour des pains que vous connaissez bien. Dès le printemps 2027, nous les proposerons aussi aux cafés et aux restaurants du quartier.
+
+Pourquoi ce choix ? Parce que nous croyons à la force d'un tissu local : celles et ceux qui font vivre le quartier méritent un pain frais, travaillé avec soin, livré à deux pas de chez eux. Pas de longs trajets, pas d'intermédiaires, juste du bon pain et une vraie relation de confiance.
+
+Vous tenez un café, un restaurant, une table d'hôtes dans le quartier ? Nous serions ravis d'échanger avec vous sur vos besoins, vos volumes et vos envies : pains pour le service du midi, tartines du brunch, corbeilles du soir…
+
+📩 Les entreprises intéressées peuvent nous écrire à hello@levain.example
+
+Au plaisir de faire un bout de chemin ensemble, et de partager le pain avec vous !
+
+#Lausanne #Boulangerie #Artisanat #CircuitCourt #Restauration #Levain</p></div>
+<div><p class="label">Avec le fichier</p><p class="said">Avant d'écrire pour LinkedIn, j'ai une question : nos textes n'en montrent aucun et nous n'y sommes pas, d'après mon fichier de voix. Ma consigne est de vous demander d'abord.
+
+Levain ouvre-t-il une page LinkedIn pour cette annonce, ou la publication sort-elle d'un compte personnel ? Cela décide si j'écris au « nous » de la boutique ou au « je », signé d'un prénom.
+
+Si vous préférez que je suive la forme de nos textes sobres (la nouvelle en premier, deux ou trois phrases courtes, une fin sur l'adresse hello@levain.example), dites-le-moi et je l'écris tout de suite.</p></div>
+</div>
+</div>
+</div>
+</div></section>
+<section class="band s1"><div class="wrap" style="padding-bottom:0"><p class="meta">Gratuit, sous licence MIT.</p></div></section>
+</div>
+<div data-lang="en" lang="en">
+<section class="band s1"><div class="wrap" style="padding-top:0">
+<p class="lede">An interview that reads texts you wrote and turns them into a voice file: a text you give ChatGPT, Claude or Gemini so that what it writes for you sounds like your brand.</p>
+<h2 class="sub">How it works</h2>
+<p>Paste the prompt below into a new chat with ChatGPT, Claude or Gemini, as your first message. It asks for three to five texts you wrote and like, and one you would hate to have written.</p>
+<p>It tells you what your texts do, then asks twelve questions at most, one per message. Each comes with answers drafted from your texts. Pick one, correct one, or say "decide for me". It talks to you in the language you write in.</p>
+<p>At the end it writes your voice file in two sizes, in plain text. The short one stays under 1,500 characters, the size of ChatGPT's custom instructions on the free plan. The full one stays under 8,000 and goes into a project or a skill. Where to paste each one is further down.</p>
+</div></section>
+<section class="band s3"><div class="wrap">
+<h2>The prompt</h2>
+<div class="bar"><button class="copy" type="button" data-target="prompt-en" data-label="Copy the prompt" data-done="Copied">Copy the prompt</button>
+<p class="meta" aria-live="polite">8,267 characters.</p></div>
+<pre class="text scroll" id="prompt-en" tabindex="0">I want you to help me write a voice file for my brand: a text I will give my AI assistant so that what it writes for us sounds like us, not like every other brand. Interview me, then write the file.
+
+HOW THE INTERVIEW GOES
+
+First ask me for three to five real texts I wrote and like, such as a page of our website, an email or a reply to a customer. Ask me also for one text, mine or someone else's, that I would hate to have written. Wait until I have pasted them before you ask anything else.
+
+Then tell me, in five lines at most, what my texts do. Say how long the sentences run and who speaks (I, we or the brand's name). Say how I address the reader, what I name and what I never claim. Ask me whether you read them right.
+
+Then ask your questions, one per message, twelve at most. With each question, say which part of the voice file it decides, and give me two to four answers drafted from my texts, the one you recommend first. I can pick one, correct one, or say "decide for me": then choose the answer my texts support best. Every five questions, sum up in three lines what we have decided.
+
+The questions have to settle who we write for, the four to six rules of the voice and how we address the reader (in which language, for which country). They also settle the words we never use and, for each kind of text the full template lists, its job, its tone and its shape. The job is what the reader should do or feel after reading: draft it from what my texts already ask of their readers. The shape is how a text opens, how long it runs, how it ends and whether it has a list. When my texts show that kind of text, take its shape from them, even where it differs from the rule in the template, and keep the job. Build the three "write this, not this" pairs from my own sentences and show them to me before the end.
+
+RULES FOR YOU
+
+Never add a fact about my business that I have not given you, such as a figure, a date or a customer's name. If something is missing, ask me.
+Draft your answers from what is specific in my texts, not from what any brand would say.
+The voice changes how my texts say things, not what they are for. A file that turns a text that invites or sells into one that only informs has failed.
+Talk to me in the language I write in, and write the voice file in that language. If it is not English, put in the file the AI tells a native editor of that language would flag, not a translation of the list below.
+Write in plain text, without markdown, so the file can be pasted anywhere.
+
+AT THE END
+
+Write the two versions of the voice file, each in one block I can copy, following the two templates below. Fill every bracket, and drop a line only if it does not apply to us. Under each block, give its length in words. The short version must stay under 1,500 characters, about 200 words, because that is the size of the smallest field it goes into. The full version stays under 8,000 characters, about 1,100 words.
+
+THE AI TELLS, FOR ENGLISH
+
+Brochure words: nestled, in the heart of, vibrant, rich, boasts, stunning, must-visit.
+The AI vocabulary: delve, tapestry, landscape, crucial, pivotal, enhance, foster, showcase, testament.
+"Not just X, it's Y", and its short form ("No guessing.").
+Everything in threes.
+The em dash used as punctuation.
+Bold, emoji and hashtags the brand does not use itself.
+Chat leftovers: "Here's", "I hope this helps", "Let me know if".
+The servile reply: "Thank you so much for reaching out", "We sincerely apologize for any inconvenience".
+The upbeat send-off: "We can't wait to see you", "Exciting times ahead".
+Staccato lines and slogans: "No shortcuts. No compromises."
+Fake-candid openers: "Honestly?", "Here's the thing".
+The version anyone would write: nothing in it that only this brand could say.
+
+THE SHORT TEMPLATE
+
+[Brand] writes for [who they are, in one line].
+Voice: [rule one]. [Rule two]. [Rule three].
+We are [X], not [Y]; [X], not [Y].
+We address the reader as [you, first name or the form we use], in [language and country].
+Every text has a job: [what our texts ask the reader to do]. Keep the reason to act. Shorter is not better.
+Tone: website [a few words]; email [a few words]; social posts [a few words]; unhappy customers [a few words]. No markdown.
+Never write: [five words or tells, ours first].
+Never invent a fact. Ask only for one the text cannot do without.
+Before you answer: remove those words, check how you address the reader and that the text still does its job, and ask whether another brand could have written it. If it could, rewrite it.
+
+THE FULL TEMPLATE
+
+VOICE FILE FOR [BRAND]
+Use it for every text you write for [brand] or in its name. Read all of it before you write.
+
+WHO WE WRITE FOR
+[Two or three sentences: who they are, what they already know, what they come to us for.]
+
+THE VOICE
+[Four to six rules a reader could check on any paragraph. Each one is followed by a short example from our own texts.]
+Sentences: [length and rhythm]. Example: "[...]"
+Who speaks: [we, I or the brand's name]. We address the reader as [you, first name or the form we use], in [language and country].
+What we name: [the concrete things we always say, such as products, times and places]. Example: "[...]"
+What we never claim: [...]
+[Rule five, if we need it.]
+[Rule six, if we need it.]
+We are [X], not [Y]. [X], not [Y]. [X], not [Y].
+When a clear sentence and a clever one compete, write the clear one.
+
+EACH KIND OF TEXT
+Every text has a job: what the reader should do or feel once they have read it. Keep the reason to act, and carry it with our facts, never with praise. A shorter text is not a better one if it stops doing its job.
+The voice stays the same everywhere. The tone and the shape change with the kind of text. Where our texts show a kind of text, its shape comes from them; the rules below are for the kinds they do not show.
+Website: [its job, and the tone in a few words]. Put what the reader came for in the first sentence, because a reader may stop there.
+Newsletter: [its job, and the tone]. The news comes first. One purpose per email, ending on the one next step, with the link or the address.
+Email to one person: [its job, and the tone]. [How we open and sign.] Say what happens next and whom to contact.
+Instagram: [its job, and the tone]. Most people see only the first line before "more", so the reason to stop goes there. [Emoji and line breaks: whether we use them.] Hashtags: [none, or up to five of ours]. End on what to do, when there is something to do.
+LinkedIn: [its job, and the tone]. The first two lines show before "see more": put the news there, or a question to the reader. Speak to the reader as "you". Hashtags: [none, or three to five of ours]. End on the next step.
+Reply to an unhappy customer: [the tone]. Say sorry once, at the start, for what actually went wrong. Then say what we are doing about it and when, offer a choice when we have one, and give a person to contact.
+Formatting: no markdown anywhere, so no bold and no headings inside a message. Lists only if we use them.
+
+WORDS WE NEVER USE
+Ours: [the brand's own list].
+AI tells: [the tells for our language].
+
+WRITE THIS, NOT THIS
+Write: "[a sentence from our texts]"
+Not: "[the sentence a generic AI would write instead]"
+Because: [one clause on the difference].
+
+Write: "[...]"
+Not: "[...]"
+Because: [...]
+
+Write: "[...]"
+Not: "[...]"
+Because: [...]
+
+FACTS
+Write only what is in this file, in my request or in the material I give you. Never make up a price, a date or a name. Ask me for one only if the text cannot do its job without it; otherwise write the text without it.
+
+WHEN THIS FILE AND OUR TEXTS DISAGREE
+Our texts win, on shape too: how a text opens, how long it runs, how it ends. If they use a dash, an emoji or a list of three, you may too, as often as they do.
+
+BEFORE YOU ANSWER
+Read your draft again. Take out every word from the two lists above and every AI tell. Check how you address the reader, and that the draft has the shape our texts give its kind of text, or the one above when they show none. Check that it still does its job: the reader knows what to do next and has a reason to. Then ask yourself whether another brand could have written it. If it could, rewrite it around something only we would say.
+
+Start now: ask me for my texts.
+</pre>
+<h3>The two templates</h3>
+<p>The interview fills these in with your answers. They are already in the prompt; they are here so you can read them first.</p>
+<h3>The short file</h3>
+<pre class="text">[Brand] writes for [who they are, in one line].
+Voice: [rule one]. [Rule two]. [Rule three].
+We are [X], not [Y]; [X], not [Y].
+We address the reader as [you, first name or the form we use], in [language and country].
+Every text has a job: [what our texts ask the reader to do]. Keep the reason to act. Shorter is not better.
+Tone: website [a few words]; email [a few words]; social posts [a few words]; unhappy customers [a few words]. No markdown.
+Never write: [five words or tells, ours first].
+Never invent a fact. Ask only for one the text cannot do without.
+Before you answer: remove those words, check how you address the reader and that the text still does its job, and ask whether another brand could have written it. If it could, rewrite it.
+</pre>
+<h3>The full file</h3>
+<pre class="text">VOICE FILE FOR [BRAND]
+Use it for every text you write for [brand] or in its name. Read all of it before you write.
+
+WHO WE WRITE FOR
+[Two or three sentences: who they are, what they already know, what they come to us for.]
+
+THE VOICE
+[Four to six rules a reader could check on any paragraph. Each one is followed by a short example from our own texts.]
+Sentences: [length and rhythm]. Example: "[...]"
+Who speaks: [we, I or the brand's name]. We address the reader as [you, first name or the form we use], in [language and country].
+What we name: [the concrete things we always say, such as products, times and places]. Example: "[...]"
+What we never claim: [...]
+[Rule five, if we need it.]
+[Rule six, if we need it.]
+We are [X], not [Y]. [X], not [Y]. [X], not [Y].
+When a clear sentence and a clever one compete, write the clear one.
+
+EACH KIND OF TEXT
+Every text has a job: what the reader should do or feel once they have read it. Keep the reason to act, and carry it with our facts, never with praise. A shorter text is not a better one if it stops doing its job.
+The voice stays the same everywhere. The tone and the shape change with the kind of text. Where our texts show a kind of text, its shape comes from them; the rules below are for the kinds they do not show.
+Website: [its job, and the tone in a few words]. Put what the reader came for in the first sentence, because a reader may stop there.
+Newsletter: [its job, and the tone]. The news comes first. One purpose per email, ending on the one next step, with the link or the address.
+Email to one person: [its job, and the tone]. [How we open and sign.] Say what happens next and whom to contact.
+Instagram: [its job, and the tone]. Most people see only the first line before "more", so the reason to stop goes there. [Emoji and line breaks: whether we use them.] Hashtags: [none, or up to five of ours]. End on what to do, when there is something to do.
+LinkedIn: [its job, and the tone]. The first two lines show before "see more": put the news there, or a question to the reader. Speak to the reader as "you". Hashtags: [none, or three to five of ours]. End on the next step.
+Reply to an unhappy customer: [the tone]. Say sorry once, at the start, for what actually went wrong. Then say what we are doing about it and when, offer a choice when we have one, and give a person to contact.
+Formatting: no markdown anywhere, so no bold and no headings inside a message. Lists only if we use them.
+
+WORDS WE NEVER USE
+Ours: [the brand's own list].
+AI tells: [the tells for our language].
+
+WRITE THIS, NOT THIS
+Write: "[a sentence from our texts]"
+Not: "[the sentence a generic AI would write instead]"
+Because: [one clause on the difference].
+
+Write: "[...]"
+Not: "[...]"
+Because: [...]
+
+Write: "[...]"
+Not: "[...]"
+Because: [...]
+
+FACTS
+Write only what is in this file, in my request or in the material I give you. Never make up a price, a date or a name. Ask me for one only if the text cannot do its job without it; otherwise write the text without it.
+
+WHEN THIS FILE AND OUR TEXTS DISAGREE
+Our texts win, on shape too: how a text opens, how long it runs, how it ends. If they use a dash, an emoji or a list of three, you may too, as often as they do.
+
+BEFORE YOU ANSWER
+Read your draft again. Take out every word from the two lists above and every AI tell. Check how you address the reader, and that the draft has the shape our texts give its kind of text, or the one above when they show none. Check that it still does its job: the reader knows what to do next and has a reason to. Then ask yourself whether another brand could have written it. If it could, rewrite it around something only we would say.
+</pre>
+</div></section>
+<section class="band s4 tells"><div class="wrap">
+<h2>The AI tells, in English</h2>
+<p>These are the marks readers now spot in text an AI wrote. Each one comes with a sentence that has it and a version without it. The second version never adds a fact, and it still does what the first one was for: if the first was there to bring people in, so is the second. If the first one had nothing to say, the fix is to find something.</p>
+<p>Your own texts outrank this list. If you write with dashes, or in threes, keep doing it.</p>
+<div class="groups">
+<div class="group">
+<h3>Puffing up what happened</h3>
+<p class="before">Before: "Opening at seven marks a pivotal moment in our journey and stands as a testament to our commitment to the neighbourhood."</p>
+<p>After: "We now open at seven, so you can stop by before work."</p>
+</div>
+<div class="group">
+<h3>Brochure words</h3>
+<p>Nestled, in the heart of, vibrant, rich, boasts, stunning, must-visit.</p>
+<p class="before">Before: "Nestled in the heart of the old town, our vibrant studio boasts stunning views of the river."</p>
+<p>After: "Our studio is in the old town, with the river right outside the window."</p>
+</div>
+<div class="group">
+<h3>The AI vocabulary</h3>
+<p>Delve, tapestry, landscape, crucial, pivotal, enhance, foster, showcase, testament.</p>
+<p class="before">Before: "Each blend is crafted to enhance your morning and showcase the intricate interplay of Ethiopian and Brazilian beans."</p>
+<p>After: "Ethiopian and Brazilian beans, blended for your first cup of the day."</p>
+</div>
+<div class="group">
+<h3>"Not just X, it's Y"</h3>
+<p>Also in its short form, the clipped line that denies something nobody said: "No guessing."</p>
+<p class="before">Before: "It's not just a haircut, it's forty minutes that are yours alone."</p>
+<p>After: "A cut takes forty minutes, and for those forty minutes you are our only client."</p>
+</div>
+<div class="group">
+<h3>Everything in threes</h3>
+<p class="before">Before: "Our classes are fun, friendly and inclusive, for beginners, improvers and experts."</p>
+<p>After: "Our classes are open to every level, beginners included."</p>
+</div>
+<div class="group">
+<h3>The em dash as punctuation</h3>
+<!-- brand-check: ok dash specimen from the tells list -->
+<p class="before">Before: "We bake every morning — and we sell out by noon."</p>
+<p>After: "We bake every morning, and we sell out by noon."</p>
+</div>
+<div class="group">
+<h3>Chat formatting pasted into copy</h3>
+<p>Bold, emoji and hashtags that the brand never uses on its own.</p>
+<p class="before">Before: "🍂 **Our Autumn Range Is Here!** 🍂 #Autumn #ShopLocal"</p>
+<p>After: "Our autumn range is in the shop. Come and have a look."</p>
+</div>
+<div class="group">
+<h3>Chat leftovers</h3>
+<p>"Here's", "I hope this helps", "Let me know if".</p>
+<p class="before">Before: "Here's a caption for your post: Our autumn range is in the shop, come and have a look! Let me know if you'd like a shorter version!"</p>
+<p>After: "Our autumn range is in the shop. Come and have a look."</p>
+</div>
+<div class="group">
+<h3>The servile reply</h3>
+<p class="before">Before: "Thank you so much for reaching out! We sincerely apologize for any inconvenience the late delivery may have caused."</p>
+<p>After: "Your delivery was late, and I'm sorry. Tell me what would put it right for you."</p>
+</div>
+<div class="group">
+<h3>The upbeat send-off</h3>
+<p class="before">Before: "The shop reopens on 3 March. We can't wait to see you, exciting times lie ahead!"</p>
+<p>After: "The shop reopens on 3 March. Come and see us."</p>
+</div>
+<div class="group">
+<h3>Staccato lines and slogans</h3>
+<p class="before">Before: "No shortcuts. No compromises. Just honest work. Because craft is the language of trust."</p>
+<p>After: "We do not cut corners." Better still, tell the AI which corner you never cut, and let it say that instead.</p>
+</div>
+<div class="group">
+<h3>Fake-candid openers</h3>
+<p>"Honestly?", "Here's the thing", "Let's be real".</p>
+<p class="before">Before: "Is it worth the price? Honestly? It lasts twice as long."</p>
+<p>After: "It costs more, and it lasts twice as long."</p>
+</div>
+<div class="group">
+<h3>The version anyone would write</h3>
+<p>It holds nothing that only this brand could say. No single word gives it away: the whole text could sit on any other shop's website.</p>
+<p class="before">Before: "At Corner Books, we believe in the power of stories to bring people together."</p>
+<p>After: there is no rewrite without a fact. Give the AI one thing only you can say (the shelf you built yourself, the author who came on a Tuesday) and ask it to start there.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>The list comes from the humanizer skill by blader (github.com/blader/humanizer, MIT licence), which is built on Wikipedia's guide "Signs of AI writing" (en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing). The last tell, the version anyone would write, adapts StoryScope, a study of AI fiction (arXiv 2604.03136). The examples were written for this kit.</p>
+</div>
+</div>
+</div></section>
+<section class="band s7"><div class="wrap">
+<h2>Where to paste it</h2>
+<p>The short file goes where your assistant reads it in every chat. The full file goes into a project or a skill, a space you open for brand work, where you can also leave the texts you gave the interview. Use both if you can: the short one covers a quick message, the full one covers a page or a newsletter.</p>
+<p>Checked on the help pages of each assistant on 26 October 2026, and on 27 October for the texts in a Gemini skill. Menus move, so if a label differs, look for the nearest one.</p>
+<div class="groups">
+<div class="group">
+<h3>ChatGPT</h3>
+<p>The short file goes in Custom Instructions, on every plan. On the web: Settings, Personalization, turn on "Enable customization", then paste it in the Custom Instructions field. On the phone app: Settings, Customize ChatGPT. The field takes 1,500 characters on Free and Go and 5,000 on Plus and above, which is why the short file stays under 1,500.</p>
+<p>The full file goes in a project. Open the project, select the more options menu (•••), then Project settings, and paste it in the instructions. They apply only inside that project and override your custom instructions there. Add your sample texts to the project's files: 5 files on Free, 25 on Plus and Go, and 40 on Pro.</p>
+<p>Custom GPTs are no longer open to new creation on personal accounts, and OpenAI plans to retire them, so the kit does not use them.</p>
+</div>
+<div class="group">
+<h3>Claude</h3>
+<p>The short file goes in your account instructions. Click your initials at the bottom left, then "Settings", "Your Claude", and paste it under "Instructions". It applies to all your chats.</p>
+<p>The full file goes in a project. Projects are open to free accounts, up to five. Create one for your brand, click "Set project instructions", paste the file and save. Add your sample texts to the project knowledge, on the right of the project page.</p>
+</div>
+<div class="group">
+<h3>Gemini</h3>
+<p>On Gemini the kit uses the full file, as a skill. Gemini's Personal context might hold the short file, but its examples are one line long and the kit has not tested it there. Gems become read only on 17 November 2026 and turn into skills, so start with a skill.</p>
+<p>On gemini.google.com, in the sidebar: Customize (under More if you do not see it), Skills, Create, Create manually. Name it after your brand. Paste this as the description, with your brand's name:</p>
+<p>"Use for every text written for [brand] or in its name, from web pages and emails to social posts and replies to customers."</p>
+<p>Paste the full file as the instructions. Below it, in the same field, write OUR TEXTS on a line of its own and paste your texts under it. A skill made by hand cannot hold files, and Google advises putting examples in the instructions themselves. Gemini decides when to use a skill from its name and description only, which is why the description lists every kind of text. To be sure, type / in a chat and pick the skill. Skills need you to be over 18 and signed in to a personal Google Account, with Keep Activity on.</p>
+</div>
+<div class="group">
+<h3>Sources</h3>
+<p>ChatGPT: help.openai.com, "ChatGPT Custom Instructions", "Projects in ChatGPT", "Creating and editing GPTs". Claude: support.claude.com, "Understanding Claude's personalization features", "What are projects?", "How can I create and manage projects?". Gemini: support.google.com/gemini, "Create &amp; manage skills for Gemini Apps", "About the transition from Gems to skills", "Write effective skills for Gemini Apps".</p>
+</div>
+</div>
+</div></section>
+<section class="band s6"><div class="wrap">
+<h2>Levain, before and after</h2>
+<p>Levain is a fictional bakery. On 26 October 2026 an AI played its founder through this interview, with nobody editing anything between the first message and the voice file. The same five requests then went to Claude twice: once with nothing, and once with that voice file in its instructions.</p>
+<p>A script counted the tells it can see on the surface, such as emoji, hashtags and the words on the list. In the five texts written without the file it found 15, and in the five written with it, none.</p>
+<p>A script cannot see an invented fact, or a text that no longer does its job, so all ten texts were also read by hand. Without the file, the reply says forty loaves "each week", a unit no request gave, and the page, the caption and the newsletter praise a taste or a crust no request mentioned. With the file, each text still does what its kind of text is for: the reply tells the customer how to make sure of a loaf, and the post ends on the address to write to. The file also got two things wrong. It repeats "the next bake is for the day after tomorrow" where that line contradicts the request, and the post adds "so each bake is planned two days ahead", which nobody gave.</p>
+<p>For the LinkedIn post, the file first asked what the post was for, because Levain had no LinkedIn text to learn from. The post below came after a one-line answer.</p>
+<p>This test ran on an earlier version of the kit, before the file took each kind of text's shape from your texts and asked only for the facts a text cannot do without. It has not been run again since.</p>
+<div class="pairs">
+<div class="pair">
+<h3>The paragraph for the website</h3>
+<p class="ask">The request: I run Levain, a bakery at 3 Mill Lane, London. Write the paragraph for the rye loaf on our website. The facts: it takes two days. Forty loaves a day, ready at ten. The levain is fed twice a day and the dough rests overnight in the cold. Just the text, no comments.</p>
+<div class="two">
+<div><p class="label">Without the file</p><p class="said">Our rye loaf takes two days to make. The levain is fed twice a day, and once the dough is mixed it rests overnight in the cold, where it slowly develops its deep, tangy flavour and dense, moist crumb. We bake just forty loaves each day, and they come out of the oven ready at ten. Come to Levain at 3 Mill Lane early, because when they're gone, they're gone.</p></div>
+<div><p class="label">With the file</p><p class="said">The rye is ready at ten, and there are forty loaves each day. It takes two days, so that is all the bake allows. Our levain is fed twice a day, the dough rests overnight in the cold, and it bakes at dawn. When the forty are gone, they are gone, and the next bake is for the day after tomorrow. You can collect from us at 3 Mill Lane.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>An Instagram caption</h3>
+<p class="ask">The request: I run Levain, a bakery at 3 Mill Lane, London. Write an Instagram caption: the rye is back this Saturday, forty loaves, from ten. Just the text, no comments.</p>
+<div class="two">
+<div><p class="label">Without the file</p><p class="said">The rye is back. 🌾
+
+This Saturday we're baking forty loaves of our dark, tangy, slow-fermented rye. Doors open at ten, and once they're gone, they're gone.
+
+Come early, bring a bag, and say hello.
+
+Levain, 3 Mill Lane, London
+Saturday, from 10am
+
+#Levain #RyeBread #LondonBakery #SourdoughLondon #SaturdayBake #BakeryLife</p></div>
+<div><p class="label">With the file</p><p class="said">The rye is back this Saturday. Forty loaves, from ten.
+
+It takes two days, so there are forty. When they are gone, the next bake is for the day after tomorrow.
+
+3 Mill Lane.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>A reply to an unhappy customer</h3>
+<p class="ask">The request: I run Levain, a bakery at 3 Mill Lane, London. A customer wrote to us: "I came at eleven on Saturday and the rye was sold out, the second Saturday in a row. Why don't you bake more?" Write our reply. The facts: the rye takes two days, so we bake forty loaves. Customers can order for Saturday on our website. Just the text, no comments.</p>
+<div class="two">
+<div><p class="label">Without the file</p><p class="said">Hello,
+
+Thank you for writing, and I'm sorry you missed out on the rye two Saturdays running. That's frustrating, especially when you've made the trip.
+
+The rye takes us two days to make, so we have to commit to the quantity well in advance, and we bake forty loaves each week. On Saturdays they tend to go well before eleven.
+
+The surest way to get one is to order ahead on our website. You can reserve a loaf for Saturday and it will be set aside for you, so you won't need to worry about the time you arrive.
+
+I hope we'll see you again soon, and that next time the rye is waiting for you.
+
+Warm regards,
+The team at Levain
+3 Mill Lane, London</p></div>
+<div><p class="label">With the file</p><p class="said">Dear [First name],
+
+We are sorry the rye was gone when you came at eleven, two Saturdays in a row.
+
+The rye takes two days, so we bake forty loaves. When they are gone, the next bake is for the day after tomorrow. You can order for Saturday on our website, and a loaf will wait at the counter with your name on it.
+
+If you want to talk it over, ring the shop at 3 Mill Lane and ask for me.
+
+[First name]
+Levain, 3 Mill Lane</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>The opening of a newsletter</h3>
+<p class="ask">The request: I run Levain, a bakery at 3 Mill Lane, London. Write the opening paragraph of our November newsletter. The news: from 1 November the country loaf (800 g) is baked twice a day, at dawn and at noon. Just the text, no comments.</p>
+<div class="two">
+<div><p class="label">Without the file</p><p class="said">Good news for anyone who has ever arrived at Levain mid-afternoon to find the shelves bare: from 1 November, our country loaf will be baked twice a day. The first batch still comes out of the oven at dawn, as it always has, and now a second follows at noon, so there will be a fresh, crackling 800 g loaf waiting for you well into the afternoon. Whether you're a morning regular or a lunchtime wanderer, we'll have one ready for you at 3 Mill Lane.</p></div>
+<div><p class="label">With the file</p><p class="said">From 1 November, we bake the country loaf twice a day, at dawn and at noon. It is the 800 g loaf, the same one as before. The second bake means you can come to 3 Mill Lane in the afternoon and find a loaf baked that day, so you no longer have to come in the morning.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>A LinkedIn post</h3>
+<p class="ask">The request: I run Levain, a bakery at 3 Mill Lane, London. Write a LinkedIn post: Levain starts wholesale in spring 2027, for cafés and restaurants nearby. Businesses that are interested can write to hello@levain.example. Just the text, no comments.</p>
+<div class="two">
+<div><p class="label">Without the file</p><p class="said">Big news from Levain: we're starting wholesale in spring 2027. 🥖
+
+For years, we've baked for the people who walk through our doors at 3 Mill Lane. Now we want to bring our bread to more tables across the neighbourhood.
+
+We'll be supplying cafés and restaurants nearby with the same loaves we're proud to sell in our own bakery: slow-fermented, baked fresh, and made with care. Being local means your bread arrives only hours out of the oven, and we can build an order around what your kitchen actually needs.
+
+If you run a café or restaurant close to Mill Lane and would like to hear more, we'd love to talk. Write to us at hello@levain.example and we'll be in touch.
+
+Spring 2027 is a way off, but we're starting conversations now so we can get things right from the first delivery.
+
+Thank you to everyone who has supported Levain so far. This next chapter is because of you.
+
+#Levain #London #Bakery #Wholesale #LocalBusiness #Sourdough</p></div>
+<div><p class="label">With the file</p><p class="said">Levain starts wholesale in spring 2027, for cafés and restaurants near Mill Lane.
+
+We bake at 3 Mill Lane. Our levain is fed twice a day, the dough rests overnight in the cold, and it bakes at dawn. It takes two days, so each bake is planned two days ahead.
+
+Cafés and restaurants that want our bread: write to hello@levain.example.</p></div>
+</div>
+</div>
+</div>
+</div></section>
+<section class="band s1"><div class="wrap" style="padding-bottom:0"><p class="meta">Free, under the MIT licence.</p></div></section>
+</div>
+<div data-lang="es" lang="es" hidden>
+<section class="band s1"><div class="wrap" style="padding-top:0">
+<p class="lede">Una entrevista que lee textos que escribiste y saca de ellos un archivo de voz: un texto que le das a ChatGPT, Claude o Gemini para que lo que escribe por ti suene a tu marca.</p>
+<p class="note">Sin revisar: ningún hablante nativo ha leído todavía la versión en español de este kit.</p>
+<h2 class="sub">Cómo funciona</h2>
+<p>Pega el prompt de abajo en una conversación nueva con ChatGPT, Claude o Gemini, como primer mensaje. Te pide de tres a cinco textos que escribiste y te gustan, y uno que odiarías haber escrito.</p>
+<p>Te dice qué hacen tus textos y luego te hace doce preguntas como máximo, una por mensaje. Cada una llega con respuestas redactadas a partir de tus textos. Elige una, corrige una o di «decide tú». Te habla en el idioma en que escribes.</p>
+<p>Al final escribe tu archivo de voz en dos tamaños, en texto plano. El corto se queda por debajo de 1500 caracteres, el tamaño de las instrucciones personalizadas de ChatGPT en el plan gratuito. El completo se queda por debajo de 8000 y va en un proyecto o en una habilidad. Más abajo se explica dónde pegar cada uno.</p>
+</div></section>
+<section class="band s3"><div class="wrap">
+<h2>El prompt</h2>
+<div class="bar"><button class="copy" type="button" data-target="prompt-es" data-label="Copiar el prompt" data-done="Copiado">Copiar el prompt</button>
+<p class="meta" aria-live="polite">8852 caracteres.</p></div>
+<pre class="text scroll" id="prompt-es" tabindex="0">Quiero que me ayudes a escribir el archivo de voz de mi marca: un texto que le daré a mi asistente de IA para que lo que escriba por nosotros suene a nosotros y no a cualquier otra marca. Entrevístame y después escribe el archivo.
+
+CÓMO VA LA ENTREVISTA
+
+Primero pídeme entre tres y cinco textos reales que haya escrito y que me gusten, por ejemplo una página de nuestra web, un correo o una respuesta a un cliente. Pídeme también un texto, mío o de otra persona, que odiaría haber escrito. Espera a que los pegue antes de preguntarme nada más.
+
+Luego dime, en cinco líneas como máximo, qué hacen mis textos. Dime cómo son de largas las frases y quién habla (yo, nosotros o el nombre de la marca). Dime cómo trato al lector (tú, vos o usted), qué nombro y qué nunca prometo. Pregúntame si tu lectura es correcta.
+
+Después hazme tus preguntas, una por mensaje, doce como máximo. Con cada pregunta, dime qué parte del archivo decide y dame de dos a cuatro respuestas redactadas a partir de mis textos, primero la que recomiendas. Puedo elegir una, corregir una o decir «decide tú»: entonces elige la que mejor respalden mis textos. Cada cinco preguntas, resume en tres líneas lo que llevamos decidido.
+
+Las preguntas tienen que fijar para quién escribimos, las cuatro a seis reglas de la voz y cómo tratamos al lector (en qué idioma, para qué país). También fijan las palabras que nunca usamos y, para cada tipo de texto que nombra la plantilla completa, su objetivo, su tono y su forma. El objetivo es lo que el lector debe hacer o sentir después de leer: sácalo de lo que mis textos ya piden a sus lectores. La forma es cómo empieza un texto, qué extensión tiene, cómo termina y si lleva una lista. Cuando mis textos muestren ese tipo de texto, toma su forma de ellos, aunque se aparte de la regla de la plantilla, y conserva el objetivo. Construye los tres pares «escribe esto, no esto» con mis propias frases y muéstramelos antes de terminar.
+
+TUS REGLAS
+
+Nunca añadas un dato sobre mi negocio que no te haya dado, ya sea una cifra, una fecha o el nombre de un cliente. Si falta algo, pregúntamelo.
+Redacta tus propuestas a partir de lo que es propio de mis textos, no de lo que diría cualquier marca.
+La voz cambia cómo dicen las cosas mis textos, no para qué sirven. Un archivo que convierte un texto que invita o vende en uno que solo informa ha fallado.
+Háblame en el idioma en que te escribo y escribe el archivo en ese idioma. Si no es español, pon en el archivo los tics de IA que señalaría un corrector nativo de ese idioma, no una traducción de la lista de abajo.
+Escribe en texto plano, sin markdown, para que el archivo se pueda pegar en cualquier sitio.
+
+AL FINAL
+
+Escribe las dos versiones del archivo, cada una en un bloque que pueda copiar, siguiendo las dos plantillas de abajo. Rellena cada corchete y quita una línea solo si no se aplica a nosotros. Debajo de cada bloque, indica su extensión en palabras. La versión corta tiene que quedar por debajo de 1500 caracteres, unas 180 palabras, porque es el tamaño del campo más pequeño donde va. La versión completa queda por debajo de 8000 caracteres, unas 1100 palabras.
+
+LOS TICS DE IA, PARA EL ESPAÑOL
+
+«En el corazón de» seguido de un lugar.
+«No es X, es Y» y su variante «No fue X. Fue Y».
+Todo de tres en tres: «con barro, paciencia y las manos».
+«Artesanal» y «artesanía».
+Las fórmulas de atención al cliente: «lamento las molestias», «entiendo que», «Estimado/a cliente», «Un cordial saludo».
+La declaración de valores: «porque creemos que», «sabemos que».
+El cierre de invitación: «te esperamos», «¡Nos vemos en…!».
+El formato de chat pegado: emojis al inicio de línea, negritas con asteriscos y un bloque de hashtags, a veces con listas de flechas.
+Las frases sentencia y los golpes cortos: «Nada se pierde del todo. Se reubica».
+La raya que abre un inciso y nunca lo cierra.
+La versión que cualquiera escribiría: nada en ella que solo esta marca podría decir.
+
+LA PLANTILLA CORTA
+
+[Marca] escribe para [quiénes son nuestros lectores, en una línea].
+Voz: [regla uno]. [Regla dos]. [Regla tres].
+Somos [X], no [Y]; [X], no [Y].
+Tratamos al lector de [tú, vos o usted, con o sin nombre de pila], en [idioma y país].
+Cada texto tiene un objetivo: [lo que nuestros textos piden al lector]. Conserva el motivo para actuar. Más corto no es mejor.
+Tono: web [pocas palabras]; correo [pocas palabras]; redes sociales [pocas palabras]; clientes molestos [pocas palabras]. Sin markdown.
+Nunca escribas: [cinco palabras o tics, primero los nuestros].
+Nunca inventes un dato. Pregunta solo por los que el texto necesite.
+Antes de responder: quita esas palabras, revisa cómo tratas al lector y que el texto siga cumpliendo su objetivo, y pregúntate si otra marca podría haberlo escrito. Si es así, reescríbelo.
+
+LA PLANTILLA COMPLETA
+
+ARCHIVO DE VOZ DE [MARCA]
+Úsalo para cada texto que escribas para [marca] o en su nombre. Léelo entero antes de escribir.
+
+PARA QUIÉN ESCRIBIMOS
+[Dos o tres frases: quiénes son nuestros lectores, qué saben ya, qué vienen a buscar.]
+
+LA VOZ
+[De cuatro a seis reglas que un lector podría comprobar en cualquier párrafo. Cada una va seguida de un ejemplo breve sacado de nuestros textos.]
+Las frases: [extensión y ritmo]. Ejemplo: «[...]»
+Quién habla: [nosotros, yo o el nombre de la marca]. Tratamos al lector de [tú, vos o usted, con o sin nombre de pila], en [idioma y país].
+Lo que nombramos: [las cosas concretas que siempre decimos, como los productos, los horarios y los lugares]. Ejemplo: «[...]»
+Lo que nunca prometemos: [...]
+[Regla cinco, si hace falta.]
+[Regla seis, si hace falta.]
+Somos [X], no [Y]. [X], no [Y]. [X], no [Y].
+Entre una frase clara y una ingeniosa, elige la clara.
+
+CADA TIPO DE TEXTO
+Cada texto tiene un objetivo: lo que el lector debe hacer o sentir después de leerlo. Conserva el motivo para actuar y apóyalo en nuestros datos, nunca en elogios. Un texto más corto no es mejor si deja de cumplir su objetivo.
+La voz es la misma en todas partes. El tono y la forma cambian según el tipo de texto. Cuando nuestros textos muestran un tipo de texto, su forma sale de ellos; las reglas de abajo valen para los tipos que no muestran.
+Web: [su objetivo, y el tono en pocas palabras]. Pon lo que el lector vino a buscar en la primera frase, porque puede quedarse ahí.
+Boletín: [su objetivo, y el tono]. La noticia va primero. Un solo propósito por envío, que termina en el único paso siguiente, con el enlace o la dirección.
+Correo a una persona: [su objetivo, y el tono]. [Cómo abrimos y firmamos.] Di qué pasa después y con quién hablar.
+Instagram: [su objetivo, y el tono]. La mayoría solo ve la primera línea antes de «más»: el motivo para detenerse va ahí. [Emojis y saltos de línea: si los usamos.] Hashtags: [ninguno, o hasta cinco de los nuestros]. Termina con lo que hay que hacer, cuando hay algo que hacer.
+LinkedIn: [su objetivo, y el tono]. Las dos primeras líneas se ven antes de «ver más»: pon ahí la noticia, o una pregunta al lector. Háblale directamente al lector, con el trato fijado arriba. Hashtags: [ninguno, o de tres a cinco de los nuestros]. Termina con el paso siguiente.
+Respuesta a un cliente molesto: [el tono]. Pide perdón una vez, al principio, por lo que de verdad salió mal. Luego di qué estamos haciendo y para cuándo, ofrece una opción cuando la tengamos, y da una persona de contacto.
+Formato: nada de markdown, así que ni negritas ni títulos dentro de un mensaje. Listas solo si nosotros las usamos.
+
+LAS PALABRAS QUE NUNCA USAMOS
+Las nuestras: [la lista de la marca].
+Los tics de IA: [los tics de nuestro idioma].
+
+ESCRIBE ESTO, NO ESTO
+Escribe: «[una frase de nuestros textos]»
+No: «[la frase que una IA genérica escribiría en su lugar]»
+Porque: [una frase corta sobre la diferencia].
+
+Escribe: «[...]»
+No: «[...]»
+Porque: [...]
+
+Escribe: «[...]»
+No: «[...]»
+Porque: [...]
+
+LOS DATOS
+Escribe solo lo que está en este archivo, en lo que te pido o en el material que te doy. Nunca inventes un precio, una fecha o un nombre. Pregúntamelo solo si el texto no puede cumplir su objetivo sin ese dato; si no, escribe el texto sin él.
+
+CUANDO ESTE ARCHIVO Y NUESTROS TEXTOS NO COINCIDEN
+Ganan nuestros textos, también en la forma: cómo empieza un texto, qué extensión tiene, cómo termina. Si usan una raya, un emoji o una lista de tres, tú también puedes, con la misma frecuencia.
+
+ANTES DE RESPONDER
+Relee tu borrador. Quita cada palabra de las dos listas de arriba y cada tic de IA. Revisa cómo tratas al lector y que el borrador tenga la forma que nuestros textos dan a su tipo de texto, o la de arriba cuando no muestran ninguno. Comprueba que sigue cumpliendo su objetivo: el lector sabe qué hacer después y tiene un motivo para hacerlo. Luego pregúntate si otra marca podría haberlo escrito. Si es así, reescríbelo en torno a algo que solo diríamos nosotros.
+
+Empieza ahora: pídeme mis textos.
+</pre>
+<h3>Las dos plantillas</h3>
+<p>La entrevista las rellena con tus respuestas. Ya están dentro del prompt; aquí están para que las leas antes.</p>
+<h3>El archivo corto</h3>
+<pre class="text">[Marca] escribe para [quiénes son nuestros lectores, en una línea].
+Voz: [regla uno]. [Regla dos]. [Regla tres].
+Somos [X], no [Y]; [X], no [Y].
+Tratamos al lector de [tú, vos o usted, con o sin nombre de pila], en [idioma y país].
+Cada texto tiene un objetivo: [lo que nuestros textos piden al lector]. Conserva el motivo para actuar. Más corto no es mejor.
+Tono: web [pocas palabras]; correo [pocas palabras]; redes sociales [pocas palabras]; clientes molestos [pocas palabras]. Sin markdown.
+Nunca escribas: [cinco palabras o tics, primero los nuestros].
+Nunca inventes un dato. Pregunta solo por los que el texto necesite.
+Antes de responder: quita esas palabras, revisa cómo tratas al lector y que el texto siga cumpliendo su objetivo, y pregúntate si otra marca podría haberlo escrito. Si es así, reescríbelo.
+</pre>
+<h3>El archivo completo</h3>
+<pre class="text">ARCHIVO DE VOZ DE [MARCA]
+Úsalo para cada texto que escribas para [marca] o en su nombre. Léelo entero antes de escribir.
+
+PARA QUIÉN ESCRIBIMOS
+[Dos o tres frases: quiénes son nuestros lectores, qué saben ya, qué vienen a buscar.]
+
+LA VOZ
+[De cuatro a seis reglas que un lector podría comprobar en cualquier párrafo. Cada una va seguida de un ejemplo breve sacado de nuestros textos.]
+Las frases: [extensión y ritmo]. Ejemplo: «[...]»
+Quién habla: [nosotros, yo o el nombre de la marca]. Tratamos al lector de [tú, vos o usted, con o sin nombre de pila], en [idioma y país].
+Lo que nombramos: [las cosas concretas que siempre decimos, como los productos, los horarios y los lugares]. Ejemplo: «[...]»
+Lo que nunca prometemos: [...]
+[Regla cinco, si hace falta.]
+[Regla seis, si hace falta.]
+Somos [X], no [Y]. [X], no [Y]. [X], no [Y].
+Entre una frase clara y una ingeniosa, elige la clara.
+
+CADA TIPO DE TEXTO
+Cada texto tiene un objetivo: lo que el lector debe hacer o sentir después de leerlo. Conserva el motivo para actuar y apóyalo en nuestros datos, nunca en elogios. Un texto más corto no es mejor si deja de cumplir su objetivo.
+La voz es la misma en todas partes. El tono y la forma cambian según el tipo de texto. Cuando nuestros textos muestran un tipo de texto, su forma sale de ellos; las reglas de abajo valen para los tipos que no muestran.
+Web: [su objetivo, y el tono en pocas palabras]. Pon lo que el lector vino a buscar en la primera frase, porque puede quedarse ahí.
+Boletín: [su objetivo, y el tono]. La noticia va primero. Un solo propósito por envío, que termina en el único paso siguiente, con el enlace o la dirección.
+Correo a una persona: [su objetivo, y el tono]. [Cómo abrimos y firmamos.] Di qué pasa después y con quién hablar.
+Instagram: [su objetivo, y el tono]. La mayoría solo ve la primera línea antes de «más»: el motivo para detenerse va ahí. [Emojis y saltos de línea: si los usamos.] Hashtags: [ninguno, o hasta cinco de los nuestros]. Termina con lo que hay que hacer, cuando hay algo que hacer.
+LinkedIn: [su objetivo, y el tono]. Las dos primeras líneas se ven antes de «ver más»: pon ahí la noticia, o una pregunta al lector. Háblale directamente al lector, con el trato fijado arriba. Hashtags: [ninguno, o de tres a cinco de los nuestros]. Termina con el paso siguiente.
+Respuesta a un cliente molesto: [el tono]. Pide perdón una vez, al principio, por lo que de verdad salió mal. Luego di qué estamos haciendo y para cuándo, ofrece una opción cuando la tengamos, y da una persona de contacto.
+Formato: nada de markdown, así que ni negritas ni títulos dentro de un mensaje. Listas solo si nosotros las usamos.
+
+LAS PALABRAS QUE NUNCA USAMOS
+Las nuestras: [la lista de la marca].
+Los tics de IA: [los tics de nuestro idioma].
+
+ESCRIBE ESTO, NO ESTO
+Escribe: «[una frase de nuestros textos]»
+No: «[la frase que una IA genérica escribiría en su lugar]»
+Porque: [una frase corta sobre la diferencia].
+
+Escribe: «[...]»
+No: «[...]»
+Porque: [...]
+
+Escribe: «[...]»
+No: «[...]»
+Porque: [...]
+
+LOS DATOS
+Escribe solo lo que está en este archivo, en lo que te pido o en el material que te doy. Nunca inventes un precio, una fecha o un nombre. Pregúntamelo solo si el texto no puede cumplir su objetivo sin ese dato; si no, escribe el texto sin él.
+
+CUANDO ESTE ARCHIVO Y NUESTROS TEXTOS NO COINCIDEN
+Ganan nuestros textos, también en la forma: cómo empieza un texto, qué extensión tiene, cómo termina. Si usan una raya, un emoji o una lista de tres, tú también puedes, con la misma frecuencia.
+
+ANTES DE RESPONDER
+Relee tu borrador. Quita cada palabra de las dos listas de arriba y cada tic de IA. Revisa cómo tratas al lector y que el borrador tenga la forma que nuestros textos dan a su tipo de texto, o la de arriba cuando no muestran ninguno. Comprueba que sigue cumpliendo su objetivo: el lector sabe qué hacer después y tiene un motivo para hacerlo. Luego pregúntate si otra marca podría haberlo escrito. Si es así, reescríbelo en torno a algo que solo diríamos nosotros.
+</pre>
+</div></section>
+<section class="band s4 tells"><div class="wrap">
+<h2>Los tics de IA, en español</h2>
+<p>Son las marcas en las que los lectores ya reconocen un texto escrito por una IA. Cada una viene con una frase que la tiene y una versión sin ella. La segunda versión nunca añade un dato y sigue haciendo lo que hacía la primera: si la primera estaba para atraer gente, la segunda también. Si la primera no tenía nada que decir, el arreglo es encontrar algo que decir.</p>
+<p>Tus propios textos mandan sobre esta lista. Si escribes con rayas, o de tres en tres, sigue haciéndolo.</p>
+<div class="groups">
+<div class="group">
+<h3>«En el corazón de»</h3>
+<p>Seguido de un lugar.</p>
+<p class="before">Antes: «En el corazón de Coyoacán, nuestra librería te espera.»</p>
+<p>Después: «Estamos en Coyoacán: pásate a ver la librería.»</p>
+</div>
+<div class="group">
+<h3>«No es X, es Y»</h3>
+<p>Y su variante en dos frases, «No fue X. Fue Y».</p>
+<p class="before">Antes: «No es solo un café, es un tueste de cinco kilos que hacemos los martes.»</p>
+<p>Después: «Tostamos en lotes de cinco kilos cada martes, así que el café que te llevas es de esa semana.»</p>
+</div>
+<div class="group">
+<h3>Todo de tres en tres</h3>
+<p class="before">Antes: «Un taller cercano, honesto y apasionado, donde aprendes, preguntas y creces.»</p>
+<p>Después: «Un taller donde aprendes y puedes preguntar lo que quieras.»</p>
+</div>
+<div class="group">
+<h3>«Artesanal»</h3>
+<p>Y «artesanía», sobre todo junto a «con mimo» o «con pasión».</p>
+<p class="before">Antes: «Tazas artesanales elaboradas con mimo y pasión.»</p>
+<p>Después: «Tazas hechas a mano, una a una.»</p>
+</div>
+<div class="group">
+<h3>Las fórmulas de atención al cliente</h3>
+<p>«Lamento las molestias», «entiendo que», «Estimado/a cliente», «Un cordial saludo».</p>
+<p class="before">Antes: «Estimado/a cliente: Lamentamos sinceramente las molestias ocasionadas por el retraso y agradecemos su paciencia.»</p>
+<p>Después: «Tu pedido llegó tarde, y lo siento. Dime qué te vendría mejor y me encargo.»</p>
+<p>Trata al cliente como lo fije tu archivo: de tú, de vos o de usted.</p>
+</div>
+<div class="group">
+<h3>La declaración de valores</h3>
+<p>«Porque creemos que», «sabemos que».</p>
+<p class="before">Antes: «Porque creemos que lo bien hecho necesita tiempo, dejamos secar cada pieza dos días.»</p>
+<p>Después: «Dejamos secar cada pieza dos días.»</p>
+</div>
+<div class="group">
+<h3>El cierre de invitación</h3>
+<p>«Te esperamos», «¡Nos vemos en…!».</p>
+<p class="before">Antes: «El sábado abrimos a las nueve. ¡Te esperamos con los brazos abiertos!»</p>
+<p>Después: «El sábado abrimos a las nueve. Pásate a vernos.»</p>
+</div>
+<div class="group">
+<h3>El formato de chat pegado</h3>
+<p>Emojis al inicio de línea, negritas con asteriscos y un bloque de hashtags, a veces con listas de flechas.</p>
+<p class="before">Antes: «📍 **Novedad:** ¡ya llegó el lote de Nariño! ☕✨ #CaféDeEspecialidad #Bogotá»</p>
+<p>Después: «Ya llegó el lote de Nariño. Ven a probarlo.»</p>
+</div>
+<div class="group">
+<h3>Las frases sentencia y los golpes cortos</h3>
+<p class="before">Antes: «Sin atajos. Sin prisas. Solo oficio. Porque el tiempo es el ingrediente secreto.»</p>
+<p>Después: «Trabajamos sin atajos.» Mejor aún: dile a la IA qué atajo no tomas nunca, y deja que diga eso.</p>
+</div>
+<div class="group">
+<h3>La raya que no se cierra</h3>
+<!-- brand-check: ok dash specimen from the tells list -->
+<p class="before">Antes: «Abrimos los sábados — solo por la mañana.»</p>
+<p>Después: «Abrimos los sábados, solo por la mañana.»</p>
+<!-- brand-check: ok dash specimen from the tells list -->
+<p>La raya en sí no es un error. «Abrimos los sábados —solo por la mañana— y cerramos en agosto» es correcto: dos rayas, pegadas al inciso. Lo que delata a la IA es la raya suelta, a la inglesa, que abre un inciso y nunca lo cierra.</p>
+</div>
+<div class="group">
+<h3>La versión que cualquiera escribiría</h3>
+<p>No tiene nada que solo esta marca podría decir. Ninguna palabra la delata: es el texto entero el que podría estar en la web de cualquier otra tienda.</p>
+<p class="before">Antes: «En Librería La Esquina creemos en el poder de los libros para unir a las personas.»</p>
+<p>Después: no hay reescritura sin un dato. Dale a la IA algo que nadie más puede decir (la estantería que hiciste tú, la autora que vino un martes) y pídele que empiece por ahí.</p>
+</div>
+<div class="group">
+<h3>Fuentes</h3>
+<p>La lista sale de un estudio hecho para este kit en octubre de 2026: 60 textos de negocio escritos por dos modelos de IA, comparados con un millón de palabras de español escrito por personas antes de 2023 (corpus AuTexTification 2023, licencia CC BY-NC-SA 4.0). Cada marca se conservó porque aparece claramente más en los textos de IA, o se leyó en ellos, y porque otra fuente la señala también. La regla de la raya viene del Diccionario panhispánico de dudas de la RAE. Las listas de tics publicadas en español, calcadas en gran parte de las inglesas («tapiz», «testimonio», «sumérgete»), no se sostuvieron: 46 de sus 48 marcas no aparecieron ni una vez en los 60 textos. Los ejemplos se escribieron para este kit.</p>
+</div>
+</div>
+</div></section>
+<section class="band s7"><div class="wrap">
+<h2>Dónde pegarlo</h2>
+<p>El archivo corto va donde tu asistente lo lee en cada conversación. El archivo completo va en un proyecto o en una habilidad, un espacio que abres para el trabajo de marca, donde también puedes dejar los textos que diste en la entrevista. Usa los dos si puedes: el corto basta para un mensaje rápido, el completo sirve para una página o un boletín.</p>
+<p>Comprobado en las páginas de ayuda de cada asistente el 26 de octubre de 2026, y el 27 para los textos en una habilidad de Gemini. Los menús cambian: si una etiqueta no coincide, busca la más parecida.</p>
+<div class="groups">
+<div class="group">
+<h3>ChatGPT</h3>
+<p>El archivo corto va en las instrucciones personalizadas, en todos los planes. En la web: Configuración, Personalización, activa «Activar personalización» y pégalo en el campo Instrucciones personalizadas. En la aplicación del móvil: Configuración, Personalizar ChatGPT. El campo admite hasta 1500 caracteres en Free y Go, y 5000 en Plus y superiores: por eso el archivo corto queda por debajo de 1500.</p>
+<p>El archivo completo va en un proyecto. Abre el proyecto, elige el menú de más opciones (•••), luego Ajustes del proyecto, y pégalo en las instrucciones. Solo valen dentro de ese proyecto y ahí sustituyen a tus instrucciones personalizadas. Añade tus textos a los archivos del proyecto: 5 en Free, 25 en Plus y Go, y 40 en Pro.</p>
+<p>Los GPT personalizados ya no se pueden crear en las cuentas personales, y OpenAI tiene previsto retirarlos: el kit no los usa.</p>
+</div>
+<div class="group">
+<h3>Claude</h3>
+<p>El archivo corto va en las instrucciones de tu cuenta. Haz clic en tus iniciales, abajo a la izquierda, luego en "Configuración", "Tu Claude", y pégalo en "Instrucciones". Vale para todas tus conversaciones.</p>
+<p>El archivo completo va en un proyecto. Los proyectos están abiertos a las cuentas gratuitas, hasta cinco. Crea uno para tu marca, haz clic en "Establecer instrucciones del proyecto", pega el archivo y guarda. Deja tus textos en el espacio de conocimiento, a la derecha de la página del proyecto.</p>
+</div>
+<div class="group">
+<h3>Gemini</h3>
+<p>En Gemini el kit usa el archivo completo, como habilidad. El contexto personal de Gemini podría guardar el archivo corto, pero sus ejemplos ocupan una línea y el kit no lo ha probado ahí. Las Gems pasan a ser de solo lectura el 17 de noviembre de 2026 y se convierten en habilidades: empieza directamente con una habilidad.</p>
+<p>En gemini.google.com, en la barra lateral: Personalizar (en Más si no aparece), Habilidades, Crear, Crear manualmente. Ponle el nombre de tu marca. Pega esto como descripción, con el nombre de tu marca:</p>
+<p>«Úsala para cada texto escrito para [marca] o en su nombre: páginas web y correos, publicaciones y respuestas a clientes.»</p>
+<p>Pega el archivo completo como instrucciones. Debajo, en el mismo campo, escribe NUESTROS TEXTOS en una línea aparte y pega tus textos a continuación. Una habilidad creada a mano no puede contener archivos, y Google aconseja poner los ejemplos dentro de las instrucciones. Gemini decide si usa una habilidad solo por su nombre y su descripción: por eso la descripción nombra cada tipo de texto. Para no dejarlo al azar, escribe / en una conversación y elige la habilidad. Las habilidades exigen ser mayor de 18 años, usar una cuenta personal de Google y tener activado Guardar actividad.</p>
+</div>
+<div class="group">
+<h3>Fuentes</h3>
+<p>Las páginas de ayuda en español de help.openai.com, support.claude.com y support.google.com/gemini, leídas el 26 de octubre de 2026. Para los textos en una habilidad de Gemini: las páginas en inglés «Create &amp; manage skills for Gemini Apps» y «Write effective skills for Gemini Apps», leídas el 27 de octubre de 2026.</p>
+</div>
+</div>
+</div></section>
+<section class="band s6"><div class="wrap">
+<h2>Levain, antes y después</h2>
+<p>Levain es una panadería ficticia. El 27 de octubre de 2026, una IA hizo de su fundador durante esta entrevista, sin que nadie tocara nada entre el primer mensaje y el archivo de voz. Después, las mismas cinco peticiones fueron dos veces a Claude: una sin nada y otra con ese archivo en sus instrucciones.</p>
+<p>Un script contó los tics que puede ver en la superficie, como los emojis, los hashtags y las palabras de la lista. En los cinco textos escritos sin el archivo encontró 26; en los cinco escritos con él, ninguno.</p>
+<p>Un script no ve un dato inventado, así que los diez textos también se leyeron a mano. Sin el archivo, la web le da al pan un «sabor profundo, ligeramente ácido» que nadie describió, y la respuesta habla de «cuarenta piezas cada semana», una unidad que ninguna petición daba. Con el archivo, el texto para Instagram, la respuesta y el boletín se ciñen a la petición y a los textos del fundador. Dos textos añaden algo que nadie dio: la web dice que la masa madre se alimenta «por la mañana y por la tarde», y la publicación de LinkedIn promete «te diremos qué día se hornea cada pan y cuántos hay».</p>
+<p>Antes de la prueba se fijaron cuatro condiciones para darla por buena, entre ellas que ningún texto escrito con el archivo se sustituya por una pregunta o una nota. En español se cumplen las cuatro.</p>
+<div class="pairs">
+<div class="pair">
+<h3>El párrafo de la web</h3>
+<p class="ask">La petición: Llevo Levain, una panadería de la calle del Molino 3, en Madrid. Escribe el párrafo del pan de centeno para nuestra web. Los datos: tarda dos días. Cuarenta panes al día, listos a las diez. Alimentamos la masa madre dos veces al día y la masa reposa una noche en frío. Solo el texto, sin comentarios.</p>
+<div class="two">
+<div><p class="label">Sin el archivo</p><p class="said">Nuestro pan de centeno tarda dos días en estar listo. Todo empieza con la masa madre, que alimentamos dos veces al día para mantenerla viva y en su punto. Con ella amasamos y dejamos que la masa repose toda una noche en frío, un tiempo lento que le da su sabor profundo, ligeramente ácido, y esa miga densa y jugosa que tanto nos gusta. Al día siguiente lo horneamos, y a las diez de la mañana salen del horno los cuarenta panes que hacemos cada día. Si quieres uno, te esperamos en la calle del Molino 3, en Madrid, pero te aconsejamos venir pronto: cuarenta panes no duran mucho.</p></div>
+<div><p class="label">Con el archivo</p><p class="said">Nuestro pan de centeno tarda dos días. El primer día alimentamos la masa madre dos veces, por la mañana y por la tarde, y por la noche la masa reposa en frío hasta el día siguiente, cuando la horneamos. Por eso hacemos cuarenta panes al día, y están listos a las diez. Cuando se acaban empezamos otra vez para pasado mañana.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Un texto para Instagram</h3>
+<p class="ask">La petición: Llevo Levain, una panadería de la calle del Molino 3, en Madrid. Escribe un texto para Instagram: el centeno vuelve este sábado, cuarenta panes, desde las diez. Solo el texto, sin comentarios.</p>
+<div class="two">
+<div><p class="label">Sin el archivo</p><p class="said">🌾 **¡Vuelve el centeno!** 🌾
+
+Este sábado regresa a Levain nuestro pan de centeno: masa madre, fermentación lenta y esa miga densa y sabrosa que tanto echabais de menos.
+
+Solo hay **cuarenta panes**, y salen del horno **desde las diez de la mañana**.
+
+Ideal para unas tostadas con mantequilla y anchoas, para acompañar un buen queso o simplemente para comerlo a bocados, sin más.
+
+📍 Levain · Calle del Molino 3, Madrid
+🕙 Sábado, desde las 10:00
+
+Llegad pronto si no queréis quedaros sin el vuestro. 🥖
+
+#Levain #PanaderíaMadrid #PanDeCenteno #MasaMadre #PanArtesano #Madrid</p></div>
+<div><p class="label">Con el archivo</p><p class="said">Vuelve el centeno este sábado. Cuarenta panes, desde las diez.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Una respuesta a un cliente molesto</h3>
+<p class="ask">La petición: Llevo Levain, una panadería de la calle del Molino 3, en Madrid. Un cliente nos escribió: «Vine el sábado a las once y ya no quedaba centeno, por segundo sábado seguido. ¿Por qué no hacéis más?». Escribe nuestra respuesta. Los datos: el centeno tarda dos días, así que horneamos cuarenta. Se puede encargar para el sábado en nuestra web. Solo el texto, sin comentarios.</p>
+<div class="two">
+<div><p class="label">Sin el archivo</p><p class="said">Hola:
+
+Lamentamos que haya vuelto dos sábados seguidos y se haya quedado sin su pan de centeno. Es un fastidio, y más cuando se hace el esfuerzo de venir.
+
+El motivo es que el centeno necesita dos días de elaboración, por lo que lo planificamos con antelación y horneamos cuarenta piezas cada semana. Con ese número, los sábados se nos acaba pronto, y a las once ya no suele quedar.
+
+Para que no le vuelva a pasar, puede encargarlo para el sábado a través de nuestra web. Así se lo guardamos y no depende de la hora a la que llegue.
+
+Gracias por escribirnos y por seguir viniendo a Levain. Le esperamos en la calle del Molino 3.
+
+Un saludo,
+El equipo de Levain</p></div>
+<div><p class="label">Con el archivo</p><p class="said">Hola:
+
+Perdona que el sábado a las once ya no quedara centeno, y que fuera el segundo sábado seguido. El centeno tarda dos días, así que horneamos cuarenta, y cuando se acaban empezamos otra vez para pasado mañana. Si lo encargas en nuestra web para el sábado, te lo apartamos y ya no dependes de la hora a la que llegues. Si algo no sale como te cuento, pregunta por mí.
+
+Sam</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>La apertura de un boletín</h3>
+<p class="ask">La petición: Llevo Levain, una panadería de la calle del Molino 3, en Madrid. Escribe el párrafo de apertura de nuestro boletín de noviembre. La novedad: desde el 1 de noviembre, el pan de pueblo (800 g) se hornea dos veces al día, al amanecer y a mediodía. Solo el texto, sin comentarios.</p>
+<div class="two">
+<div><p class="label">Sin el archivo</p><p class="said">Noviembre llega a Levain con una novedad que huele de maravilla: desde el día 1, nuestro pan de pueblo de 800 g se hornea dos veces al día. La primera hornada sale al amanecer, para quien madruga y quiere llevarse a casa el pan aún caliente, y la segunda a mediodía, para que la mesa de la comida y de la cena también tenga su hogaza recién hecha. Corteza crujiente, miga tierna y la misma masa madre de siempre, ahora con dos oportunidades al día de pasar a buscarla por la calle del Molino 3. Con los días más fríos, no se nos ocurre mejor excusa para entrar, y creemos que tampoco a ustedes.</p></div>
+<div><p class="label">Con el archivo</p><p class="said">Desde el 1 de noviembre, el pan de pueblo de 800 g se hornea dos veces al día, al amanecer y a mediodía. Si llegas por la mañana y ya no queda, a mediodía sale otra hornada. Para llevarte el segundo, pasa por la calle del Molino 3 cuando salga del horno.</p></div>
+</div>
+</div>
+<div class="pair">
+<h3>Una publicación de LinkedIn</h3>
+<p class="ask">La petición: Llevo Levain, una panadería de la calle del Molino 3, en Madrid. Escribe una publicación de LinkedIn: Levain empieza la venta al por mayor en la primavera de 2027, para cafeterías y restaurantes del barrio. Las empresas interesadas pueden escribir a hello@levain.example. Solo el texto, sin comentarios.</p>
+<div class="two">
+<div><p class="label">Sin el archivo</p><p class="said">🥖 Levain abre su obradoor al por mayor
+
+En la primavera de 2027, Levain da un nuevo paso: empezamos la venta al por mayor de nuestro pan para cafeterías y restaurantes del barrio.
+
+Desde la calle del Molino 3, en Madrid, llevamos tiempo haciendo pan con masa madre, fermentaciones largas y mucho cariño por el oficio. Ahora queremos que ese mismo pan llegue a las mesas y barras de los negocios que forman parte de nuestro día a día.
+
+Creemos en el comercio de proximidad y en las colaboraciones que se construyen entre vecinos. Por eso queremos trabajar de cerca con cada local: conocer sus necesidades, adaptarnos a su carta y ofrecerles un producto fresco, constante y de calidad.
+
+Si tienes una cafetería o un restaurante en la zona y te interesa incorporar el pan de Levain, escríbenos a hello@levain.example y hablamos.
+
+Será un placer hornear contigo esta nueva etapa.
+
+#Levain #PanaderíaArtesanal #Madrid #MasaMadre #ComercioLocal #Hostelería</p></div>
+<div><p class="label">Con el archivo</p><p class="said">Levain empieza la venta al por mayor en la primavera de 2027, para cafeterías y restaurantes del barrio.
+
+Hoy vendemos el pan en la calle del Molino 3, en Madrid. Nuestro pan tarda días en hacerse, el de centeno dos, así que cada hornada tiene un número limitado de panes, y cuando se acaban empezamos otra vez para pasado mañana. Con la venta al por mayor seguirá igual, y te diremos qué día se hornea cada pan y cuántos hay.
+
+Si tienes una cafetería o un restaurante en el barrio y quieres trabajar con nosotros, escribe a hello@levain.example.</p></div>
+</div>
+</div>
+</div>
+</div></section>
+<section class="band s1"><div class="wrap" style="padding-bottom:0"><p class="meta">Gratis, con licencia MIT.</p></div></section>
+</div>
+</main>
+<footer class="band s1"><div class="wrap"><p>Pierre Tran, Taykon Studio</p></div></footer>
+<script>
+const langs=['fr','en','es'];
+function show(l){
+  document.querySelectorAll('[data-lang]').forEach(s=>s.hidden=s.dataset.lang!==l);
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.value===l));
+  document.documentElement.lang=l;
+  history.replaceState(null,'','#'+l);
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>show(b.value)));
+const want=location.hash.slice(1), nav=(navigator.language||'').slice(0,2);
+show(langs.includes(want)?want:langs.includes(nav)?nav:'en');
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const text=document.getElementById(b.dataset.target).textContent;
+  try{await navigator.clipboard.writeText(text)}
+  catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.target));
+    const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')}
+  b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,2000);
+}));
+</script>
+</body>
+</html>

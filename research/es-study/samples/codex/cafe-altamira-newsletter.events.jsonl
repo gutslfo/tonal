@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-8520-7b61-ab7e-23de49ab9702"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Sabemos que un aumento en la bolsa de 500 gramos se siente en el bolsillo, sobre todo cuando el café hace parte de cada mañana. Por eso, este mes queremos contarles qué hay detrás de su precio: desde el café verde y el pago a quienes lo cultivan hasta el transporte, el tueste y el empaque. En Café Altamira creemos que hablar de café de especialidad también significa hablar con claridad de cuánto cuesta llevarlo a su taza."}}
+{"type":"turn.completed","usage":{"input_tokens":20424,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":201,"reasoning_output_tokens":101}}

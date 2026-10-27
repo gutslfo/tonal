@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-784b-7940-9376-b81907060901"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Hola, gracias por avisarnos. Disculpa el error: pediste molienda para prensa francesa y te enviamos una más fina de lo que corresponde.\n\n¿Nos compartes tu número de pedido? Te enviaremos el café con la molienda correcta, sin costo adicional.\n\nDaniela Rojas\nCafé Altamira"}}
+{"type":"turn.completed","usage":{"input_tokens":20548,"cached_input_tokens":18816,"cache_write_input_tokens":0,"output_tokens":154,"reasoning_output_tokens":85}}

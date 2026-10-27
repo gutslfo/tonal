@@ -1,0 +1,3 @@
+research/es-study/data/*.tsv
+research/es-study/codex-run.log
+__pycache__/

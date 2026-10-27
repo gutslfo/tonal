@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-70f6-71a0-b1b3-1368c9827a62"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"De Nariño a tu taza ☕🍊\n\nLlegó un nuevo lote a Café Altamira: un café de especialidad lavado, con notas de panela y mandarina. Dulzura y un toque cítrico para acompañar las mañanas bogotanas.\n\n¿Ya sabes con quién compartir la primera taza?\n\n#CaféAltamira #CaféDeNariño #CaféDeEspecialidad #Bogotá"}}
+{"type":"turn.completed","usage":{"input_tokens":20430,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":90,"reasoning_output_tokens":0}}

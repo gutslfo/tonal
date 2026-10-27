@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-d929-7601-b397-a408c96f8eb2"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"¿Terminas la jornada de teletrabajo con la espalda cargada? Entre videollamadas, correos y ese «cinco minutos más», es fácil pasar horas sin levantarse de la silla. Este mes, en Fisioterapia Ribera, queremos ayudarte a cuidar tu espalda mientras trabajas desde casa: hablaremos de movimiento, pausas y pequeños cambios para que tu bienestar también tenga un hueco en la agenda."}}
+{"type":"turn.completed","usage":{"input_tokens":20537,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":135,"reasoning_output_tokens":42}}

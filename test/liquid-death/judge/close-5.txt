@@ -1,0 +1,1 @@
+{"mug":["A","B","E","D","C"],"mitts":["E","A","B","D","C"],"sleeping-bag":["A","C","D","B","E"],"planter":["E","D","A","B","C"],"tee":["A","B","C","E","D"],"energy":["B","A","C","E","D"]}

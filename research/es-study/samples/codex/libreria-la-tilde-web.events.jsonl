@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-f892-7501-aabe-b16fd495b430"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"En La Tilde, tu librería de barrio en Coyoacán, conviven libros nuevos y de segunda mano, lecturas que buscas y otras que te sorprenden al recorrer los estantes. Ven a encontrar tu próximo libro, comparte la conversación en nuestro club de lectura de los jueves o pídenos ese título que tienes pendiente: lo conseguimos por pedido especial en una semana."}}
+{"type":"turn.completed","usage":{"input_tokens":20545,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":81,"reasoning_output_tokens":0}}

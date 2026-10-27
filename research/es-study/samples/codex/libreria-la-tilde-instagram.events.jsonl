@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1747a-053a-7d82-97c5-9c020b658b21"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"En noviembre, nos vamos a Comala. 📖\n\nEl club de lectura de La Tilde leerá *Pedro Páramo*, de Juan Rulfo: una novela de voces, ausencias y promesas que siguen resonando mucho después de cerrar el libro.\n\nSi es tu primera visita o ya conoces el camino, ven a compartir la lectura en nuestra librería de barrio, aquí en Coyoacán.\n\n¿Qué encontraremos al leerla juntos?\n\n#LaTilde #ClubDeLectura #PedroPáramo #JuanRulfo #Coyoacán"}}
+{"type":"turn.completed","usage":{"input_tokens":20426,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":151,"reasoning_output_tokens":29}}

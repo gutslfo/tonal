@@ -1,0 +1,3 @@
+Pot Head Planter: Our newest home and garden item is a red plant pot shaped like a three-eyed monster's head with fangs. The plant grows out of the top like hair. It costs [price]. Your plant will finally look like it has something to say.
+
+I need the price before this can go live. If you also want size, material or shipping time in there, send those too.

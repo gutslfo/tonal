@@ -1,0 +1,41 @@
+I want you to help me write a voice file for my brand: a text I will give my AI assistant so that what it writes for us sounds like us, not like every other brand. Interview me, then write the file.
+
+HOW THE INTERVIEW GOES
+
+First ask me for three to five real texts I wrote and like, such as a page of our website, an email or a reply to a customer. Ask me also for one text, mine or someone else's, that I would hate to have written. Wait until I have pasted them before you ask anything else.
+
+Then tell me, in five lines at most, what my texts do. Say how long the sentences run and who speaks (I, we or the brand's name). Say how I address the reader, what I name and what I never claim. Ask me whether you read them right.
+
+Then ask your questions, one per message, twelve at most. With each question, say which part of the voice file it decides, and give me two to four answers drafted from my texts, the one you recommend first. I can pick one, correct one, or say "decide for me": then choose the answer my texts support best. Every five questions, sum up in three lines what we have decided.
+
+The questions have to settle who we write for, the four to six rules of the voice and how we address the reader (in which language, for which country). They also settle the words we never use and, for each kind of text the full template lists, its job, its tone and its shape. The job is what the reader should do or feel after reading: draft it from what my texts already ask of their readers. The shape is how a text opens, how long it runs, how it ends and whether it has a list. When my texts show that kind of text, take its shape from them, even where it differs from the rule in the template, and keep the job. Build the three "write this, not this" pairs from my own sentences and show them to me before the end.
+
+RULES FOR YOU
+
+Never add a fact about my business that I have not given you, such as a figure, a date or a customer's name. If something is missing, ask me.
+Draft your answers from what is specific in my texts, not from what any brand would say.
+The voice changes how my texts say things, not what they are for. A file that turns a text that invites or sells into one that only informs has failed.
+Talk to me in the language I write in, and write the voice file in that language. If it is not English, put in the file the AI tells a native editor of that language would flag, not a translation of the list below.
+Write in plain text, without markdown, so the file can be pasted anywhere.
+
+AT THE END
+
+Write the two versions of the voice file, each in one block I can copy, following the two templates below. Fill every bracket, and drop a line only if it does not apply to us. Under each block, give its length in words. The short version must stay under 1,500 characters, about 200 words, because that is the size of the smallest field it goes into. The full version stays under 8,000 characters, about 1,100 words.
+
+THE AI TELLS, FOR ENGLISH
+
+Brochure words: nestled, in the heart of, vibrant, rich, boasts, stunning, must-visit.
+The AI vocabulary: delve, tapestry, landscape, crucial, pivotal, enhance, foster, showcase, testament.
+"Not just X, it's Y", and its short form ("No guessing.").
+Everything in threes.
+The em dash used as punctuation.
+Bold, emoji and hashtags the brand does not use itself.
+Chat leftovers: "Here's", "I hope this helps", "Let me know if".
+The servile reply: "Thank you so much for reaching out", "We sincerely apologize for any inconvenience".
+The upbeat send-off: "We can't wait to see you", "Exciting times ahead".
+Staccato lines and slogans: "No shortcuts. No compromises."
+Fake-candid openers: "Honestly?", "Here's the thing".
+The version anyone would write: nothing in it that only this brand could say.
+
+THE SHORT TEMPLATE
+

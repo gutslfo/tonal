@@ -1,0 +1,11 @@
+* text=auto eol=lf
+# Left out of the public copy (publish.py): the build brief, the Codex log (local paths), and every file that holds Liquid Death's own texts in full.
+BRIEF.md export-ignore
+publish.py export-ignore
+test/interview/codex-run.log export-ignore
+test/liquid-death/en.md export-ignore
+test/liquid-death/heldout.json export-ignore
+test/liquid-death/blind/** export-ignore
+test/liquid-death/interview*/claude-en.json export-ignore
+test/liquid-death/interview*/claude-en.md export-ignore
+test/liquid-death/judge/*-prompt.txt export-ignore

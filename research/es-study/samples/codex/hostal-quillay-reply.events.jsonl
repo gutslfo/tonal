@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1747a-5acc-7883-afec-c26038535a34"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Hola, soy Tomás Fuentes, de Hostal Quillay. Lamento que el ruido de la calle no les haya permitido descansar y que la habitación no coincidiera con la vista al puerto que anunciaba nuestra web. Les pido disculpas por ambas cosas; entiendo su molestia.\n\nVoy a revisar la información de la web y la habitación que les asignamos para aclarar lo ocurrido y ofrecerles una solución. ¿Me pueden indicar el nombre de la reserva y las fechas de su estadía?\n\nGracias por contárnoslo. Merecían descansar y encontrar lo que habían reservado.\n\nTomás Fuentes\nHostal Quillay"}}
+{"type":"turn.completed","usage":{"input_tokens":20560,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":135,"reasoning_output_tokens":0}}

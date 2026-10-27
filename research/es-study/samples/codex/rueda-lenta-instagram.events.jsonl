@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a17479-1c3b-75c1-87ca-62d99a36fe3b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"🚲 Aprendé a cuidar tu bici en Rueda Lenta.\n\nEl primer sábado de cada mes damos talleres gratuitos de mecánica básica en nuestro taller de Villa Crespo, Buenos Aires.\n\nUn espacio para preguntar, aprender y animarte a meter mano. No necesitás experiencia previa: empezamos de cero.\n\nEscribinos por mensaje para conocer el horario y cómo sumarte.\n\n¡Nos vemos en el taller! 🔧\n\n#RuedaLenta #VillaCrespo #MecánicaDeBicis #TallerGratuito"}}
+{"type":"turn.completed","usage":{"input_tokens":20426,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":116,"reasoning_output_tokens":0}}

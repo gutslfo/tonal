@@ -1,0 +1,9 @@
+Hola, [Nombre]:
+
+El centeno tarda dos días, así que horneamos cuarenta. El sábado a las once ya no quedaba, y el sábado anterior tampoco.
+
+Para el próximo sábado puedes encargarlo en nuestra web. Así tienes el pan guardado antes de venir.
+
+Si algo falla con el encargo, llama a la tienda y pregunta por mí.
+
+[Tu nombre]

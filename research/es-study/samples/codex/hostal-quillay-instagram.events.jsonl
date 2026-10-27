@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1747a-5211-7322-bc00-137434665a84"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"Tu verano en Valparaíso empieza con un lugar donde quedarte ☀️\n\nEn Hostal Quillay ya abrimos las reservas para el verano. Somos un hostal de ocho habitaciones, para quienes quieren recorrer los cerros, perderse entre murales y disfrutar del puerto a su ritmo.\n\n¿Ya tienes fechas? Escríbenos para consultar disponibilidad y reservar tu estadía. 💛\n\n#HostalQuillay #Valparaíso #VeranoEnValpo"}}
+{"type":"turn.completed","usage":{"input_tokens":20540,"cached_input_tokens":12416,"cache_write_input_tokens":0,"output_tokens":153,"reasoning_output_tokens":49}}
