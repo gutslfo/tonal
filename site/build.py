@@ -104,70 +104,173 @@ COPY = {
 
 CSS = """
 *{margin:0;padding:0;box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--c1);color:var(--c2);font-family:var(--f-body);font-size:16px;line-height:1.6;
   font-variant-numeric:tabular-nums;font-synthesis:none;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
-.band{color:var(--fg);background:var(--bg)}
+.band{color:var(--fg);background:var(--bg);scroll-margin-top:56px}
 .s1{--bg:var(--c1);--fg:var(--c2)} .s3{--bg:var(--c3);--fg:var(--c2)} .s4{--bg:var(--c4);--fg:var(--c2)}
 .s7{--bg:var(--c7);--fg:var(--c2)} .s6{--bg:var(--c6);--fg:var(--c1)}
 .wrap{max-width:1280px;margin:0 auto;padding:clamp(64px,10vw,120px) clamp(20px,5vw,64px)}
-.top{display:flex;justify-content:space-between;align-items:baseline;gap:24px}
-h1,h2,h3{font-family:var(--f-head);font-weight:700;text-transform:uppercase;letter-spacing:var(--head-track)}
+h1,h2,h3,summary,.mini,.tabs button{font-family:var(--f-head);font-weight:700;text-transform:uppercase;letter-spacing:var(--head-track)}
 h1{color:var(--c5);font-size:clamp(72px,17vw,119px);line-height:.88}
 h2{font-size:clamp(40px,8vw,79px);line-height:.92;margin:0 0 clamp(32px,5vw,56px);max-width:16ch;overflow-wrap:anywhere}
 h3{font-size:clamp(24px,4vw,35px);line-height:1;margin:clamp(48px,6vw,64px) 0 24px;max-width:26ch}
 .lede{font-size:clamp(18px,2.4vw,22px);line-height:1.55;max-width:40ch;margin-top:clamp(40px,6vw,64px)}
 p{max-width:52ch;margin:0 0 16px}
-p.before{opacity:.6}
 .meta{font-size:14px;opacity:.75;margin:0}
 .note{font-size:14px;opacity:.75;max-width:52ch;margin-top:24px}
-.lang{display:flex;gap:4px}
-.lang button,.copy{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.lang button{font-size:14px;letter-spacing:.08em;padding:8px 10px;opacity:.55;transition:opacity .2s}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible,summary:focus-visible,pre:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+/* The bar stays on top: the language and the copy button are never more than a thumb away. */
+.topbar{position:sticky;top:0;z-index:10;background:var(--c1);color:var(--c2);border-bottom:1px solid color-mix(in srgb,var(--c2) 14%,transparent)}
+.topbar .inner{max-width:1280px;margin:0 auto;padding:8px clamp(20px,5vw,64px);display:flex;align-items:center;gap:4px}
+.mini{font-size:20px;line-height:1;color:inherit;text-decoration:none;margin-right:auto;opacity:0;pointer-events:none;transition:opacity .2s}
+.past .mini{opacity:1;pointer-events:auto}
+.lang{display:flex}
+.lang button{font-size:14px;letter-spacing:.08em;padding:11px 9px;opacity:.55;transition:opacity .2s}
 .lang button[aria-pressed=true]{opacity:1}
 .lang button:hover{opacity:.85}
-button:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.copy{background:var(--c2);color:var(--c3);padding:12px 20px;font-size:16px;font-weight:500;transition:opacity .2s,transform .2s}
+.copy:hover{opacity:.8}
+.copy.done{transform:translateY(-2px)}
+.topbar .copy{color:var(--c1);font-size:14px;padding:9px 14px;margin-left:8px}
+/* Hero: the nest is the page in four colours, outer to core; each square leads to its band. */
+.hero .wrap{position:relative;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.nestbox{flex:none;width:clamp(84px,24vw,120px)}
+.nest{position:relative;display:block;aspect-ratio:1}
+.sq{position:absolute;display:block;transition:transform .2s}
+.q6{inset:0;background:var(--c6)} .q7{inset:12.5%;background:var(--c7)} .q4{inset:25%;background:var(--c4)} .q3{inset:37.5%;background:var(--c3)}
+.sq:focus-visible{outline-color:var(--c2);outline-offset:-8px} .q6:focus-visible{outline-color:var(--c1)}
+.cap{display:none}
+@media (min-width:1100px){
+  .nestbox{position:absolute;right:clamp(20px,5vw,64px);top:clamp(64px,10vw,120px);width:min(28vw,360px)}
+  .sq:hover{transform:translateY(6px)}
+  .cap{display:block;font-size:14px;opacity:.75;margin:20px 0 0;min-height:1.6em}
+}
+.steps{list-style:none;counter-reset:s;max-width:52ch}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;column-gap:12px;margin:0 0 24px}
+.steps li::before{content:counter(s);font-family:var(--f-head);font-weight:700;font-size:35px;line-height:1;letter-spacing:var(--head-track)}
+.steps p{margin:0}
+h2.sub{font-size:clamp(24px,4vw,35px);line-height:1;margin:clamp(48px,6vw,64px) 0 32px;max-width:26ch}
 .bar{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin:0 0 24px}
-.copy{background:var(--c2);color:var(--c3);padding:12px 20px;font-size:16px;font-weight:500;transition:opacity .2s}
-.copy:hover{opacity:.7}
 .text{font-family:var(--f-body);font-size:14px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere;
   background:var(--c1);color:var(--c2);padding:clamp(20px,3vw,32px);max-width:72ch}
-.scroll{max-height:30rem;overflow:auto}
-h2.sub{font-size:clamp(24px,4vw,35px);line-height:1;margin:clamp(48px,6vw,64px) 0 24px;max-width:26ch}
+.scroll{max-height:min(30rem,62vh);overflow:auto}
+.split{display:grid;gap:8px}
+@media (min-width:1100px){
+  .split{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
+  .split>div{position:sticky;top:104px}
+  .scroll{max-height:36rem}
+}
+details{max-width:72ch;margin-top:8px}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 0;
+  font-size:clamp(20px,3vw,28px);line-height:1;transition:opacity .2s}
+summary::-webkit-details-marker{display:none}
+summary:hover{opacity:.8}
+summary::after{content:"+";font-size:1.3em;line-height:.7;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details pre{margin-bottom:24px}
+/* The tells carry the numbers of the post's page, 1 to 13; hovering one strikes its "before". */
 .groups{margin-top:clamp(48px,6vw,64px)}
-.group{break-inside:avoid;padding-bottom:clamp(40px,5vw,56px)}
+.tells .groups{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(40px,5vw,56px) 72px;counter-reset:t}
+@media (min-width:860px){.tells .groups{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tells .group:not(.last){counter-increment:t;display:grid;grid-template-columns:40px 1fr;column-gap:16px;align-content:start}
+@media (min-width:860px){.tells .group:not(.last){grid-template-columns:52px 1fr}}
+.tells .group:not(.last)::before{content:counter(t);grid-row:1 / span 12;font-family:var(--f-head);font-weight:700;font-size:35px;line-height:.9;letter-spacing:var(--head-track);text-align:right}
+.tells .group>*{grid-column:2}
+.tells .group.last{grid-column:1/-1}
+.tells .group h3{font-size:clamp(22px,2.6vw,28px);margin:0 0 16px}
 .group h3{margin-top:0}
-@media (min-width:1100px){.tells .groups{columns:2;column-gap:96px}}
+p.before{opacity:.6;text-decoration:line-through;text-decoration-color:transparent;text-decoration-thickness:1.5px;transition:text-decoration-color .2s}
+.group:hover p.before{text-decoration-color:currentColor}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 32px 0}
+.tabs button{font-size:clamp(22px,5vw,52px);line-height:1;padding:10px 12px 8px;transition:background-color .2s,color .2s,transform .2s}
+.tabs button[aria-selected=true]{background:var(--c6);color:var(--c7)}
+.tabs button:not([aria-selected=true]):hover{transform:translateY(-3px)}
+.js .paste .group:not(.last) h3{display:none}
+.paste .group.last{margin-top:clamp(48px,6vw,64px)}
+.paste [role=tabpanel]:focus-visible{outline:2px solid currentColor;outline-offset:8px}
 .pairs{display:grid;gap:clamp(48px,6vw,96px);margin-top:clamp(64px,8vw,96px)}
 .pair h3{margin-top:0}
 .ask{font-size:14px;opacity:.75;max-width:72ch}
+.switch{display:flex;width:max-content;max-width:100%;margin:24px 0 0;border:1px solid color-mix(in srgb,currentColor 14%,transparent)}
+.switch button{font-size:14px;padding:10px 16px;transition:background-color .2s,color .2s}
+.switch button[aria-pressed=true]{background:var(--c1);color:var(--c6)}
 .two{display:grid;grid-template-columns:1fr;gap:32px;margin-top:24px}
 .two .label{font-size:14px;opacity:.75;margin:0 0 8px}
 .two .said{white-space:pre-wrap;overflow-wrap:anywhere;max-width:52ch}
-@media (min-width:860px){.two{grid-template-columns:1fr 1fr;gap:48px}
+@media (max-width:859px){.js .two>div:not(.on),.js .two .label{display:none}}
+@media (min-width:860px){.switch{display:none}
+  .two{grid-template-columns:1fr 1fr;gap:48px}
   .two>div+div{border-left:1px solid color-mix(in srgb,currentColor 14%,transparent);padding-left:48px}}
 footer .wrap{padding-top:64px;padding-bottom:64px}
 footer p{font-size:14px;margin:0}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 """
 
 JS = """
-const langs=['fr','en','es'];
+const langs=['fr','en','es'], R=document.documentElement;
+R.classList.add('js');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const now=document.querySelector('.copy.now'), cap=document.querySelector('.cap'), sqs=[...document.querySelectorAll('.sq')];
+let cur='en';
+const box=()=>document.querySelector('[data-lang="'+cur+'"]');
+const label=a=>box().querySelector('#'+a.dataset.band+'-'+cur+' h2').textContent;
 function show(l){
+  cur=l;
   document.querySelectorAll('[data-lang]').forEach(s=>s.hidden=s.dataset.lang!==l);
   document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.value===l));
-  document.documentElement.lang=l;
+  R.lang=l;
   history.replaceState(null,'','#'+l);
+  const b=box().querySelector('.copy');
+  Object.assign(now.dataset,{target:b.dataset.target,label:b.dataset.label,done:b.dataset.done});
+  now.textContent=b.dataset.label;
+  sqs.forEach(a=>{a.href='#'+a.dataset.band+'-'+l;a.setAttribute('aria-label',label(a))});
+  cap.textContent=label(sqs[3]);
 }
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>show(b.value)));
+sqs.forEach(a=>{
+  a.addEventListener('click',e=>{e.preventDefault();document.getElementById(a.dataset.band+'-'+cur).scrollIntoView({behavior:reduce?'auto':'smooth'})});
+  ['mouseenter','focus'].forEach(t=>a.addEventListener(t,()=>cap.textContent=label(a)));
+});
+document.querySelector('.nest').addEventListener('mouseleave',()=>cap.textContent=label(sqs[3]));
+// The rings are a target only where they are wide enough to tap (38 px at 1100 px); below that the nest is a picture.
+const wide=matchMedia('(min-width:1100px)'), arm=()=>document.querySelector('.nest').inert=!wide.matches;
+arm();wide.addEventListener('change',arm);
+new IntersectionObserver(([e])=>document.querySelector('.topbar').classList.toggle('past',!e.isIntersecting)).observe(document.querySelector('h1'));
+document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
+  const el=document.getElementById(b.dataset.target), text=el.textContent;
+  try{await navigator.clipboard.writeText(text)}
+  catch(e){const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')}
+  b.textContent=b.dataset.done;b.classList.add('done');
+  setTimeout(()=>{b.textContent=b.dataset.label;b.classList.remove('done')},2000);
+}));
+// Where to paste: one tab per assistant, named by its own heading. Without the script all three stay open.
+document.querySelectorAll('.paste .groups').forEach((g,k)=>{
+  const panes=[...g.querySelectorAll('.group:not(.last)')], list=document.createElement('div');
+  list.className='tabs';list.setAttribute('role','tablist');
+  const tabs=panes.map((p,i)=>{
+    const t=document.createElement('button');
+    t.type='button';t.id='tab-'+k+'-'+i;t.setAttribute('role','tab');t.textContent=p.querySelector('h3').textContent;
+    p.setAttribute('role','tabpanel');p.setAttribute('aria-labelledby',t.id);p.tabIndex=0;
+    t.addEventListener('click',()=>sel(i));
+    t.addEventListener('keydown',e=>{const d={ArrowRight:1,ArrowLeft:-1}[e.key];if(d){const j=(i+d+panes.length)%panes.length;sel(j);tabs[j].focus()}});
+    list.append(t);return t;
+  });
+  function sel(i){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',i===j);t.tabIndex=i===j?0:-1;panes[j].hidden=i!==j})}
+  g.prepend(list);sel(0);
+});
+// Levain on a phone: one text at a time, flipped between its two labels. Side by side from 860 px.
+document.querySelectorAll('.two').forEach(t=>{
+  const cols=[...t.children], sw=document.createElement('div');
+  sw.className='switch';sw.setAttribute('role','group');
+  const bs=cols.map((c,i)=>{const b=document.createElement('button');b.type='button';b.textContent=c.querySelector('.label').textContent;b.addEventListener('click',()=>pick(i));sw.append(b);return b});
+  function pick(i){cols.forEach((c,j)=>c.classList.toggle('on',i===j));bs.forEach((b,j)=>b.setAttribute('aria-pressed',i===j))}
+  pick(0);t.before(sw);
+});
 const want=location.hash.slice(1), nav=(navigator.language||'').slice(0,2);
 show(langs.includes(want)?want:langs.includes(nav)?nav:'en');
-document.querySelectorAll('.copy').forEach(b=>b.addEventListener('click',async()=>{
-  const text=document.getElementById(b.dataset.target).textContent;
-  try{await navigator.clipboard.writeText(text)}
-  catch(e){const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.target));
-    const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')}
-  b.textContent=b.dataset.done;setTimeout(()=>b.textContent=b.dataset.label,2000);
-}));
 """
 
 
@@ -205,7 +308,8 @@ def md(path, lang, dashes_ok=False):
             dest.append(f"<h2>{t[2:]}</h2>")
         else:
             dest.append(f"<p{' class=\"before\"' if BEFORE.match(s) else ''}>{t}</p>")
-    return "\n".join(out + ['<div class="groups">'] + [f'<div class="group">\n{chr(10).join(g)}\n</div>' for g in groups] + ["</div>"])
+    # The last part of both files is Sources: it stays out of the numbered tells and out of the paste tabs.
+    return "\n".join(out + ['<div class="groups">'] + [f'<div class="group{" last" if i == len(groups) - 1 else ""}">\n{chr(10).join(g)}\n</div>' for i, g in enumerate(groups)] + ["</div>"])
 
 
 def number(n, lang):
@@ -255,31 +359,41 @@ def section(lang, req):
 <section class="band s1"><div class="wrap" style="padding-top:0">
 <p class="lede">{t(c["lede"])}</p>
 {note}<h2 class="sub">{t(c["how"])}</h2>
-{"".join(f"<p>{t(p)}</p>" + chr(10) for p in c["method"])}</div></section>
-<section class="band s3"><div class="wrap">
+<ol class="steps">{"".join(f"<li><p>{t(p)}</p></li>" + chr(10) for p in c["method"])}</ol></div></section>
+<section class="band s3" id="prompt-band-{lang}"><div class="wrap">
+<div class="split"><div>
 <h2>{t(c["prompt"])}</h2>
 <div class="bar"><button class="copy" type="button" data-target="prompt-{lang}" data-label="{t(c["copy"])}" data-done="{t(c["done"])}">{t(c["copy"])}</button>
-<p class="meta" aria-live="polite">{t(c["chars"].format(n=number(size(prompt), lang)))}</p></div>
-<pre class="text scroll" id="prompt-{lang}" tabindex="0">{esc(prompt)}</pre>
+<p class="meta" aria-live="polite">{t(c["chars"].format(n=number(size(prompt), lang)))}</p></div></div>
+<pre class="text scroll" id="prompt-{lang}" tabindex="0">{esc(prompt)}</pre></div>
 <h3>{t(c["templates"])}</h3>
 <p>{t(c["templates_p"])}</p>
-<h3>{t(c["short"])}</h3>
-<pre class="text">{esc((kit / "voice-short.txt").read_text(encoding="utf-8"))}</pre>
-<h3>{t(c["full"])}</h3>
-<pre class="text">{esc((kit / "voice-full.txt").read_text(encoding="utf-8"))}</pre>
+<details><summary>{t(c["short"])}</summary>
+<pre class="text">{esc((kit / "voice-short.txt").read_text(encoding="utf-8"))}</pre></details>
+<details><summary>{t(c["full"])}</summary>
+<pre class="text">{esc((kit / "voice-full.txt").read_text(encoding="utf-8"))}</pre></details>
 </div></section>
-<section class="band s4 tells"><div class="wrap">
+<section class="band s4 tells" id="tells-{lang}"><div class="wrap">
 {md(kit / "tells.md", lang, dashes_ok=True)}
 </div></section>
-<section class="band s7"><div class="wrap">
+<section class="band s7 paste" id="paste-{lang}"><div class="wrap">
 {md(kit / "where-to-paste.md", lang)}
 </div></section>
-<section class="band s6"><div class="wrap">
+<section class="band s6" id="proof-{lang}"><div class="wrap">
 <h2>{t(c["proof"])}</h2>
 {proof(lang, c, req)}
 </div></section>
 <section class="band s1"><div class="wrap" style="padding-bottom:0"><p class="meta">{t(c["licence"])}</p></div></section>
 </div>"""
+
+
+def nest():
+    # Albers nest Pearl > Iris > Wine > Mulberry (design/combinations.json, no Red: the title holds it).
+    # Each square is the colour of the band it leads to; the script swaps in the visible language's titles.
+    heading = lambda f: (ROOT / "kit" / "en" / f).read_text(encoding="utf-8").splitlines()[0][2:]
+    bands = [("proof", 6, COPY["en"]["proof"]), ("paste", 7, heading("where-to-paste.md")),
+             ("tells", 4, heading("tells.md")), ("prompt-band", 3, COPY["en"]["prompt"])]
+    return "".join(f'<a class="sq q{c}" href="#{b}-en" data-band="{b}" aria-label="{esc(label)}"></a>' for b, c, label in bands)
 
 
 def tokens_css():
@@ -308,15 +422,21 @@ def main():
 <title>Tonal</title>
 <meta name="description" content="A free kit that turns a brand's own texts into a voice file for ChatGPT, Claude or Gemini, in French, English and Spanish.">
 <meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23F6EDF5'/%3E%3Crect x='2' y='2' width='12' height='12' fill='%23584B9E'/%3E%3Crect x='4' y='4' width='8' height='8' fill='%2355132B'/%3E%3Crect x='6' y='6' width='4' height='4' fill='%23341025'/%3E%3C/svg%3E">
 <style>
 {tokens_css()}
 {CSS}</style>
 </head>
 <body>
-<header class="band s1"><div class="wrap" style="padding-bottom:0">
-<div class="top"><h1>Tonal</h1>
-<nav class="lang" aria-label="Language">{"".join(f'<button type="button" value="{l}" lang="{l}" aria-pressed="{str(l == "en").lower()}">{l.upper()}</button>' for l in LANGS)}</nav></div>
+<header class="topbar"><div class="inner">
+<a class="mini" href="#top" tabindex="-1" aria-hidden="true">Tonal</a>
+<nav class="lang" aria-label="Language">{"".join(f'<button type="button" value="{l}" lang="{l}" aria-pressed="{str(l == "en").lower()}">{l.upper()}</button>' for l in LANGS)}</nav>
+<button class="copy now" type="button" data-target="prompt-en" data-label="{esc(COPY["en"]["copy"])}" data-done="{esc(COPY["en"]["done"])}">{esc(COPY["en"]["copy"])}</button>
 </div></header>
+<div class="band s1 hero" id="top"><div class="wrap" style="padding-bottom:0">
+<h1>Tonal</h1>
+<div class="nestbox"><nav class="nest" aria-label="Tonal">{nest()}</nav><p class="cap" aria-hidden="true"></p></div>
+</div></div>
 <main>
 {chr(10).join(section(l, req) for l in LANGS)}
 </main>
